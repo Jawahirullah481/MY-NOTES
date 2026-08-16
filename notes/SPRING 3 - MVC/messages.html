@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+SPRING 3 : MVC 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+17 March 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;SPRING 3 : MVC&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic2" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:26:10 UTC+05:30">
+01:26
+       </div>
+
+       <div class="from_name">
+SPRING 3 : MVC 
+       </div>
+
+       <div class="text">
+# The Story of How Spring MVC Handles a Request<br><br>Imagine a <strong>user opening a website</strong>.<br><br>Example request:<br><br><pre>GET /users</pre><br><br>This request travels through the Spring application.<br><br>---<br><br># 1️⃣ Client Sends Request<br><br>The user (browser / frontend / Postman) sends a request to the server.<br><br>Example:<br><br><pre>http://localhost:8080/users</pre><br><br>The request first reaches the <strong>web server</strong>.<br><br>In Spring Boot this server is usually:<br><br>* Apache Tomcat (embedded)<br><br>Flow so far:<br><br><pre>Client<br>   ↓<br>Tomcat Server</pre><br><br>---<br><br># 2️⃣ DispatcherServlet – The Front Controller<br><br>The request is forwarded to the <strong>DispatcherServlet</strong>.<br><br>DispatcherServlet is the <strong>heart of Spring MVC</strong>.<br><br>It acts as a <strong>Front Controller</strong>.<br><br>Meaning:<br><br>&gt; All incoming HTTP requests first go to DispatcherServlet.<br><br>Flow:<br><br><pre>Client<br>   ↓<br>Tomcat<br>   ↓<br>DispatcherServlet</pre><br><br>DispatcherServlet’s job is to:<br><br>* Receive request<br>* Find correct controller<br>* Call the controller<br>* Return response<br><br>---<br><br># 3️⃣ Handler Mapping – Finding the Correct Controller<br><br>Now DispatcherServlet must determine:<br><br>&gt; Which controller method should handle this request?<br><br>Spring uses <strong>HandlerMapping</strong> for this.<br><br>Example controller:<br><br><pre>@RestController<br>public class UserController {<br><br>    @GetMapping(&quot;/users&quot;)<br>    public List&lt;User&gt; getUsers(){<br>        return userService.getAllUsers();<br>    }<br><br>}</pre><br><br>HandlerMapping sees:<br><br><pre>GET /users</pre><br><br>and maps it to:<br><br><pre>UserController.getUsers()</pre><br><br>Flow:<br><br><pre>DispatcherServlet<br>       ↓<br>HandlerMapping<br>       ↓<br>Correct Controller Found</pre><br><br>---<br><br># 4️⃣ Controller Handles Request<br><br>Now the controller method executes.<br><br>Controller&apos;s job:<br><br>* Receive request<br>* Call business logic<br>* Return response<br><br>Example:<br><br><pre>@GetMapping(&quot;/users&quot;)<br>public List&lt;User&gt; getUsers(){<br>    return userService.getAllUsers();<br>}</pre><br><br>Flow:<br><br><pre>DispatcherServlet<br>      ↓<br>Controller</pre><br><br>---<br><br># 5️⃣ Service Layer – Business Logic<br><br>Controllers usually call <strong>service classes</strong>.<br><br>Example:<br><br><pre>@Service<br>public class UserService {<br><br>    public List&lt;User&gt; getAllUsers(){<br>        return userRepository.findAll();<br>    }<br><br>}</pre><br><br>Purpose:<br><br>* Business logic<br>* Application rules<br>* Transaction handling<br><br>Flow:<br><br><pre>Controller<br>     ↓<br>Service</pre><br><br>---<br><br># 6️⃣ Repository Layer – Database Access<br><br>Service classes call <strong>repository classes</strong>.<br><br>Example:<br><br><pre>@Repository<br>public interface UserRepository extends JpaRepository&lt;User,Long&gt; {}</pre><br><br>Responsibilities:<br><br>* Database queries<br>* Data persistence<br><br>Flow:<br><br><pre>Service<br>   ↓<br>Repository<br>   ↓<br>Database</pre><br><br>---<br><br># 7️⃣ Data Travels Back<br><br>After fetching data:<br><br><pre>Database<br>   ↓<br>Repository<br>   ↓<br>Service<br>   ↓<br>Controller</pre><br><br>The controller returns the result.<br><br>Example:<br><br><pre>return users;</pre><br><br>---<br><br># 8️⃣ Response Conversion (JSON)<br><br>Spring automatically converts Java objects to JSON using:<br><br>* Jackson<br><br>Example Java object:<br><br><pre>User { id:1, name:&quot;John&quot; }</pre><br><br>Converted to:<br><br><pre>{<br> &quot;id&quot;:1,<br> &quot;name&quot;:&quot;John&quot;<br>}</pre><br><br>This is handled by <strong>HttpMessageConverters</strong>.<br><br>---<br><br># 9️⃣ Response Sent Back to Client<br><br>Finally:<br><br><pre>Controller Response<br>      ↓<br>DispatcherServlet<br>      ↓<br>Tomcat<br>      ↓<br>Client receives JSON</pre><br><br>---<br><br># Complete Request Flow<br><br><pre>Client<br>   ↓<br>Tomcat Server<br>   ↓<br>DispatcherServlet<br>   ↓<br>HandlerMapping<br>   ↓<br>Controller<br>   ↓<br>Service<br>   ↓<br>Repository<br>   ↓<br>Database<br><br>Response Flow<br><br>Database<br>   ↓<br>Repository<br>   ↓<br>Service<br>   ↓<br>Controller<br>   ↓<br>DispatcherServlet<br>   ↓<br>Client</pre><br><br>---<br><br># MVC Components Explained<br><br><pre>| Component  | Responsibility         |<br>| ---------- | ---------------------- |<br>| Model      | Application data       |<br>| View       | UI (HTML / JSP / JSON) |<br>| Controller | Handles requests       |</pre><br><br>In REST APIs:<br><br><pre>View = JSON response</pre><br><br>---<br><br># Important Spring MVC Annotations<br><br><pre>| Annotation        | Purpose              |<br>| ----------------- | -------------------- |<br>| `@Controller`     | Web controller       |<br>| `@RestController` | REST API controller  |<br>| `@RequestMapping` | Map URL              |<br>| `@GetMapping`     | Handle GET request   |<br>| `@PostMapping`    | Handle POST request  |<br>| `@RequestBody`    | Read JSON request    |<br>| `@PathVariable`   | Read path parameter  |<br>| `@RequestParam`   | Read query parameter |</pre><br><br>---<br><br># Example REST Controller
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:26:10 UTC+05:30">
+01:26
+       </div>
+
+       <div class="text">
+<pre>@RestController<br>@RequestMapping(&quot;/users&quot;)<br>public class UserController {<br><br>    @GetMapping<br>    public List&lt;User&gt; getUsers(){<br>        return userService.getAllUsers();<br>    }<br><br>}</pre><br><br>---<br><br># Interview Answer (Spring MVC)<br><br>&gt; Spring MVC is a web framework based on the Model-View-Controller pattern. It uses DispatcherServlet as the front controller to receive all HTTP requests, which are then mapped to controller methods. Controllers process requests, interact with services and repositories, and return responses that are converted into JSON or views.<br><br>---<br><br># Key Concept to Remember<br><br>Spring MVC works using the <strong>Front Controller Pattern</strong>.<br><br>The <strong>DispatcherServlet</strong> manages the entire request lifecycle.
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+JAVA TRICKIES 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+22 February 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;JAVA TRICKIES&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.02.2026 22:28:20 UTC+05:30">
+22:28
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong># 🔥 Java SE – Tricky Theoretical Q &amp; A (Part 1)</strong><br><br>---<br><br><strong>## 1️⃣ Can an interface have instance variables?</strong><br><br>❌ <strong>No</strong><br><br>An interface cannot have instance variables.<br><br>All variables inside an interface are:<br><br><pre>public static final</pre><br><br>Even if you don’t write it, the compiler adds it.<br><br>Example:<br><br><pre>interface Test {<br>    int x = 10;<br>}</pre><br><br>Actually becomes:<br><br><pre>public static final int x = 10;</pre><br><br>✔️ No instance variables  <br>✔️ Only constants allowed  <br><br>---<br><br><strong>## 2️⃣ Can an interface have static variables?</strong><br><br>✅ <strong>Yes</strong><br><br>All variables in interface are automatically <strong>static</strong>.<br><br><pre>interface A {<br>    int value = 100;  // static<br>}</pre><br><br>Access using:<br><br><pre>A.value;</pre><br><br>---<br><br><strong>## 3️⃣ Can an interface have constructors?</strong><br><br>❌ <strong>No</strong><br><br>Reason:<br><br>- Interfaces cannot be instantiated<br>- Constructors are used to initialize objects<br>- No object → No constructor<br><br>---<br><br><strong>## 4️⃣ Can an interface have methods with body?</strong><br><br>Depends on Java version:<br><br><pre>Java Version    Allowed?<br>---------------------------------<br>Java 7          ❌ No<br>Java 8          ✅ default &amp; static methods<br>Java 9+         ✅ private methods also</pre><br><br>Example:<br><br><pre>interface A {<br><br>    default void show() {<br>        System.out.println(&quot;Hello&quot;);<br>    }<br><br>    static void print() {<br>        System.out.println(&quot;Static&quot;);<br>    }<br><br>    private void helper() {<br>        System.out.println(&quot;Private&quot;);<br>    }<br>}</pre><br><br>---<br><br><strong>## 5️⃣ Can a class implement multiple interfaces?</strong><br><br>✅ <strong>Yes</strong><br><br>Java does not support multiple inheritance of classes.  <br>But supports multiple inheritance of interfaces.<br><br><pre>class A implements X, Y {<br>}</pre><br><br>---<br><br><strong>## 6️⃣ Can an abstract class have constructor?</strong><br><br>✅ <strong>Yes</strong><br><br>When a child class object is created,  <br>Parent constructor runs first.<br><br><pre>abstract class A {<br>    A() {<br>        System.out.println(&quot;Constructor of A&quot;);<br>    }<br>}</pre><br><br>---<br><br><strong>## 7️⃣ Can an abstract class have static methods?</strong><br><br>✅ <strong>Yes</strong><br><br>Abstract class can have:<br><br>- static methods<br>- final methods<br>- concrete methods<br>- abstract methods<br><br>---<br><br><strong>## 8️⃣ Are inner classes private?</strong><br><br>Depends.<br><br>There are 4 types:<br><br>- Member Inner Class<br>- Static Nested Class<br>- Local Inner Class<br>- Anonymous Inner Class<br><br>Member inner class can be:<br><br>- private<br>- protected<br>- default<br>- public<br><br>Example:<br><br><pre>class Outer {<br>    private class Inner {<br>    }<br>}</pre><br><br>❌ Not all inner classes are private.<br><br>---<br><br><strong>## 9️⃣ Can we override static methods?</strong><br><br>❌ <strong>No</strong><br><br>Static methods are <strong>not overridden</strong>.  <br>They are <strong>method hidden</strong>.<br><br>Reason:<br><br>- Overriding = runtime polymorphism<br>- Static methods use compile-time binding<br><br>---<br><br><strong>## 🔟 Can we override private methods?</strong><br><br>❌ <strong>No</strong><br><br>Private methods are not inherited.  <br>If not inherited → cannot override.<br><br>---<br><br><strong>## 1️⃣1️⃣ Can we override final method?</strong><br><br>❌ <strong>No</strong><br><br><code>final</code> method cannot be overridden.<br><br>---<br><br><strong>## 1️⃣2️⃣ Can constructor be overridden?</strong><br><br>❌ <strong>No</strong><br><br>Constructors are not inherited → cannot override.<br><br>---<br><br><strong>## 1️⃣3️⃣ Can constructor be overloaded?</strong><br><br>✅ <strong>Yes</strong><br><br><pre>class A {<br>    A() {}<br>    A(int x) {}<br>}</pre><br><br>---<br><br><strong>## 1️⃣4️⃣ Can main() method be overloaded?</strong><br><br>✅ <strong>Yes</strong><br><br>But JVM only calls:<br><br><pre>public static void main(String[] args)</pre><br><br>---<br><br><strong>## 1️⃣5️⃣ Can we make class private?</strong><br><br>Top-level class → ❌ No  <br>Inner class → ✅ Yes  <br><br>Top-level class can only be:<br><br>- public<br>- default<br><br>---<br><br><strong>## 1️⃣6️⃣ Is String mutable?</strong><br><br>❌ <strong>No</strong><br><br><code>String</code> is immutable.<br><br>Why?<br><br>- Security<br>- Thread safety<br>- Caching (String pool)<br><br>---<br><br><strong>## 1️⃣7️⃣ Difference: String vs StringBuilder vs StringBuffer</strong><br><br><pre>Feature         String        StringBuilder      StringBuffer<br>----------------------------------------------------------------<br>Mutable         ❌             ✅                 ✅<br>Thread-safe     ❌             ❌                 ✅<br>Performance     Slow          Fast               Medium</pre><br><br>---<br><br><strong>## 1️⃣8️⃣ Can we extend final class?</strong><br><br>❌ <strong>No</strong><br><br><pre>final class A {}</pre><br><br>Cannot inherit.<br><br>---<br><br><strong>## 1️⃣9️⃣ Can interface extend another interface?</strong><br><br>✅ <strong>Yes</strong><br><br><pre>interface A {}<br>interface B extends A {}</pre><br><br>---<br><br><strong>## 2️⃣0️⃣ Can class extend interface?</strong><br><br>❌ <strong>No</strong><br><br>A class <strong>implements</strong> an interface.<br><br><pre>class A implements X {<br>}</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+5 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message6">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.03.2026 22:54:25 UTC+05:30">
+22:54
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong># JDK, JRE, JVM — Clear Understanding</strong><br><br>Think of Java execution in <strong>two phases</strong>:<br><br>1. <strong>Development phase</strong> → Writing &amp; compiling code<br>2. <strong>Execution phase</strong> → Running the program<br><br>Different components handle these phases.<br><br>---<br><br><strong># 1️⃣ JDK (Java Development Kit)</strong><br><br><strong>JDK is the complete toolkit required to develop Java applications.</strong><br><br>It contains:<br><br>* <strong>JRE</strong><br>* <strong>Development tools</strong><br><br>Important tools inside JDK:<br><br><pre>Tool      | Purpose<br>----------|----------------------------------------------------<br>javac     | Compiles .java source code into .class bytecode<br>java      | Runs the compiled program<br>jar       | Creates and manages jar files<br>javadoc   | Generates documentation</pre><br><br><strong>### Role of JDK</strong><br><br>When a developer writes a Java program:<br><br>1. Write source code (<code>.java</code>)<br>2. Use <strong>javac</strong> (from JDK) to compile it<br>3. Compiler produces <strong>bytecode (`.class`)</strong><br><br>So <strong>JDK is used for development and compilation</strong>.<br><br>---<br><br><strong># 2️⃣ JRE (Java Runtime Environment)</strong><br><br><strong>JRE provides the environment required to run Java programs.</strong><br><br>It contains:<br><br>* <strong>JVM</strong><br>* <strong>Core Java libraries</strong><br>* Supporting runtime files<br><br>Example libraries include packages like:<br><br>* <code>java.lang</code><br>* <code>java.util</code><br>* <code>java.io</code><br><br>These libraries are required while running programs.<br><br><strong>### Role of JRE</strong><br><br>When you run a Java program:<br><br><pre>java MyProgram</pre><br><br>JRE provides:<br><br>* required <strong>libraries</strong><br>* the <strong>JVM</strong> to execute the bytecode<br><br>So <strong>JRE is responsible for running Java programs</strong>.<br><br>---<br><br><strong># 3️⃣ JVM (Java Virtual Machine)</strong><br><br><strong>JVM is the execution engine that runs Java bytecode.</strong><br><br>Java programs are compiled into <strong>bytecode</strong> (<code>.class</code> file).<br>This bytecode is <strong>platform independent</strong>.<br><br>JVM converts this bytecode into <strong>platform-specific machine code</strong>.<br><br>Because every OS has its own JVM implementation.<br><br>Example:<br><br><pre>| OS      | JVM         |<br>| ------- | ----------- |<br>| Windows | Windows JVM |<br>| Linux   | Linux JVM   |<br>| Mac     | Mac JVM     |</pre><br><br>The <strong>bytecode remains the same</strong>, but the <strong>JVM implementation differs</strong>.<br><br>This is why Java follows:<br><br><strong>Write Once, Run Anywhere.</strong><br><br>---<br><br># Internal Jobs of JVM<br><br>When you run a Java program, JVM performs several tasks.<br><br>### 1️⃣ Class Loading<br><br>JVM loads the required <code>.class</code> files into memory using the <strong>Class Loader subsystem</strong>.<br><br>Example:<br><br>* Bootstrap class loader<br>* Extension class loader<br>* Application class loader<br><br>---<br><br>### 2️⃣ Bytecode Verification<br><br>Before executing the code, JVM verifies the bytecode to ensure:<br><br>* it follows Java rules<br>* no illegal memory access<br>* no corrupted bytecode<br><br>This improves <strong>security and reliability</strong>.<br><br>---<br><br>### 3️⃣ Memory Management<br><br>JVM manages memory areas such as:<br><br>* <strong>Heap</strong> → Objects<br>* <strong>Stack</strong> → Method calls, local variables<br>* <strong>Method Area</strong> → Class metadata<br>* <strong>Program Counter Register</strong><br><br>---<br><br>### 4️⃣ Execution Engine<br><br>The execution engine runs the bytecode using:<br><br><strong>Interpreter</strong><br><br>* Reads bytecode line by line<br>* Converts it to machine code<br><br><strong>JIT Compiler</strong><br><br>* Detects frequently executed code (hot code)<br>* Converts it to <strong>native machine code</strong><br>* Stores it for reuse<br><br>This improves performance.<br><br>---<br><br>### 5️⃣ Garbage Collection<br><br>JVM automatically removes unused objects from heap memory.<br><br>This prevents memory leaks and reduces manual memory management.<br><br>---<br><br>### 6️⃣ Thread Management<br><br>JVM manages thread execution, scheduling, and synchronization.<br><br>---<br><br># Relationship Between Them<br><br><pre>JDK<br> ├── Development tools (javac, jar, javadoc)<br> └── JRE<br>       ├── JVM<br>       └── Core Java Libraries</pre><br><br>---<br><br># Simple Analogy<br><br>Think of it like building and running a car.<br><br><pre>| Component | Analogy                               |<br>| --------- | ------------------------------------- |<br>| JDK       | Full car factory (tools to build car) |<br>| JRE       | Garage to run the car                 |<br>| JVM       | Engine that actually runs the car     |</pre><br><br>---<br><br># Short Summary<br><br>* <strong>JDK</strong> → Development kit (compile + run)<br>* <strong>JRE</strong> → Runtime environment (libraries + JVM)<br>* <strong>JVM</strong> → Engine that executes bytecode<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message9">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.03.2026 23:05:46 UTC+05:30">
+23:05
+       </div>
+
+       <div class="text">
+<strong>Preparation (The JVM&apos;s Workspace):</strong><br>When the JVM starts, it asks the OS for a large chunk of RAM (the Heap and the Code Cache). The OS grants this and marks specific areas as &quot;Executable.&quot;<br><br><strong>Conversion (Bytecode → Machine Code):</strong><br>The JIT Compiler takes your Java bytecode and translates it into native machine code. It writes this machine code directly into that &quot;Executable&quot; area of the RAM (the Code Cache).<br><br><strong>The Hand-off (The Instruction Pointer):</strong><br>The JVM is already a process running on the CPU. To run your compiled Java code, the JVM executes a &quot;Jump&quot; instruction. This tells the CPU: &quot;Stop reading the JVM&apos;s management code and start reading the instructions starting at RAM Address X.&quot;<br><br><strong>The Execution (CPU &amp; OS):</strong><br>The CPU begins pulling those 1s and 0s from the RAM and processing them. The OS sits in the background, making sure the JVM doesn&apos;t try to access memory it doesn&apos;t own.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message10">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.03.2026 23:17:02 UTC+05:30">
+23:17
+       </div>
+
+       <div class="text">
+✔️ <strong>Correct Interview Explanation</strong><br><br># JDK is used for developing Java programs. It contains the JRE and development tools like javac and jar.<br><br># JRE provides the runtime environment to run Java programs. It contains JVM and core Java libraries.<br><br># JVM is the execution engine that runs Java bytecode. It performs tasks like class loading, bytecode verification, memory management, garbage collection, and thread management.<br><br># When a Java program runs, JVM loads the required classes using the class loader subsystem. The main class loaders are Bootstrap class loader, Extension (or Platform) class loader, and Application class loader.<br><br># The execution engine runs bytecode using an interpreter. If some code is executed frequently, the JIT compiler converts that bytecode into native machine code to improve performance.<br><br># JVM requests memory from the operating system and manages it internally using structures like heap, stack, and method area. The generated machine code is finally executed by the CPU.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-3">
+
+      <div class="body details">
+6 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 00:21:36 UTC+05:30">
+00:21
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong>OOPS Concept : </strong><br><br>---<br><br>## 1. Encapsulation<br><br><strong>Definition:</strong> The bundling of data (variables) and methods that operate on that data into a single unit (class) while <strong>hiding</strong> the internal state from the outside world.<br><br>* <strong>The Goal:</strong> Data Integrity and Security.<br>* <strong>Real-World Library Example: `java.util.ArrayList</strong>`<br>* <strong>The Hidden Data:</strong> The <code>ArrayList</code> has a private array <code>Object[] elementData</code>.<br>* <strong>The Protection:</strong> You cannot touch that array. You use <code>add()</code> or <code>remove()</code>. If the array is full, the <code>ArrayList</code> automatically grows it behind the scenes. Because it is encapsulated, you don&apos;t have to worry about the array&apos;s size—it &quot;just works.&quot;<br><br><br><br>---<br><br>## 2. Abstraction<br><br><strong>Definition:</strong> Hiding the complex implementation details and showing only the <strong>essential features</strong> (the &quot;what&quot; instead of the &quot;how&quot;) to the user.<br><br>* <strong>The Goal:</strong> Reducing Complexity.<br>* <strong>Real-World Library Example: `java.sql.Connection` (JDBC)</strong><br>* <strong>The Concept:</strong> When you connect to a database in Java, you use the <code>Connection</code> interface.<br>* <strong>The Reality:</strong> Whether you are connecting to <strong>MySQL, PostgreSQL, or Oracle</strong>, the code you write looks exactly the same (<code>connection.createStatement()</code>).<br>* <strong>How it works:</strong> You don&apos;t care *how* MySQL sends packets over the network vs. how Oracle does it. You only care about the &quot;Abstract&quot; idea of a connection.<br><br><br><br>---<br><br>## 3. Inheritance<br><br><strong>Definition:</strong> A mechanism where one class (child/subclass) acquires the properties and behaviors of another class (parent/superclass).<br><br>* <strong>The Goal:</strong> Code Reusability.<br>* <strong>Real-World Library Example: `java.io.InputStream</strong>`<br>* <strong>The Parent:</strong> <code>InputStream</code> defines basic behavior like <code>read()</code> and <code>close()</code>.<br>* <strong>The Children:</strong> <code>FileInputStream</code> (for files), <code>ByteArrayInputStream</code> (for memory), and <code>SocketInputStream</code> (for networks) all <strong>inherit</strong> from it.<br>* <strong>The Benefit:</strong> You can write a single method that accepts an <code>InputStream</code>, and it will work for files, networks, or strings without changing a single line of code.<br><br><br><br>---<br><br>## 4. Polymorphism<br><br><strong>Definition:</strong> The ability of an object to take on <strong>many forms</strong>. In Java, this usually means a parent class reference pointing to a child class object.<br><br>* <strong>The Goal:</strong> Flexibility and Extensibility.<br>* <strong>Real-World Library Example: `java.util.List` interface</strong><br>* <strong>The Many Forms:</strong> <br><pre>List&lt;String&gt; list1 = new ArrayList&lt;&gt;();<br>List&lt;String&gt; list2 = new LinkedList&lt;&gt;();</pre><br><br>```<br><br><br>* <strong>The Magic:</strong> You can call <code>list1.add()</code> and <code>list2.add()</code>. Even though the <strong>logic</strong> inside an ArrayList (array-based) is totally different from a LinkedList (node-based), your code treats them both as a &quot;List.&quot; This is <strong>Dynamic Polymorphism</strong> (Method Overriding).<br><br><br><br>---<br><br>### <strong>Quick Comparison Table</strong><br><br><pre>Concept         | Keyword     | Focus        | Analogy<br>--------------- | ----------- | ------------ | -------------------------------------------------------------<br>Encapsulation   | private     | Protection   | A Capsule (hides the medicine inside)<br>Abstraction     | interface   | Simplicity   | A TV Remote (you press &quot;Power,&quot; you don&apos;t see the circuit board)<br>Inheritance     | extends     | Reusability  | Family DNA (getting traits from parents)<br>Polymorphism    | implements  | Flexibility  | A Smartphone (one device that acts as a camera, phone, and map)</pre><br><br>---<br><br>### <strong>How they work together in a Project</strong><br><br>Imagine you are building a <strong>Payment System</strong>:<br><br>1. <strong>Encapsulation:</strong> Hide the <code>creditCardNumber</code> and <code>cvv</code> in a <code>Payment</code> class.<br>2. <strong>Abstraction:</strong> Create a <code>PaymentProcessor</code> interface with a <code>process()</code> method.<br>3. <strong>Inheritance:</strong> Create <code>StripeProcessor</code> and <code>PayPalProcessor</code> that inherit from a base <code>BaseProcessor</code>.<br>4. <strong>Polymorphism:</strong> Your main code just says <code>processor.process(payment)</code>, and it works regardless of whether the user chose Stripe or PayPal.<br><br>Since you&apos;ve been working with <strong>Java Streams</strong> and <strong>SQL</strong>, would you like to see how these OOP concepts make the <strong>Streams API</strong> or <strong>JDBC</strong> so easy to use?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 00:42:49 UTC+05:30">
+00:42
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong>Storage of String in Memory : </strong><br><br>---<br><br>### Code<br><br><pre>String s1 = &quot;Jawa&quot;; // L1<br>String s2 = &quot;Jawa&quot;; // L2<br>String s3 = new String(&quot;Jawa&quot;); // L3<br>String s4 = new String(&quot;Kamal&quot;); // L4</pre><br><br>---<br><br># L1<br><br>When this line executes:<br><br><pre>String s1 = &quot;Jawa&quot;;</pre><br><br>* <code>&quot;Jawa&quot;</code> is a <strong>string literal</strong><br>* JVM checks the <strong>String Constant Pool (SCP)</strong><br>* Since it does not exist yet, it creates a <strong>String object in SCP</strong><br>* <code>s1</code> (stored in stack) holds the reference to that object.<br><br>---<br><br># L2<br><br><pre>String s2 = &quot;Jawa&quot;;</pre><br><br>* JVM again checks the <strong>String Constant Pool</strong><br>* <code>&quot;Jawa&quot;</code> already exists<br>* No new object is created<br>* <code>s2</code> references the <strong>same object in SCP</strong><br><br>---<br><br># L3<br><br><pre>String s3 = new String(&quot;Jawa&quot;);</pre><br><br>Steps:<br><br>1. JVM checks SCP for <code>&quot;Jawa&quot;</code><br>2. <code>&quot;Jawa&quot;</code> already exists in SCP, so no new literal is created<br>3. <code>new String()</code> <strong>always creates a new object in heap memory</strong><br>4. <code>s3</code> points to this <strong>new heap object</strong><br><br>So now there are:<br><br>* one object in <strong>SCP</strong><br>* one object in <strong>heap</strong><br><br>---<br><br># L4<br><br><pre>String s4 = new String(&quot;Kamal&quot;);</pre><br><br>Steps:<br><br>1. JVM checks SCP for <code>&quot;Kamal&quot;</code><br>2. Since it does not exist, it creates <code>&quot;Kamal&quot;</code> in <strong>SCP</strong><br>3. Because <code>new</code> is used, another <strong>new String object is created in heap</strong><br>4. <code>s4</code> points to the <strong>heap object</strong><br><br>---<br><br># Final Memory State<br><br><pre>Stack                 Heap<br><br>s1 ──┐<br>     │<br>s2 ──┘        &quot;Jawa&quot; (String Constant Pool)<br><br>s3 ─────────&gt; new String(&quot;Jawa&quot;)<br><br>s4 ─────────&gt; new String(&quot;Kamal&quot;)<br><br>              &quot;Kamal&quot; (String Constant Pool)</pre><br><br>---<br><br># Important Behavior<br><br><pre>s1 == s2      → true<br>s1 == s3      → false<br>s1.equals(s3) → true</pre><br><br>* <code>==</code> compares <strong>references</strong><br>* <code>equals()</code> compares <strong>content</strong>.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message13">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 05:27:30 UTC+05:30">
+05:27
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong>Collection Framework Overall : </strong><br><br>1️⃣ <strong>Collection Framework Hierarchy</strong><br>2️⃣ <strong>Map Hierarchy</strong><br>3️⃣ <strong>Interview Comparison Table</strong><br><br>---<br><br># 1. Java Collection Framework Hierarchy<br><br><pre>Iterable<br>   |<br>Collection<br>   |<br>   |---- List<br>   |        |---- ArrayList<br>   |        |---- LinkedList<br>   |        |---- Vector<br>   |               |---- Stack<br>   |<br>   |---- Set<br>   |       |---- HashSet<br>   |       |---- LinkedHashSet<br>   |       |---- TreeSet<br>   |<br>   |---- Queue<br>           |---- PriorityQueue<br>           |---- ArrayDeque<br>           |---- LinkedList</pre><br><br>### Important Notes<br><br>* <strong>Iterable → root interface</strong><br>* <strong>Collection → root of List, Set, Queue</strong><br>* <strong>Map is NOT part of Collection</strong><br><br>---<br><br># 2. Map Hierarchy<br><br><pre>Map<br> |<br> |---- HashMap<br> |       |---- LinkedHashMap<br> |<br> |---- Hashtable<br> |<br> |---- SortedMap<br>         |<br>         |---- TreeMap</pre><br><br>Important:<br><br>* <strong>SortedMap → Map that maintains sorted order</strong><br>* <strong>TreeMap implements SortedMap</strong><br><br>---<br><br># 3. Interview Comparison Table<br><br><pre>| Collection    | Underlying Data Structure | Order Preserved       | Duplicates | Null Allowed | Synchronized | Best Operation         | Time Complexity |<br>| ------------- | ------------------------- | --------------------- | ---------- | ------------ | ------------ | ---------------------- | --------------- |<br>| ArrayList     | Dynamic Array             | Yes (Insertion Order) | Yes        | Yes          | No           | Random access          | O(1) get        |<br>| LinkedList    | Doubly Linked List        | Yes (Insertion Order) | Yes        | Yes          | No           | Insert/Delete middle   | O(1) insert     |<br>| Vector        | Dynamic Array             | Yes                   | Yes        | Yes          | Yes          | Thread safe operations | O(1) get        |<br>| Stack         | Vector (LIFO)             | Yes                   | Yes        | Yes          | Yes          | Push/Pop               | O(1)            |<br>| HashSet       | Hash Table                | No                    | No         | One null     | No           | Fast lookup            | O(1)            |<br>| LinkedHashSet | Hash Table + Linked List  | Yes (Insertion Order) | No         | One null     | No           | Ordered set            | O(1)            |<br>| TreeSet       | Red-Black Tree            | Sorted Order          | No         | No           | No           | Sorted operations      | O(log n)        |<br>| PriorityQueue | Heap                      | Priority order        | Yes        | No           | No           | Min/Max retrieval      | O(log n)        |</pre><br>---<br><br># Map Comparison<br><br><pre>| Map           | Underlying Data Structure | Order           | Duplicate Keys | Null       | Synchronized | Best Operation    | Time Complexity |<br>| ------------- | ------------------------- | --------------- | -------------- | ---------- | ------------ | ----------------- | --------------- |<br>| HashMap       | Hash Table                | No              | No             | 1 null key | No           | Fast lookup       | O(1)            |<br>| LinkedHashMap | Hash Table + Linked List  | Insertion Order | No             | 1 null key | No           | Ordered map       | O(1)            |<br>| TreeMap       | Red-Black Tree            | Sorted          | No             | No         | No           | Sorted operations | O(log n)        |<br>| Hashtable     | Hash Table                | No              | No             | No null    | Yes          | Thread safe       | O(1)            |</pre><br><br>---<br><br># Quick Interview Memory Trick<br><br>### Lists<br><br><pre>ArrayList  → fast read<br>LinkedList → fast insert/delete<br>Vector     → synchronized array<br>Stack      → LIFO</pre><br><br>---<br><br>### Sets<br><br><pre>HashSet       → fastest<br>LinkedHashSet → ordered<br>TreeSet       → sorted</pre><br><br>---<br><br>### Maps<br><br><pre>HashMap       → fastest<br>LinkedHashMap → insertion order<br>TreeMap       → sorted<br>Hashtable     → synchronized</pre><br><br>---<br><br><strong>Why HashMap is O(1)?</strong><br><br>Answer involves:<br><br>* Hashing<br>* Buckets<br>* Collision handling<br>* Treeification (Java 8)<br><br><br><strong>Bonus : </strong><br><pre>Linked...  → Insertion order<br>Tree...    → Sorted</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message15">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:03:36 UTC+05:30">
+06:03
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+# HashMap Internal Working (Important Interview Topic)<br><br>## 1. Hashing<br><br><strong>Hashing</strong> is the technique used by <code>HashMap</code> to store and retrieve data efficiently.<br><br>When you insert a key-value pair:<br><br><pre>map.put(key, value);</pre><br><br>Java performs:<br><br>1. Calls <code>key.hashCode()</code><br>2. Converts hashcode to <strong>array index</strong><br>3. Stores entry in that position (bucket)<br><br>Example:<br><br><pre>hashCode(&quot;CAT&quot;) → 12345<br>index = 12345 % arraySize</pre><br><br>So the object is stored in:<br><br><pre>table[index]</pre><br><br>This is why <strong>HashMap average time complexity = O(1)</strong>.<br><br>---<br><br># 2. Buckets<br><br>The internal structure of <code>HashMap</code> is:<br><br><pre>Node&lt;K,V&gt;[] table</pre><br><br>This is simply an <strong>array</strong>.<br><br>Each array position is called a <strong>Bucket</strong>.<br><br>Example:<br><br><pre>Index     Bucket<br>0         -<br>1         Node<br>2         Node -&gt; Node<br>3         -<br>4         Node</pre><br><br>Each bucket can contain:<br><br>* <strong>Single Node</strong><br>* <strong>Linked List</strong><br>* <strong>Red-Black Tree (Java 8+)</strong><br><br>Node structure:<br><br><pre>class Node&lt;K,V&gt; {<br>    int hash;<br>    K key;<br>    V value;<br>    Node next;<br>}</pre><br><br>---<br><br># 3. Collision Handling<br><br>A <strong>collision</strong> happens when two keys generate the <strong>same bucket index</strong>.<br><br>Example:<br><br><pre>hashCode(&quot;CAT&quot;) → index 3<br>hashCode(&quot;DOG&quot;) → index 3</pre><br><br>Both go to the same bucket.<br><br>Then Java stores them as a <strong>Linked List</strong>.<br><br><pre>Bucket[3]<br><br>CAT -&gt; DOG -&gt; ELEPHANT</pre><br><br>When retrieving:<br><br><pre>map.get(&quot;DOG&quot;)</pre><br><br>Java:<br><br>1. Finds bucket using hash<br>2. Traverses list<br>3. Uses <code>equals()</code> to match key<br><br>So worst case becomes:<br><br><pre>O(n)</pre><br><br>---<br><br># 4. Treeification (Java 8 Improvement)<br><br>Before Java 8:<br><br><pre>Collision → Linked List</pre><br><br>If many collisions occur:<br><br><pre>O(n)</pre><br><br>To improve performance, <strong>Java 8 introduced Treeification</strong>.<br><br>### Rule<br><br>If bucket size &gt; <strong>8</strong><br><br>Linked List converts into <strong>Red-Black Tree</strong><br><br><pre>Bucket<br><br>Before:<br>A → B → C → D → E → F → G → H → I<br><br>After:<br>      D<br>     / \<br>    B   F<br>   / \ / \<br>  A  C E  G<br>           \<br>            H<br>             \<br>              I</pre><br><br>Now search becomes:<br><br><pre>O(log n)</pre><br><br>---<br><br># Treeification happens only when BOTH conditions are true<br><br><pre>Bucket size &gt; 8<br>AND<br>HashMap capacity ≥ 64</pre><br><br>Otherwise Java will <strong>resize the HashMap instead</strong>.<br><br>---<br><br># 5. HashMap Resizing (Rehashing)<br><br>Default capacity:<br><br><pre>16</pre><br><br>Default load factor:<br><br><pre>0.75</pre><br><br>Threshold:<br><br><pre>capacity * loadFactor<br>16 * 0.75 = 12</pre><br><br>When entries exceed <strong>12</strong>, HashMap <strong>doubles the size</strong>.<br><br><pre>16 → 32 → 64 → 128</pre><br><br>Then all elements are <strong>rehashed</strong> and redistributed.<br><br>---<br><br># Final Interview Summary<br><br><pre>| Concept            | Explanation                                 |<br>| ------------------ | ------------------------------------------- |<br>| Hashing            | Converts key to array index                 |<br>| Bucket             | Array position storing nodes                |<br>| Collision          | Multiple keys mapped to same index          |<br>| Collision Handling | Linked List                                 |<br>| Treeification      | Linked List → Red Black Tree when &gt; 8 nodes |<br>| Default Capacity   | 16                                          |<br>| Load Factor        | 0.75                                        |<br>| Resize             | Capacity doubles when threshold exceeded    |<br>| Average Complexity | O(1)                                        |<br>| Worst Case         | O(log n) (after Java 8)                     |</pre><br><br>---<br><br># One Important Interview Question<br><br><strong>Why is HashMap faster than TreeMap?</strong><br><br>Answer:<br><br><pre>HashMap → O(1) average (hashing)<br>TreeMap → O(log n) (Red Black Tree)</pre><br><br>So HashMap is faster for most operations.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message16">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:13:16 UTC+05:30">
+06:13
+       </div>
+
+       <div class="text">
+<strong>Generics : </strong><br><br>---<br><br># 1. Why Generics Were Introduced<br><br>Before Java 5:<br><br><pre>List list = new ArrayList();<br>list.add(&quot;Java&quot;);<br>list.add(10);</pre><br><br>Problem:<br><br>* No <strong>type safety</strong><br>* Need <strong>type casting when reading</strong><br><br><pre>String s = (String) list.get(0);</pre><br><br>Generics solve this.<br><br><pre>List&lt;String&gt; list = new ArrayList&lt;&gt;();<br>list.add(&quot;Java&quot;);</pre><br><br>Now:<br><br>* Only <strong>String allowed</strong><br>* No casting required<br>* <strong>Compile-time safety</strong><br><br>---<br><br># 2. Generic Class<br><br>A <strong>generic class</strong> works with different types.<br><br><pre>class Box&lt;T&gt; {<br>    T value;<br><br>    void set(T value){<br>        this.value = value;<br>    }<br><br>    T get(){<br>        return value;<br>    }<br>}</pre><br><br>Usage:<br><br><pre>Box&lt;Integer&gt; b1 = new Box&lt;&gt;();<br>Box&lt;String&gt; b2 = new Box&lt;&gt;();</pre><br><br>Here:<br><br><pre>T → Type Parameter</pre><br><br>---<br><br># 3. Generic Method<br><br>Generics can be used in methods also.<br><br><pre>public &lt;T&gt; void print(T value){<br>    System.out.println(value);<br>}</pre><br><br>Usage:<br><br><pre>print(&quot;Java&quot;);<br>print(10);</pre><br><br>Note:<br><br><pre>&lt;T&gt;</pre><br><br>must appear <strong>before return type</strong>.<br><br>---<br><br># 4. Bounded Generics<br><br>Sometimes we restrict types.<br><br>Example:<br><br><pre>&lt;T extends Number&gt;</pre><br><br>Meaning:<br><br><pre>T can be:<br>Integer<br>Double<br>Float<br>Long<br>etc</pre><br><br>Example:<br><br><pre>class Calculator&lt;T extends Number&gt; {<br>    T num;<br>}</pre><br><br>---<br><br># 5. Wildcards<br><br>Wildcards represent <strong>unknown type</strong>.<br><br>Symbol:<br><br><pre>?</pre><br><br>Example:<br><br><pre>List&lt;?&gt; list</pre><br><br>Meaning:<br><br><pre>List of unknown type</pre><br><br>---<br><br># 6. Types of Wildcards<br><br>## 1️⃣ Unbounded Wildcard<br><br><pre>List&lt;?&gt; list</pre><br><br>Accepts:<br><br><pre>List&lt;String&gt;<br>List&lt;Integer&gt;<br>List&lt;Double&gt;</pre><br><br>But:<br><br><pre>list.add(&quot;Java&quot;) ❌</pre><br><br>Because type is unknown.<br><br>Only safe operation:<br><br><pre>Object obj = list.get(0);</pre><br><br>---<br><br># 2️⃣ Upper Bounded Wildcard<br><br><pre>List&lt;? extends Number&gt;</pre><br><br>Accepts:<br><br><pre>List&lt;Integer&gt;<br>List&lt;Double&gt;<br>List&lt;Float&gt;</pre><br><br>But NOT:<br><br><pre>List&lt;String&gt;</pre><br><br>Important rule:<br><br><pre>Can READ<br>Cannot ADD</pre><br><br>Example:<br><br><pre>Number n = list.get(0);  // OK<br>list.add(10);            // ❌</pre><br><br>Why?<br><br>Compiler doesn&apos;t know exact subtype.<br><br>---<br><br># 3️⃣ Lower Bounded Wildcard<br><br><pre>List&lt;? super Integer&gt;</pre><br><br>Accepts:<br><br><pre>List&lt;Integer&gt;<br>List&lt;Number&gt;<br>List&lt;Object&gt;</pre><br><br>Important rule:<br><br><pre>Can ADD<br>Cannot safely READ</pre><br><br>Example:<br><br><pre>list.add(10);     // OK<br>Object obj = list.get(0); // Only Object</pre><br><br>---<br><br># 7. Golden Rule (Very Important)<br><br>This is the <strong>PECS Rule</strong>.<br><br><pre>Producer → Extends<br>Consumer → Super</pre><br><br>Meaning:<br><br><pre>| Situation                            | Use       |<br>| ------------------------------------ | --------- |<br>| If you only **read from collection** | `extends` |<br>| If you only **add to collection**    | `super`   |</pre><br><br>Example:<br><br>Read numbers:<br><br><pre>List&lt;? extends Number&gt;</pre><br><br>Add numbers:<br><br><pre>List&lt;? super Integer&gt;</pre><br><br>---<br><br># 8. Generic vs Wildcard (Major Confusion)<br><br>### Generic Type<br><br>Used when <strong>defining relationship between types</strong><br><br>Example:<br><br><pre>class Box&lt;T&gt;</pre><br><br>or<br><br><pre>&lt;T&gt; void print(T value)</pre><br><br>---<br><br>### Wildcard<br><br>Used when <strong>method accepts multiple generic types</strong><br><br>Example:<br><br><pre>void printList(List&lt;?&gt; list)</pre><br><br>---<br><br># 9. When to Use Generics vs Wildcards<br><br>### Use Generic Type<br><br>When <strong>type must remain consistent</strong><br><br>Example:<br><br><pre>&lt;T&gt; T getValue(T value)</pre><br><br>Input and output same type.<br><br>---<br><br>### Use Wildcards<br><br>When <strong>method just works with collection</strong><br><br>Example:<br><br><pre>void printList(List&lt;?&gt; list)</pre><br><br>Works for any list.<br><br>---<br><br># 10. Very Important Interview Example<br><br>Why this is wrong:<br><br><pre>List&lt;Object&gt; list = new ArrayList&lt;String&gt;(); ❌</pre><br><br>Because:<br><br><pre>Generics are invariant</pre><br><br>Correct way:<br><br><pre>List&lt;?&gt; list = new ArrayList&lt;String&gt;(); ✅</pre><br><br>---<br><br># 11. Type Erasure (Important Interview Topic)<br><br>Generics exist <strong>only at compile time</strong>.<br><br>During compilation:<br><br><pre>List&lt;String&gt;</pre><br><br>becomes<br><br><pre>List</pre><br><br>So runtime JVM does <strong>not know generic type</strong>.<br><br>This is called:<br><br><pre>Type Erasure</pre><br><br>---<br><br># 12. Small Cheat Sheet (Best for Your Notes)<br><br><pre>| Syntax          | Meaning                |<br>| --------------- | ---------------------- |<br>| `&lt;T&gt;`           | Generic type parameter |<br>| `&lt;?&gt;`           | Unknown type           |<br>| `&lt;? extends T&gt;` | Upper bound            |<br>| `&lt;? super T&gt;`   | Lower bound            |</pre><br><br>---<br><br># Final Interview Trick<br><br>Remember this <strong>one sentence</strong>:<br><br><pre>extends → read<br>super → write</pre><br><br>Or better:<br><br><pre>PECS<br><br>Producer → Extends<br>Consumer → Super</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message17">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:18:00 UTC+05:30">
+06:18
+       </div>
+
+       <div class="text">
+Important Interview Questions : <br>---<br><br># 1️⃣ Question 1 — Will This Compile?<br><br><pre>List&lt;Number&gt; list = new ArrayList&lt;Integer&gt;();</pre><br><br>### ❓ Compile or Error?<br><br>### ❌ Answer: Compilation Error<br><br>Reason:<br><br><pre>Generics are invariant in Java</pre><br><br>Meaning:<br><br><pre>List&lt;Integer&gt; is NOT a subtype of List&lt;Number&gt;</pre><br><br>Even though:<br><br><pre>Integer extends Number</pre><br><br>the following is <strong>NOT allowed</strong>.<br><br>Correct way:<br><br><pre>List&lt;? extends Number&gt; list = new ArrayList&lt;Integer&gt;();</pre><br><br>---<br><br># 2️⃣ Question 2 — What Can Be Added?<br><br><pre>List&lt;? extends Number&gt; list = new ArrayList&lt;Integer&gt;();</pre><br><br>Which are allowed?<br><br><pre>list.add(10);<br>list.add(5.5);<br>list.add(null);</pre><br><br>### ✅ Correct Answer<br><br>Only this works:<br><br><pre>list.add(null);</pre><br><br>### Why?<br><br>Because the compiler <strong>doesn&apos;t know the exact subtype</strong>.<br><br>It could be:<br><br><pre>List&lt;Integer&gt;<br>List&lt;Double&gt;<br>List&lt;Float&gt;</pre><br><br>So adding any value is unsafe.<br><br>But <code>null</code> is allowed for all reference types.<br><br>---<br><br># 3️⃣ Question 3 — What Can Be Read?<br><br><pre>List&lt;? extends Number&gt; list = new ArrayList&lt;Integer&gt;();</pre><br><br>Can we do this?<br><br><pre>Integer i = list.get(0);</pre><br><br>### ❌ Wrong<br><br>Compiler error.<br><br>Correct way:<br><br><pre>Number n = list.get(0);</pre><br><br>### Rule<br><br><pre>? extends T → safe to read as T</pre><br><br>---<br><br># 4️⃣ Question 4 — Super Wildcard<br><br><pre>List&lt;? super Integer&gt; list = new ArrayList&lt;Number&gt;();</pre><br><br>Which are valid?<br><br><pre>list.add(10);<br>list.add(new Integer(20));<br>list.add(5.5);</pre><br><br>### ✅ Correct<br><br>Allowed:<br><br><pre>list.add(10);<br>list.add(new Integer(20));</pre><br><br>Not allowed:<br><br><pre>list.add(5.5);</pre><br><br>Because:<br><br><pre>Double is not Integer</pre><br><br>### Reading from it<br><br><pre>Integer i = list.get(0); ❌</pre><br><br>Only allowed:<br><br><pre>Object obj = list.get(0);</pre><br><br>---<br><br># 5️⃣ Question 5 — What Happens Here?<br><br><pre>List&lt;?&gt; list = new ArrayList&lt;String&gt;();</pre><br><br>Which operations are allowed?<br><br><pre>list.add(&quot;Java&quot;)<br>list.add(10)<br>list.add(null)<br>Object obj = list.get(0)</pre><br><br>### ✅ Correct<br><br>Allowed:<br><br><pre>list.add(null);<br>Object obj = list.get(0);</pre><br><br>Not allowed:<br><br><pre>list.add(&quot;Java&quot;);<br>list.add(10);</pre><br><br>Because the type is <strong>unknown</strong>.<br><br>---<br><br># 🧠 The Single Rule That Solves Everything<br><br>Remember this:<br><br><pre>PECS</pre><br><br><pre>Producer → Extends<br>Consumer → Super</pre><br><br>| Case                   | Use       |<br>| ---------------------- | --------- |<br>| Only reading from list | <code>extends</code> |<br>| Only adding to list    | <code>super</code>   |<br><br>---<br><br># ⚡️ Ultra Important Interview Question (Google / Amazon)<br><br>Why does this fail?<br><br><pre>List&lt;Object&gt; list = new ArrayList&lt;String&gt;();</pre><br><br>Answer:<br><br><pre>Generics are invariant</pre><br><br>But this works:<br><br><pre>List&lt;?&gt; list = new ArrayList&lt;String&gt;();</pre><br><br>---<br><br># 🔥 One Last Mind-Blowing Fact (Most Developers Don&apos;t Know)<br><br>This code <strong>compiles</strong>:<br><br><pre>List list = new ArrayList&lt;String&gt;();<br>list.add(10);</pre><br><br>Because raw types <strong>disable generics safety</strong>.<br><br>This is why raw types are <strong>dangerous</strong>.<br><br>---<br><br># 💡 For Your Interview Preparation<br><br>The <strong>3 most important generics topics interviewers test</strong> are:<br><br>1️⃣ <strong>Invariance</strong><br><br><pre>List&lt;Integer&gt; ≠ List&lt;Number&gt;</pre><br><br>2️⃣ <strong>PECS rule</strong><br><br><pre>extends → read<br>super → write</pre><br><br>3️⃣ <strong>Type erasure</strong><br><br>Generics exist <strong>only at compile time</strong>.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message18">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:26:27 UTC+05:30">
+06:26
+       </div>
+
+       <div class="text">
+<strong>Multi Threading</strong><br><br>---<br><br># 1️⃣ Core Thread Methods (Thread Control)<br><br><pre>| Method            | Belongs To      | Static? | Purpose                                              | Important Notes                               |<br>| ----------------- | --------------- | ------- | ---------------------------------------------------- | --------------------------------------------- |<br>| `start()`         | `Thread` object | ❌ No    | Starts a new thread and calls `run()` internally     | Must be called only once                      |<br>| `run()`           | `Thread` object | ❌ No    | Contains the code executed by the thread             | Calling directly will NOT create a new thread |<br>| `sleep(ms)`       | `Thread` class  | ✅ Yes   | Pauses current thread for given time                 | Does NOT release lock                         |<br>| `yield()`         | `Thread` class  | ✅ Yes   | Suggests scheduler to give CPU to other threads      | Just a hint, not guaranteed                   |<br>| `join()`          | `Thread` object | ❌ No    | Makes current thread wait until this thread finishes | Used for thread dependency                    |<br>| `interrupt()`     | `Thread` object | ❌ No    | Interrupts a sleeping/waiting thread                 | Throws `InterruptedException`                 |<br>| `isAlive()`       | `Thread` object | ❌ No    | Checks if thread is still running                    | Returns boolean                               |<br>| `currentThread()` | `Thread` class  | ✅ Yes   | Returns reference of currently executing thread      | Often used for logging                        |</pre><br>---<br><br># 2️⃣ Thread Creation Methods<br><br><pre>| Method                | Approach    | Description                                          |<br>| --------------------- | ----------- | ---------------------------------------------------- |<br>| `extends Thread`      | Inheritance | Create class extending `Thread` and override `run()` |<br>| `implements Runnable` | Interface   | Pass runnable object to Thread constructor           |<br>| `Callable + Future`   | Advanced    | Allows returning value from thread                   |</pre><br><br>Example:<br><br>### Runnable (Most used)<br><br><pre>class MyTask implements Runnable {<br>    public void run() {<br>        System.out.println(&quot;Thread running&quot;);<br>    }<br>}<br><br>Thread t = new Thread(new MyTask());<br>t.start();</pre><br><br>---<br><br># 3️⃣ <code>sleep()</code> vs <code>wait()</code> vs <code>join()</code><br><br>This is <strong>one of the most asked interview questions</strong>.<br><br><pre>| Feature                | `sleep()`              | `wait()`                   | `join()`                |<br>| ---------------------- | ---------------------- | -------------------------- | ----------------------- |<br>| Belongs to             | `Thread`               | `Object`                   | `Thread`                |<br>| Static                 | Yes                    | No                         | No                      |<br>| Releases Lock?         | ❌ No                   | ✅ Yes                      | ❌ No                    |<br>| Used for               | Pause thread           | Inter-thread communication | Wait for another thread |<br>| Requires synchronized? | ❌ No                   | ✅ Yes                      | ❌ No                    |<br>| Exception              | `InterruptedException` | `InterruptedException`     | `InterruptedException`  |</pre><br>---<br><br># 4️⃣ Thread Communication Methods<br><br>These belong to <strong>`Object` class</strong>, not <code>Thread</code>.<br><br><pre>| Method        | Belongs To | Static | Purpose                     |<br>| ------------- | ---------- | ------ | --------------------------- |<br>| `wait()`      | Object     | ❌      | Thread waits until notified |<br>| `notify()`    | Object     | ❌      | Wakes one waiting thread    |<br>| `notifyAll()` | Object     | ❌      | Wakes all waiting threads   |</pre><br><br>Important rule:<br><br>These methods <strong>must be called inside synchronized block</strong>.<br><br>Example:<br><br><pre>synchronized(obj) {<br>    obj.wait();<br>}</pre><br><br>---<br><br># 5️⃣ Thread Lifecycle
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message19">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:26:27 UTC+05:30">
+06:26
+       </div>
+
+       <div class="text">
+<pre>| State      | Description              |<br>| ---------- | ------------------------ |<br>| NEW        | Thread object created    |<br>| RUNNABLE   | Ready to run             |<br>| RUNNING    | Currently executing      |<br>| WAITING    | Waiting for notification |<br>| BLOCKED    | Waiting for lock         |<br>| TERMINATED | Execution finished       |</pre><br><br>Flow:<br><br><pre>NEW → RUNNABLE → RUNNING → TERMINATED<br>           ↓<br>        WAITING/BLOCKED</pre><br><br>---<br><br># 6️⃣ Thread Lock (Synchronization)<br><br>When multiple threads access <strong>shared resources</strong>, we use <strong>locks</strong>.<br><br>### Problem (Race Condition)<br><br>Example:<br><br><pre>count++;</pre><br><br>This is actually <strong>3 operations</strong>:<br><br><pre>1 Read count<br>2 Increment<br>3 Write back</pre><br><br>Two threads can corrupt data.<br><br>---<br><br># 7️⃣ <code>synchronized</code> Lock<br><br>Java uses <strong>monitor lock (intrinsic lock)</strong>.<br><br>### Method Level Lock<br><br><pre>public synchronized void increment() {<br>    count++;<br>}</pre><br><br>Lock applied on <strong>current object (`this`)</strong>.<br><br>---<br><br>### Block Level Lock<br><br><pre>synchronized(this) {<br>    count++;<br>}</pre><br><br>More efficient.<br><br>---<br><br># 8️⃣ Static Lock<br><br><pre>public static synchronized void test() {<br>}</pre><br><br>Lock applied on:<br><br><pre>Class object</pre><br><br>Example:<br><br><pre>MyClass.class</pre><br><br>---<br><br># 9️⃣ Types of Locks<br><br><pre>| Lock Type     | Example               |<br>| ------------- | --------------------- |<br>| Object Lock   | `synchronized(this)`  |<br>| Class Lock    | `static synchronized` |<br>| Explicit Lock | `ReentrantLock`       |</pre><br><br>---<br><br># 🔟 Reentrant Lock (Advanced)<br><br>From <code>java.util.concurrent.locks</code><br><br>Example:<br><br><pre>ReentrantLock lock = new ReentrantLock();<br><br>lock.lock();<br>try {<br>    count++;<br>} finally {<br>    lock.unlock();<br>}</pre><br><br>Advantages:<br><br><pre>| Feature            | Benefit              |<br>| ------------------ | -------------------- |<br>| tryLock()          | Avoid deadlock       |<br>| fairness policy    | Control thread order |<br>| interruptible lock | Better control       |</pre><br><br>---<br><br># 1️⃣1️⃣ Deadlock (Very Important)<br><br>Occurs when threads <strong>wait forever for each other&apos;s lock</strong>.<br><br>Example:<br><br><pre>Thread1 → lock A → wait B<br>Thread2 → lock B → wait A</pre><br><br>Result:<br><br><pre>Deadlock</pre><br><br>---<br><br># 1️⃣2️⃣ Interview Summary Table<br><br><pre>| Concept       | Class  | Static | Releases Lock |<br>| ------------- | ------ | ------ | ------------- |<br>| `sleep()`     | Thread | Yes    | No            |<br>| `yield()`     | Thread | Yes    | No            |<br>| `join()`      | Thread | No     | No            |<br>| `wait()`      | Object | No     | Yes           |<br>| `notify()`    | Object | No     | Yes           |<br>| `notifyAll()` | Object | No     | Yes           |</pre><br>---<br><br># ⭐️ Most Important Interview Concept<br><br><strong>Thread methods vs Object methods</strong><br><br><pre>| Thread Class | Object Class |<br>| ------------ | ------------ |<br>| sleep()      | wait()       |<br>| yield()      | notify()     |<br>| join()       | notifyAll()  |<br>| interrupt()  |              |</pre><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message20">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:31:50 UTC+05:30">
+06:31
+       </div>
+
+       <div class="text">
+---<br><br># 1️⃣ ExecutorService (Thread Pool)<br><br>### What Problem It Solves<br><br>Creating threads manually is expensive.<br><br>❌ Bad approach<br><br><pre>new Thread(task).start();<br>new Thread(task).start();<br>new Thread(task).start();</pre><br><br>Too many threads → <strong>CPU overhead + memory overhead</strong><br><br>✅ Solution → <strong>Thread Pool</strong><br><br>Threads are <strong>created once and reused</strong>.<br><br>---<br><br>### Basic Example<br><br><pre>ExecutorService executor = Executors.newFixedThreadPool(3);<br><br>executor.submit(() -&gt; {<br>    System.out.println(Thread.currentThread().getName());<br>});<br><br>executor.shutdown();</pre><br><br>### What Happens<br><br><pre>Task submitted<br>      ↓<br>ExecutorService<br>      ↓<br>Thread Pool<br>      ↓<br>Worker Thread executes task</pre><br><br>---<br><br>### Important Executor Methods<br><br><pre>| Method             | Purpose              |<br>| ------------------ | -------------------- |<br>| submit()           | submit task          |<br>| execute()          | run task             |<br>| shutdown()         | stop accepting tasks |<br>| shutdownNow()      | stop immediately     |<br>| awaitTermination() | wait for completion  |</pre><br><br>---<br><br>### Types of Thread Pools<br><br><pre>| Pool Type | Method                              | Use Case        |<br>| --------- | ----------------------------------- | --------------- |<br>| Fixed     | Executors.newFixedThreadPool(n)     | fixed workers   |<br>| Cached    | Executors.newCachedThreadPool()     | dynamic threads |<br>| Single    | Executors.newSingleThreadExecutor() | one worker      |<br>| Scheduled | Executors.newScheduledThreadPool()  | delayed tasks   |</pre><br>---<br><br># 2️⃣ Runnable vs Callable<br><br><pre>| Feature            | Runnable               | Callable             |<br>| ------------------ | ---------------------- | -------------------- |<br>| Package            | java.lang              | java.util.concurrent |<br>| Return value       | ❌ No                   | ✅ Yes                |<br>| Exception handling | ❌ Cannot throw checked | ✅ Can throw          |<br>| Method             | run()                  | call()               |<br>| Return type        | void                   | Generic (T)          |<br>| Used with          | Thread                 | ExecutorService      |</pre><br>---<br><br>### Runnable Example<br><br><pre>Runnable task = () -&gt; {<br>    System.out.println(&quot;Running task&quot;);<br>};<br><br>new Thread(task).start();</pre><br><br>---<br><br>### Callable Example<br><br><pre>Callable&lt;Integer&gt; task = () -&gt; {<br>    return 10 + 20;<br>};</pre><br><br>Callable <strong>must run using ExecutorService</strong>.<br><br>---<br><br># 3️⃣ Future<br><br>When we submit a <strong>Callable</strong>, we get a <strong>Future</strong>.<br><br>Future = <strong>Result of asynchronous computation</strong><br><br>---<br><br>### Example<br><br><pre>ExecutorService executor = Executors.newFixedThreadPool(2);<br><br>Callable&lt;Integer&gt; task = () -&gt; 100;<br><br>Future&lt;Integer&gt; result = executor.submit(task);<br><br>System.out.println(result.get());</pre><br><br>---<br><br>### Important Future Methods<br><br><pre>| Method        | Purpose             |<br>| ------------- | ------------------- |<br>| get()         | get result (blocks) |<br>| isDone()      | task completed?     |<br>| cancel()      | cancel task         |<br>| isCancelled() | check cancellation  |</pre><br>---<br><br>### Problem with Future<br><br><code>get()</code> <strong>blocks the thread</strong>.<br><br><pre>Thread waits until task completes</pre><br><br>This is why <strong>CompletableFuture was introduced</strong>.<br><br>---<br><br># 4️⃣ CompletableFuture (Java 8)<br><br>CompletableFuture = <strong>Non-blocking async programming</strong><br><br>Supports <strong>async pipelines</strong>.<br><br>---<br><br>### Example<br><br><pre>CompletableFuture&lt;Integer&gt; future =<br>        CompletableFuture.supplyAsync(() -&gt; 10)<br>                .thenApply(x -&gt; x * 2)<br>                .thenApply(x -&gt; x + 5);<br><br>System.out.println(future.get());</pre><br><br>Output<br><br><pre>25</pre><br><br>---<br><br>### Execution Flow<br><br><pre>10<br> ↓<br>thenApply(x*2) = 20<br> ↓<br>thenApply(x+5) = 25</pre><br><br>---<br><br>### Important Methods<br><br><pre>| Method          | Purpose                    |<br>| --------------- | -------------------------- |<br>| supplyAsync()   | async task returning value |<br>| runAsync()      | async task no return       |<br>| thenApply()     | transform result           |<br>| thenAccept()    | consume result             |<br>| thenRun()       | run next task              |<br>| exceptionally() | error handling             |<br>| allOf()         | wait for multiple futures  |</pre><br>---<br><br># Example (Parallel APIs)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message21">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.03.2026 06:31:50 UTC+05:30">
+06:31
+       </div>
+
+       <div class="text">
+<pre>CompletableFuture&lt;Integer&gt; f1 =<br>        CompletableFuture.supplyAsync(() -&gt; 10);<br><br>CompletableFuture&lt;Integer&gt; f2 =<br>        CompletableFuture.supplyAsync(() -&gt; 20);<br><br>CompletableFuture&lt;Integer&gt; result =<br>        f1.thenCombine(f2, (a, b) -&gt; a + b);<br><br>System.out.println(result.get());</pre><br><br>Output<br><br><pre>30</pre><br><br>---<br><br># 🔥 Interview Summary Table<br><br><pre>| Feature            | Runnable | Callable | Future  | CompletableFuture |<br>| ------------------ | -------- | -------- | ------- | ----------------- |<br>| Return value       | ❌        | ✅        | ✅       | ✅                 |<br>| Async support      | ❌        | ❌        | Partial | ✅                 |<br>| Exception handling | ❌        | ✅        | Limited | ✅                 |<br>| Chaining           | ❌        | ❌        | ❌       | ✅                 |<br>| Non-blocking       | ❌        | ❌        | ❌       | ✅                 |</pre><br>---<br><br># 💡 Interview Trick Question<br><br><strong>Q:</strong> Why Callable + Future introduced?<br><br>Answer:<br><br>&gt; Runnable cannot return results. Callable allows returning results and Future holds the result of asynchronous computation.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-4">
+
+      <div class="body details">
+7 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message22">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:03:38 UTC+05:30">
+00:03
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+# 1️⃣ Can we submit different types of tasks to the same ExecutorService?<br><br>✅ <strong>Yes.</strong><br><br>An <code>ExecutorService</code> is just a <strong>thread pool that executes tasks</strong>.<br>It does <strong>not care what the task logic is</strong>.<br><br>You can submit:<br><br>* Runnable task A<br>* Runnable task B<br>* Callable task C<br>* Callable task D<br><br>All to the <strong>same executor</strong>.<br><br>Example:<br><br><pre>ExecutorService executor = Executors.newFixedThreadPool(3);<br><br>executor.submit(() -&gt; System.out.println(&quot;Task 1&quot;));<br><br>executor.submit(() -&gt; System.out.println(&quot;Task 2&quot;));<br><br>executor.submit(() -&gt; {<br>    int sum = 10 + 20;<br>    System.out.println(&quot;Task 3 result: &quot; + sum);<br>});</pre><br><br>All <strong>different tasks</strong> run using the <strong>same thread pool</strong>.<br><br>---<br><br># 2️⃣ Do we need to call <code>submit()</code> every time to start a new task?<br><br>✅ <strong>Yes.</strong><br><br>Each call to <code>submit()</code> adds a <strong>new task to the executor queue</strong>.<br><br>Example:<br><br><pre>executor.submit(task1);<br>executor.submit(task2);<br>executor.submit(task3);</pre><br><br>Flow:<br><br><pre>submit(task1) → task queue<br>submit(task2) → task queue<br>submit(task3) → task queue</pre><br><br>Worker threads will <strong>pick tasks from the queue</strong> and execute them.<br><br>---<br><br># 3️⃣ Internal Working (Important for Interviews)<br><br>Suppose:<br><br><pre>ExecutorService executor = Executors.newFixedThreadPool(2);</pre><br><br>Then:<br><br><pre>Thread Pool<br>-----------<br>Worker-1<br>Worker-2</pre><br><br>Now you submit 4 tasks.<br><br><pre>submit(task1)<br>submit(task2)<br>submit(task3)<br>submit(task4)</pre><br><br>Execution:<br><br><pre>Worker-1 → task1<br>Worker-2 → task2<br><br>task3 → waiting in queue<br>task4 → waiting in queue</pre><br><br>After task1 finishes:<br><br><pre>Worker-1 → picks task3</pre><br><br>After task2 finishes:<br><br><pre>Worker-2 → picks task4</pre><br><br>---<br><br># 4️⃣ Runnable vs Callable submission<br><br>### Runnable<br><br><pre>executor.submit(() -&gt; {<br>    System.out.println(&quot;Runnable task&quot;);<br>});</pre><br><br>---<br><br>### Callable<br><br><pre>Future&lt;Integer&gt; result = executor.submit(() -&gt; {<br>    return 100;<br>});</pre><br><br>---<br><br># 5️⃣ Key Interview Point<br><br>❓ <strong>Does ExecutorService create a new thread for every submit?</strong><br><br>❌ <strong>No</strong><br><br>It <strong>reuses existing threads from the pool</strong>.<br><br>That is why it is called <strong>Thread Pool</strong>.<br><br>---<br><br># 6️⃣ Real-World Analogy<br><br>Think of <strong>ExecutorService like a restaurant kitchen</strong>.<br><br><pre>Customers → tasks<br>Chefs → worker threads<br>Kitchen → thread pool</pre><br><br>When an order comes:<br><br><pre>submit(order)</pre><br><br>If chef available → cooking starts.<br><br>If all chefs busy → order waits in queue.<br><br>---<br><br># 7️⃣ Important Best Practice<br><br>Always shutdown executor.<br><br><pre>executor.shutdown();</pre><br><br>Otherwise the <strong>JVM may not exit</strong> because threads are still alive.<br><br>---<br><br>✅ <strong>One interview question for you (very common):</strong><br><br>What is the <strong>difference between</strong> these two?<br><br><pre>executor.execute(task)</pre><br><br>vs<br><br><pre>executor.submit(task)</pre><br><br><strong>execute() </strong>runs a task without returning a result, while submit() returns a Future object which can be used to retrieve the result and monitor task execution.<br><br><strong>When does the thread wait?</strong><br><br>Only when you call:<br><br><pre>result.get();</pre><br><br><strong>Example:</strong><br><br><pre>ExecutorService executor = Executors.newFixedThreadPool(2);<br><br>Future&lt;Integer&gt; result = executor.submit(() -&gt; {<br>    Thread.sleep(2000);<br>    return 100;<br>});<br><br>System.out.println(&quot;Before get()&quot;);<br>System.out.println(result.get());<br>System.out.println(&quot;After get()&quot;);</pre><br><br>Output:<br><br><pre>Before get()<br>(wait 2 seconds)<br>100<br>After get()</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message23">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:11:55 UTC+05:30">
+00:11
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JAVA TRICKIES/photos/photo_1@07-03-2026_00-11-55.jpg">
+
+         <img class="photo" src="../../notes/JAVA TRICKIES/photos/photo_1@07-03-2026_00-11-55_thumb.jpg" style="width: 260px; height: 110px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message24">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:19:25 UTC+05:30">
+00:19
+       </div>
+
+       <div class="text">
+<strong>STREAM API : </strong><br><br>1️⃣ <strong>Stream Creation</strong><br>2️⃣ <strong>Intermediate Operations</strong><br>3️⃣ <strong>Terminal Operations</strong><br>4️⃣ <strong>`groupingBy()` (explained like newborn child)</strong><br>5️⃣ <strong>`partitioningBy()` (explained like newborn child)</strong><br><br>---<br><br># 1. Stream Creation Methods<br><br><pre>| Method              | From                  | Example                         |<br>| ------------------- | --------------------- | ------------------------------- |<br>| `stream()`          | Collection            | `list.stream()`                 |<br>| `parallelStream()`  | Collection (parallel) | `list.parallelStream()`         |<br>| `Stream.of()`       | Values                | `Stream.of(1,2,3)`              |<br>| `Arrays.stream()`   | Array                 | `Arrays.stream(arr)`            |<br>| `Stream.generate()` | Infinite stream       | `Stream.generate(() -&gt; &quot;Java&quot;)` |<br>| `Stream.iterate()`  | Infinite sequence     | `Stream.iterate(1, n -&gt; n+1)`   |<br>| `Files.lines()`     | File lines            | `Files.lines(path)`             |</pre><br><br>### Example<br><br><pre>List&lt;String&gt; list = List.of(&quot;Java&quot;,&quot;Python&quot;,&quot;C&quot;);<br><br>Stream&lt;String&gt; stream = list.stream();</pre><br><br>---<br><br># 2. Intermediate Operations<br><br>These <strong>transform the stream</strong>.<br><br>⚠️ Important rule<br><strong>They are lazy (not executed until terminal operation).</strong><br><br><pre>| Method       | Purpose                | Example              |<br>| ------------ | ---------------------- | -------------------- |<br>| `filter()`   | Select elements        | even numbers         |<br>| `map()`      | Transform elements     | square numbers       |<br>| `flatMap()`  | Flatten nested streams | list of lists        |<br>| `distinct()` | Remove duplicates      | unique elements      |<br>| `sorted()`   | Sort elements          | natural/custom order |<br>| `limit()`    | Take first N           | first 5 elements     |<br>| `skip()`     | Skip N elements        | skip first 2         |<br>| `peek()`     | Debugging              | print values         |</pre><br><br>---<br><br>### Example (Intermediate)<br><br><pre>List&lt;Integer&gt; nums = List.of(1,2,3,4,5);<br><br>nums.stream()<br>    .filter(n -&gt; n%2==0)<br>    .map(n -&gt; n*n)</pre><br><br>Explanation<br><br><pre>1,2,3,4,5<br>filter → 2,4<br>map → 4,16</pre><br><br>But still <strong>NOT executed</strong>.<br><br>---<br><br># 3. Terminal Operations<br><br>Terminal operation <strong>starts execution of the pipeline</strong>.<br><br><pre>| Method            | Purpose               |<br>| ----------------- | --------------------- |<br>| `forEach()`       | Iterate               |<br>| `collect()`       | Convert to collection |<br>| `count()`         | Count elements        |<br>| `findFirst()`     | First element         |<br>| `findAny()`       | Any element           |<br>| `anyMatch()`      | Condition match       |<br>| `allMatch()`      | All satisfy           |<br>| `noneMatch()`     | None satisfy          |<br>| `reduce()`        | Combine values        |<br>| `min()` / `max()` | Find min/max          |</pre><br><br>---<br><br>### Example<br><br><pre>nums.stream()<br>    .filter(n -&gt; n%2==0)<br>    .map(n -&gt; n*n)<br>    .forEach(System.out::println);</pre><br><br>Output<br><br><pre>4<br>16</pre><br><br>Now execution happens.<br><br>---<br><br># 4. <code>groupingBy()</code> (Like teaching a newborn child 👶)<br><br>Imagine we have toys:<br><br><pre>Car<br>Ball<br>Bike<br>Bat<br>Apple</pre><br><br>Now you tell the child:<br><br>👉 Put toys <strong>based on first letter</strong><br><br>Result:<br><br><pre>C → Car<br>B → Ball, Bike, Bat<br>A → Apple</pre><br><br>This is exactly <strong>groupingBy</strong>.<br><br>We <strong>group elements based on some rule</strong>.<br><br>---<br><br>## Example<br><br><pre>List&lt;String&gt; names =<br>List.of(&quot;Ram&quot;,&quot;Ravi&quot;,&quot;Sita&quot;,&quot;Suresh&quot;,&quot;Arun&quot;);<br><br>Map&lt;Character,List&lt;String&gt;&gt; result =<br>names.stream()<br>.collect(Collectors.groupingBy(<br>    name -&gt; name.charAt(0)<br>));</pre><br><br>Result<br><br><pre>R → [Ram, Ravi]<br>S → [Sita, Suresh]<br>A → [Arun]</pre><br><br>Structure<br><br><pre>Map&lt;Key , List&lt;Value&gt;&gt;</pre><br><br>Where<br><br><pre>Key = grouping rule<br>Value = elements in that group</pre><br><br>---<br><br>### Another Example (Very common interview)<br><br>Group employees by department<br><br><pre>Map&lt;String,List&lt;Employee&gt;&gt; map =<br>employees.stream()<br>.collect(Collectors.groupingBy(Employee::getDepartment));</pre><br><br>Result<br><br><pre>IT → [emp1, emp2]<br>HR → [emp3]<br>Finance → [emp4, emp5]</pre><br><br>---<br><br># 5. <code>partitioningBy()</code> (Newborn explanation 👶)<br><br>Partition means:<br><br>👉 <strong>Divide into ONLY 2 groups</strong><br><br>True<br>False<br><br>Example:<br><br>Children in class<br><br><pre>Age &gt;= 18 → Adult<br>Age &lt; 18 → Minor</pre><br><br>Only <strong>two groups</strong>.<br><br>---<br><br>## Example
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message25">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:19:25 UTC+05:30">
+00:19
+       </div>
+
+       <div class="text">
+<pre>List&lt;Integer&gt; nums =<br>List.of(2,3,4,7,8);<br><br>Map&lt;Boolean,List&lt;Integer&gt;&gt; result =<br>nums.stream()<br>.collect(Collectors.partitioningBy(<br>    n -&gt; n%2==0<br>));</pre><br><br>Result<br><br><pre>true  → [2,4,8]<br>false → [3,7]</pre><br><br>Meaning<br><br><pre>true  → even numbers<br>false → odd numbers</pre><br><br>Structure<br><br><pre>Map&lt;Boolean, List&lt;T&gt;&gt;</pre><br><br>Always <strong>two keys</strong><br><br><pre>true<br>false</pre><br><br>---<br><br># Difference: groupingBy vs partitioningBy<br><br><pre>| Feature  | groupingBy        | partitioningBy         |<br>| -------- | ----------------- | ---------------------- |<br>| Groups   | Many              | Only 2                 |<br>| Key Type | Any type          | Boolean                |<br>| Result   | `Map&lt;K,List&lt;T&gt;&gt;`  | `Map&lt;Boolean,List&lt;T&gt;&gt;` |<br>| Use case | category grouping | condition split        |</pre><br><br>Example<br><br><pre>groupingBy → department wise employees<br>partitioningBy → pass / fail students</pre><br><br>---<br><br># Important Interview Pipeline Example<br><br><pre>List&lt;String&gt; names =<br>List.of(&quot;Ram&quot;,&quot;Ravi&quot;,&quot;Sita&quot;,&quot;Suresh&quot;,&quot;Arun&quot;);<br><br>Map&lt;Character,List&lt;String&gt;&gt; result =<br>names.stream()<br>     .filter(n -&gt; n.length() &gt; 3)<br>     .collect(Collectors.groupingBy(<br>          n -&gt; n.charAt(0)<br>     ));</pre><br><br>Flow<br><br><pre>names<br> ↓<br>filter (length&gt;3)<br> ↓<br>group by first letter<br> ↓<br>Map</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message26">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:23:38 UTC+05:30">
+00:23
+       </div>
+
+       <div class="text">
+Here are <strong>three very simple Java file handling programs</strong> for notes.<br><br>---<br><br><strong># 1. Read From File</strong><br><br>Uses <strong>`FileReader` + `BufferedReader`</strong><br><br>### Program<br><br><pre><br>public class ReadFileExample {<br><br>    public static void main(String[] args) {<br><br>        try {<br>            BufferedReader br = new BufferedReader(new FileReader(&quot;test.txt&quot;));<br><br>            String line;<br><br>            while((line = br.readLine()) != null) {<br>                System.out.println(line);<br>            }<br><br>            br.close();<br><br>        } catch(IOException e) {<br>            e.printStackTrace();<br>        }<br>    }<br>}</pre><br><br>### Explanation<br><br><pre>| Class            | Purpose                        |<br>| ---------------- | ------------------------------ |<br>| `FileReader`     | Reads file characters          |<br>| `BufferedReader` | Reads efficiently line by line |<br>| `readLine()`     | Reads one line                 |<br>| `close()`        | Releases resource              |</pre><br>---<br><br><strong># 2. Write Into File</strong><br><br>Uses <strong>`FileWriter` + `BufferedWriter`</strong><br><br>### Program<br><br><pre><br>public class WriteFileExample {<br><br>    public static void main(String[] args) {<br><br>        try {<br><br>            BufferedWriter bw = new BufferedWriter(new FileWriter(&quot;test.txt&quot;));<br><br>            bw.write(&quot;Hello Java&quot;);<br>            bw.newLine();<br>            bw.write(&quot;File handling example&quot;);<br><br>            bw.close();<br><br>        } catch(IOException e) {<br>            e.printStackTrace();<br>        }<br>    }<br>}</pre><br><br>### Explanation<br><br><pre>| Method      | Purpose                   |<br>| ----------- | ------------------------- |<br>| `write()`   | Write text                |<br>| `newLine()` | Move to next line         |<br>| `close()`   | Save and release resource |</pre><br>---<br><br><strong># 3. Copy File Content From One to Another</strong><br><br>### Program<br><br><pre><br>public class CopyFileExample {<br><br>    public static void main(String[] args) {<br><br>        try {<br><br>            FileInputStream fis = new FileInputStream(&quot;source.txt&quot;);<br>            FileOutputStream fos = new FileOutputStream(&quot;destination.txt&quot;);<br><br>            int data;<br><br>            while((data = fis.read()) != -1) {<br>                fos.write(data);<br>            }<br><br>            fis.close();<br>            fos.close();<br><br>            System.out.println(&quot;File copied successfully&quot;);<br><br>        } catch(IOException e) {<br>            e.printStackTrace();<br>        }<br>    }<br>}</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message27">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:36:17 UTC+05:30">
+00:36
+       </div>
+
+       <div class="text">
+<strong># Java Inner Classes</strong><br><br>An <strong>Inner Class</strong> is a class declared <strong>inside another class</strong>.<br><br><pre>class Outer {<br>    class Inner {<br>    }<br>}</pre><br><br>Used when a class is <strong>logically related to another class</strong>.<br><br>---<br><br># Types of Inner Classes<br><br><pre>| Type                  | Description                           |<br>| --------------------- | ------------------------------------- |<br>| Member Inner Class    | Non-static class inside another class |<br>| Static Nested Class   | Static class inside another class     |<br>| Local Inner Class     | Class inside a method                 |<br>| Anonymous Inner Class | Class without name                    |</pre><br><br>You asked mainly about <strong>Member Inner Class and Static Inner Class</strong>, which are the most important.<br><br>---<br><strong><br># 1️⃣ Member Inner Class (Non-Static)</strong><br><br>### Definition<br><br><pre>class Outer {<br><br>    int x = 10;<br><br>    class Inner {<br>        void display() {<br>            System.out.println(x);<br>        }<br>    }<br>}</pre><br><br>---<br><br>## Characteristics<br><br><pre>| Property                   | Value                     |<br>| -------------------------- | ------------------------- |<br>| Static allowed?            | ❌ No                      |<br>| Access outer class members | ✅ Yes (including private) |<br>| Needs outer object?        | ✅ Yes                     |<br>| Can access static members  | ✅ Yes                     |</pre><br>---<br><br>## Object Creation<br><br><pre>Outer outer = new Outer();<br>Outer.Inner inner = outer.new Inner();<br><br>inner.display();</pre><br><br>### Syntax<br><br><pre>Outer.Inner obj = outerObject.new Inner();</pre><br><br>---<br><br>## Example<br><br><pre>class Outer {<br><br>    int x = 10;<br><br>    class Inner {<br><br>        void show() {<br>            System.out.println(x);<br>        }<br>    }<br><br>    public static void main(String[] args) {<br><br>        Outer o = new Outer();<br>        Outer.Inner i = o.new Inner();<br><br>        i.show();<br>    }<br>}</pre><br><br>Output<br><br><pre>10</pre><br><br>---<br><br><strong># 2️⃣ Static Inner Class (Static Nested Class)</strong><br><br>### Definition<br><br><pre>class Outer {<br><br>    static int x = 100;<br><br>    static class Inner {<br><br>        void display() {<br>            System.out.println(x);<br>        }<br>    }<br>}</pre><br><br>---<br><br>## Characteristics<br><br><pre>| Property                           | Value |<br>| ---------------------------------- | ----- |<br>| Declared static?                   | ✅ Yes |<br>| Needs outer object?                | ❌ No  |<br>| Can access outer instance members? | ❌ No  |<br>| Can access outer static members?   | ✅ Yes |</pre><br><br>---<br><br>## Object Creation<br><br><pre>Outer.Inner obj = new Outer.Inner();<br>obj.display();</pre><br><br>---<br><br>## Example<br><br><pre>class Outer {<br><br>    static int x = 100;<br><br>    static class Inner {<br><br>        void show() {<br>            System.out.println(x);<br>        }<br>    }<br><br>    public static void main(String[] args) {<br><br>        Outer.Inner i = new Outer.Inner();<br>        i.show();<br>    }<br>}</pre><br><br>Output<br><br><pre>100</pre><br><br>---<br><br># Key Difference Table<br><br><pre>| Feature                       | Member Inner Class  | Static Inner Class  |<br>| ----------------------------- | ------------------- | ------------------- |<br>| Static allowed                | ❌ No                | ✅ Yes               |<br>| Needs outer object            | ✅ Yes               | ❌ No                |<br>| Access outer instance members | ✅ Yes               | ❌ No                |<br>| Access outer static members   | ✅ Yes               | ✅ Yes               |<br>| Memory usage                  | More                | Less                |<br>| Object creation               | `outer.new Inner()` | `new Outer.Inner()` |</pre><br><br>---<br><br># Accessibility Rules<br><br><pre>| Outer Member | Member Inner Class | Static Inner Class |<br>| ------------ | ------------------ | ------------------ |<br>| Private      | ✅ Accessible       | ❌ Not directly     |<br>| Static       | ✅ Accessible       | ✅ Accessible       |<br>| Instance     | ✅ Accessible       | ❌ Not accessible   |</pre><br><br>---<br><br># Why Static Inner Classes Exist<br><br>They are used when the inner class <strong>does not need outer object data</strong>.<br><br>Example: Helper classes.<br><br>Example in Java library:<br><br>* <code>Map.Entry</code><br>* <code>Thread.State</code><br><br>---<br><br># Quick Interview Trick Question<br><br>### Code<br><br><pre>Outer.Inner obj = new Outer.Inner();</pre><br><br>❓ When is this valid?<br><br>Answer:<br><br><pre>Only if Inner is static</pre><br><br>---<br><br># One Important Real-World Example
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message28">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:36:17 UTC+05:30">
+00:36
+       </div>
+
+       <div class="text">
+<pre>class Car {<br><br>    static class Engine {<br><br>        void start() {<br>            System.out.println(&quot;Engine Started&quot;);<br>        }<br>    }<br>}</pre><br><br>Usage<br><br><pre>Car.Engine e = new Car.Engine();<br>e.start();</pre><br><br>---<br><br># Interview Summary<br><br><pre>Member Inner Class<br>→ Needs outer object<br>→ Can access all outer members<br><br>Static Inner Class<br>→ No outer object needed<br>→ Can access only static members</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message29">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 00:56:47 UTC+05:30">
+00:56
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong># Reflection API (Java)</strong><br><br>## 1. What is Reflection?<br><br><strong>Reflection API allows a Java program to examine and manipulate its own structure at runtime.</strong><br><br>Using reflection we can:<br><br>* Inspect classes<br>* Access fields<br>* Call methods<br>* Create objects dynamically<br><br>Even if they are <strong>private</strong>.<br><br>---<br><br># 2. Why Reflection is Used<br><br>Reflection is heavily used in frameworks such as:<br><br>* Spring Framework<br>* Hibernate<br>* JUnit<br><br>Because frameworks don&apos;t know <strong>your classes at compile time</strong>, they discover them <strong>at runtime using reflection</strong>.<br><br>Example:<br><br><pre>Class.forName(&quot;com.app.UserService&quot;)</pre><br><br>---<br><br># 3. Important Classes in Reflection<br><br><pre>| Class         | Purpose                              |<br>| ------------- | ------------------------------------ |<br>| `Class`       | Represents class metadata            |<br>| `Field`       | Represents class variables           |<br>| `Method`      | Represents class methods             |<br>| `Constructor` | Represents constructors              |<br>| `Modifier`    | Checks modifiers like public/private |</pre><br><br>Package:<br><br><pre>java.lang.reflect</pre><br><br>---<br><br># 4. Getting Class Object<br><br>There are <strong>3 ways</strong>.<br><br>### Method 1<br><br><pre>Class c = Class.forName(&quot;User&quot;);</pre><br><br>Loads class <strong>dynamically</strong>.<br><br>---<br><br>### Method 2<br><br><pre>User u = new User();<br>Class c = u.getClass();</pre><br><br>---<br><br>### Method 3<br><br><pre>Class c = User.class;</pre><br><br>Most commonly used.<br><br>---<br><br># 5. Getting Class Information<br><br>Example class:<br><br><pre>class User {<br>    private int id;<br>    public String name;<br><br>    public void show() {}<br>}</pre><br><br>### Get fields<br><br><pre>Field[] fields = User.class.getDeclaredFields();</pre><br><br>---<br><br>### Get methods<br><br><pre>Method[] methods = User.class.getDeclaredMethods();</pre><br><br>---<br><br>### Get constructors<br><br><pre>Constructor[] constructors = User.class.getDeclaredConstructors();</pre><br><br>---<br><br># 6. Accessing Private Fields<br><br>Normally this is not allowed.<br><br>Reflection allows it.<br><br><pre>Field field = User.class.getDeclaredField(&quot;id&quot;);<br><br>field.setAccessible(true);<br><br>User u = new User();<br>field.set(u, 10);<br><br>System.out.println(field.get(u));</pre><br><br>---<br><br># 7. Invoking Methods Dynamically<br><br><pre>Method m = User.class.getDeclaredMethod(&quot;show&quot;);<br><br>User u = new User();<br><br>m.invoke(u);</pre><br><br>This calls:<br><br><pre>u.show();</pre><br><br>---<br><br># 8. Creating Object Using Reflection<br><br>Instead of:<br><br><pre>User u = new User();</pre><br><br>We can do:<br><br><pre>Class c = User.class;<br><br>User u = (User) c.getDeclaredConstructor().newInstance();</pre><br><br>---<br><br># 9. Getting Method Parameters<br><br>Example:<br><br><pre>Method m = User.class.getDeclaredMethod(&quot;add&quot;, int.class, int.class);</pre><br><br>Invoke:<br><br><pre>Object result = m.invoke(obj, 10, 20);</pre><br><br>---<br><br># 10. Advantages<br><br><pre>| Advantage            | Explanation                   |<br>| -------------------- | ----------------------------- |<br>| Dynamic execution    | Classes discovered at runtime |<br>| Framework building   | Used in Spring, Hibernate     |<br>| Testing tools        | Used in JUnit                 |<br>| Dependency Injection | Core mechanism                |</pre><br>---<br><br># 11. Disadvantages<br><br><pre>| Disadvantage         | Reason                     |<br>| -------------------- | -------------------------- |<br>| Slow performance     | Runtime inspection         |<br>| Breaks encapsulation | Can access private members |<br>| Hard to debug        | Dynamic behavior           |</pre><br><br>---<br><br># 12. Real Example<br><br>Framework code:<br><br><pre>Class&lt;?&gt; clazz = Class.forName(&quot;com.app.Service&quot;);<br><br>Object obj = clazz.getDeclaredConstructor().newInstance();<br><br>Method method = clazz.getMethod(&quot;execute&quot;);<br><br>method.invoke(obj);</pre><br><br>Framework <strong>doesn&apos;t know the class at compile time</strong>.<br><br>---<br><br># 13. Very Important Interview Question<br><br>### Difference between:<br><br><pre>| Concept      | Meaning                       |<br>| ------------ | ----------------------------- |<br>| Compile Time | Code known before execution   |<br>| Reflection   | Code inspected during runtime |</pre><br><br>Reflection makes Java <strong>dynamic like Python</strong>.<br><br>---<br><br># 14. Simple Reflection Example<br><br><pre>import java.lang.reflect.Method;<br><br>class Test {<br>    public void show() {<br>        System.out.println(&quot;Hello Reflection&quot;);<br>    }<br>}<br><br>public class Main {<br>    public static void main(String[] args) throws Exception {<br><br>        Class c = Test.class;<br><br>        Object obj = c.getDeclaredConstructor().newInstance();<br><br>        Method m = c.getDeclaredMethod(&quot;show&quot;);<br><br>        m.invoke(obj);<br>    }<br>}</pre><br><br>Output:<br><br><pre>Hello Reflection</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message31">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.03.2026 13:01:29 UTC+05:30">
+13:01
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JAVA TRICKIES/photos/photo_2@07-03-2026_13-01-29.jpg">
+
+         <img class="photo" src="../../notes/JAVA TRICKIES/photos/photo_2@07-03-2026_13-01-29_thumb.jpg" style="width: 260px; height: 131px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+<strong>Java Import Statement :</strong>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-5">
+
+      <div class="body details">
+27 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message32">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic4" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.03.2026 11:31:01 UTC+05:30">
+11:31
+       </div>
+
+       <div class="from_name">
+JAVA TRICKIES 
+       </div>
+
+       <div class="text">
+<strong># Java Lambda, Functional Interface &amp; Method Reference</strong><br><br>---<br><br><strong># 1. Functional Interface</strong><br><br>### Definition<br><br>A <strong>Functional Interface</strong> is an interface that contains <strong>exactly one abstract method</strong>.<br><br>It can have:<br><br>* multiple <strong>default methods</strong><br>* multiple <strong>static methods</strong><br><br>But <strong>only one abstract method</strong>.<br><br>### Example<br><br><pre>@FunctionalInterface<br>interface Greeting {<br>    void sayHello(String name);<br>}</pre><br><br>### Common Built-in Functional Interfaces<br><br><pre>| Interface  | Abstract Method |<br>| ---------- | --------------- |<br>| Runnable   | run()           |<br>| Comparator | compare()       |<br>| Callable   | call()          |<br>| Consumer   | accept()        |<br>| Supplier   | get()           |<br>| Function   | apply()         |<br>| Predicate  | test()          |</pre><br><br>Example:<br><br><pre>Runnable r = () -&gt; System.out.println(&quot;Running&quot;);</pre><br><br>---<br><br><strong># 2. Lambda Expression</strong><br><br>### Definition<br><br>A <strong>Lambda Expression</strong> is a <strong>short way to implement the abstract method of a functional interface</strong>.<br><br>### Syntax<br><br><pre>(parameters) -&gt; { body }</pre><br><br>### Example<br><br>Functional Interface<br><br><pre>interface Printer {<br>    void print(String s);<br>}</pre><br><br>Lambda implementation<br><br><pre>Printer p = s -&gt; System.out.println(s);</pre><br><br>Equivalent old style:<br><br><pre>Printer p = new Printer() {<br>    public void print(String s) {<br>        System.out.println(s);<br>    }<br>};</pre><br><br>### Key Points<br><br>* Lambda <strong>can only work with Functional Interfaces</strong><br>* It <strong>implements the single abstract method</strong><br>* Java <strong>infers the type automatically</strong><br><br>Example<br><br><pre>Comparator&lt;Integer&gt; c = (a,b) -&gt; a - b;</pre><br><br>---<br><br><strong># 3. Method Reference</strong><br><br>### Definition<br><br>A <strong>Method Reference</strong> is a <strong>shorter version of lambda when the lambda only calls an existing method</strong>.<br><br>### Lambda<br><br><pre>list.forEach(x -&gt; System.out.println(x));</pre><br><br>### Method Reference<br><br><pre>list.forEach(System.out::println);</pre><br><br>Meaning:<br><br><pre>System.out.println(x)</pre><br><br>---<br><br><strong># 4. Types of Method References</strong><br><br>### 1️⃣ Static Method Reference<br><br><pre>ClassName::staticMethod</pre><br><br>Example<br><br><pre>Integer::parseInt</pre><br><br>Lambda equivalent<br><br><pre>s -&gt; Integer.parseInt(s)</pre><br><br>---<br><br>### 2️⃣ Instance Method of Particular Object<br><br><pre>object::method</pre><br><br>Example<br><br><pre>System.out::println</pre><br><br>Lambda equivalent<br><br><pre>x -&gt; System.out.println(x)</pre><br><br>---<br><br>### 3️⃣ Instance Method of Arbitrary Object<br><br><pre>ClassName::method</pre><br><br>Example<br><br><pre>String::toUpperCase</pre><br><br>Lambda equivalent<br><br><pre>s -&gt; s.toUpperCase()</pre><br><br>---<br><br>### 4️⃣ Constructor Reference<br><br><pre>ClassName::new</pre><br><br>Example<br><br><pre>Supplier&lt;List&lt;String&gt;&gt; list = ArrayList::new;</pre><br><br>Lambda equivalent<br><br><pre>Supplier&lt;List&lt;String&gt;&gt; list = () -&gt; new ArrayList&lt;&gt;();</pre><br><br>---<br><br># Relationship Between Them<br><br><pre>Functional Interface → Lambda Expression → Method Reference<br>      Target              Implementation        Shortcut</pre><br><br>Example<br><br>### Functional Interface<br><br><pre>interface Printer {<br>    void print(String s);<br>}</pre><br><br>### Lambda<br><br><pre>Printer p = s -&gt; System.out.println(s);</pre><br><br>### Method Reference<br><br><pre>Printer p = System.out::println;</pre><br><br>---<br><br># Important Rules<br><br>### Rule 1<br><br>Lambda <strong>requires a Functional Interface</strong>.<br><br>### Rule 2<br><br>Method Reference <strong>works only when lambda calls a single method</strong>.<br><br>### Rule 3<br><br>Lambda <strong>implements the abstract method</strong>.<br><br>---<br><br># Quick Memory Trick<br><br>Remember this chain:<br><br><pre>Anonymous Class → Lambda → Method Reference<br>   Long code        Short        Shortest</pre><br><br>Example<br><br>Anonymous class<br><br><pre>list.forEach(new Consumer&lt;String&gt;() {<br>    public void accept(String s) {<br>        System.out.println(s);<br>    }<br>});</pre><br><br>Lambda<br><br><pre>list.forEach(s -&gt; System.out.println(s));</pre><br><br>Method reference<br><br><pre>list.forEach(System.out::println);</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-6">
+
+      <div class="body details">
+29 March 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message33">
+
+      <div class="body details">
+JAVA TRICKIES pinned <a href="#go_to_message11" onclick="return GoToMessage(11)">this message</a>
+      </div>
+
+     </div>
+
+     <div class="message service" id="message34">
+
+      <div class="body details">
+JAVA TRICKIES pinned <a href="#go_to_message22" onclick="return GoToMessage(22)">this message</a>
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

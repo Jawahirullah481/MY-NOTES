@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+SPRING 4 : SECURITY 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+15 March 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;SECURITY AND SPRING SECURITY&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.03.2026 23:37:58 UTC+05:30">
+23:37
+       </div>
+
+       <div class="from_name">
+SPRING 4 : SECURITY 
+       </div>
+
+       <div class="text">
+# SEURITY INTRODUCTION<br><br>When building a web application, one of the most critical concerns is <strong>security</strong>.<br><br>A secure system must ensure three fundamental principles:<br><pre>| Principle       | Meaning                                           |<br>| --------------- | ------------------------------------------------- |<br>| Confidentiality | Only authorized users can access data             |<br>| Integrity       | Data cannot be modified illegally                 |<br>| Availability    | The system remains accessible to legitimate users |</pre><br><br>Modern web applications achieve this by combining multiple technologies such as:<br><br>* password hashing<br>* authentication frameworks<br>* tokens<br>* encrypted communication<br><br>To understand why these mechanisms exist, we must first understand <strong>how authentication evolved over time</strong>.<br><br>---<br><br># The Story of How a Secure Application Works 🔐<br><br>---<br><br># 1. The Application Without Security<br><br>Imagine you built a simple API server.<br><br>It has endpoints like:<br><br><pre>GET /users<br>GET /orders<br>DELETE /orders/10</pre><br><br>Anyone on the internet can call these APIs.<br><br>A random person could run:<br><br><pre>curl https://myapp.com/users</pre><br><br>And boom 💥<br><br>They see all user data.<br><br>Even worse:<br><br><pre>DELETE /orders/10</pre><br><br>Someone could delete data.<br><br>So the first question the application asks is:<br><br>&gt; Who are you?<br><br>This is where <strong>authentication</strong> comes in.<br><br>---<br><br># 2. First Level of Protection — Login<br><br>A user tries to enter the system.<br><br><pre>POST /login<br>username = jawa<br>password = ****</pre><br><br>The server checks the database.<br><br><pre>Is username correct?<br>Is password correct?</pre><br><br>If correct:<br><br><pre>User authenticated</pre><br><br>But now another problem appears.<br><br>Every time the user makes a request, we cannot ask for the password again.<br><br>Example:<br><br><pre>GET /orders<br>username = jawa<br>password = ****</pre><br><br>Even though HTTPS encrypts it, sending passwords repeatedly is bad because:<br><br>* password may leak<br>* database must verify password every request<br>* system becomes slow<br><br>So developers invented a better mechanism.<br><br>---<br><br># 3. Session-Based Authentication<br><br>Instead of sending passwords repeatedly:<br><br>1. User logs in once<br>2. Server verifies credentials<br>3. Server creates a <strong>session</strong><br><br>Example session:<br><br><pre>sessionId = A7G8H9K2</pre><br><br>Server stores it:<br><br><pre>sessionId → userId<br>A7G8H9K2     25</pre><br><br>Server sends this session ID to the browser.<br><br>Usually via cookie:<br><br><pre>Set-Cookie: SESSIONID=A7G8H9K2</pre><br><br>Now every request automatically includes the session cookie.<br><br><pre>GET /orders<br>Cookie: SESSIONID=A7G8H9K2</pre><br><br>Server checks the session store and identifies the user.<br><br>This approach worked for many years.<br><br>---<br><br># 4. Problems With Sessions<br><br>Sessions work well for small applications, but modern systems face several issues.<br><br>---<br><br>## Server Memory Problem<br><br>Sessions must be stored on the server.<br><br><pre>1 user → 1 session<br>10,000 users → 10,000 sessions</pre><br><br>This consumes memory.<br><br>Large systems may have millions of sessions.<br><br>---<br><br>## Load Balancer Problem<br><br>Modern applications run multiple servers.<br><br><pre>        Load Balancer<br>             │<br>      ┌──────┴──────┐<br>   Server A      Server B</pre><br><br>User logs in:<br><br><pre>Server A creates session</pre><br><br>Next request may go to Server B.<br><br><pre>Server B cannot find session</pre><br><br>User appears logged out.<br><br>Solutions like <strong>sticky sessions</strong> or <strong>shared session stores (Redis)</strong> are required.<br><br>But they increase complexity.<br><br>---<br><br>## Microservices Problem<br><br>Modern architectures often use microservices.<br><br><pre>API Gateway<br>     │<br> ┌───┴───┐<br>User   Order   Payment<br>Service Service Service</pre><br><br>Session sharing across services becomes difficult.<br><br>---<br><br>## Stateful Server Problem<br><br>Sessions make servers <strong>stateful</strong>.<br><br>Meaning the server must remember client information.<br><br>Cloud-native systems prefer <strong>stateless services</strong>.<br><br>---<br><br># 5. Token-Based Authentication<br><br>To solve session limitations, systems moved to <strong>token-based authentication</strong>.<br><br>Instead of storing sessions:<br><br>1. Server generates a token<br>2. Token contains user identity<br>3. Client sends token with each request<br><br>This token is commonly a <strong>JSON Web Token</strong>.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.03.2026 23:37:58 UTC+05:30">
+23:37
+       </div>
+
+       <div class="text">
+# 6. Password Security — Hashing<br><br>Before issuing tokens, the server must securely store passwords.<br><br>Storing plain passwords is dangerous.<br><br>Bad example:<br><br><pre>username | password<br>jawa     | mypassword</pre><br><br>If the database leaks, all passwords are exposed.<br><br>Instead, passwords are hashed using <strong>bcrypt</strong>.<br><br>Example:<br><br><pre>mypassword<br>↓<br>$2a$10$E9N5x8b...93kdjS</pre><br><br>Database stores:<br><br><pre>username | password_hash<br>jawa     | $2a$10$E9N5x8b...93kdjS</pre><br><br>During login:<br><br>1. User enters password<br>2. bcrypt hashes it<br>3. Hash is compared<br><br>bcrypt protects stored passwords.<br><br>---<br><br># 7. The Temporary Identity Card — JWT<br><br>After login, the server creates a <strong>temporary identity card</strong>.<br><br>This card is the <strong>JWT token</strong>.<br><br>Example payload:<br><br><pre>{<br>  userId: 25,<br>  role: &quot;USER&quot;,<br>  exp: 1712345678<br>}</pre><br><br>The token is digitally signed:<br><br><pre>signature = hash(header + payload + secretKey)</pre><br><br>The token structure:<br><br><pre>HEADER.PAYLOAD.SIGNATURE</pre><br><br>The client receives the token.<br><br>---<br><br># 8. Using the Token for Requests<br><br>Instead of sending passwords, the client sends the token.<br><br><pre>GET /orders<br>Authorization: Bearer &lt;JWT&gt;</pre><br><br>Server validation process:<br><br>1. Decode token<br>2. Recalculate signature<br>3. Compare signatures<br><br>If valid:<br><br><pre>User authenticated</pre><br><br>No database lookup required.<br><br>This is called <strong>stateless authentication</strong>.<br><br>---<br><br># 9. Preventing Token Tampering<br><br>Suppose a hacker modifies the token.<br><br>Original payload:<br><br><pre>role = USER</pre><br><br>Hacker changes it:<br><br><pre>role = ADMIN</pre><br><br>But the signature was created using:<br><br><pre>hash(header + payload + secretKey)</pre><br><br>When payload changes:<br><br><pre>signature becomes invalid</pre><br><br>Server rejects the request.<br><br>The attacker cannot recreate the signature without the secret key.<br><br>---<br><br># 10. Why Token Expiration Exists<br><br>If a token is stolen, the attacker could use it.<br><br>To limit this risk, tokens include expiration.<br><br>Example:<br><br><pre>exp = 1712345678</pre><br><br>When time exceeds this value:<br><br><pre>Token expired<br>Access denied</pre><br><br>After the token is expired, hacker cannot access the application with the same token.<br><br>---<br><br># 11. Access Token and Refresh Token<br><br>Modern systems improve this using two tokens.<br><br>### Access Token<br><br>Short lifetime.<br><br><pre>10–15 minutes</pre><br><br>Used for API calls.<br><br>---<br><br>### Refresh Token<br><br>Long lifetime.<br><br><pre>7–30 days</pre><br><br>Used only to generate new access tokens.<br><br>Flow:<br><br><pre>Login<br>   ↓<br>Access Token (15 min)<br>Refresh Token (7 days)</pre><br><br>When access token expires:<br><br><pre>Client sends refresh token<br>Server generates new access token</pre><br><br>---<br><br># 12. The Invisible Protector — HTTPS<br><br>All communication occurs over HTTPS.<br><br>HTTPS uses <strong>Transport Layer Security</strong> encryption.<br><br>Without HTTPS:<br><br><pre>username<br>password<br>JWT</pre><br><br>can be intercepted.<br><br>With HTTPS:<br><br><pre>All data is encrypted</pre><br><br>Attackers only see encrypted traffic.<br><br>---<br><br># 13. Third-Party Login — OAuth2<br><br>Sometimes users don&apos;t want to create new accounts.<br><br>They prefer:<br><br>* Login with Google<br>* Login with GitHub<br>* Login with Facebook<br><br>This is handled by <strong>OAuth 2.0</strong>.<br><br>OAuth2 allows applications to delegate authentication to trusted providers.<br><br>Flow:<br><br><pre>User clicks &quot;Login with Google&quot;<br>↓<br>Redirect to Google<br>↓<br>Google authenticates user<br>↓<br>Google sends authorization code<br>↓<br>Application receives user identity</pre><br><br>Often after OAuth login, the application still creates a JWT.<br><br>---<br><br># 14. Where Spring Security Fits<br><br>The system uses <strong>Spring Security</strong> to enforce security rules.<br><br>Spring Security handles:<br><br><pre>1. Login authentication<br>2. Password verification<br>3. JWT validation<br>4. Role-based access control</pre><br><br>Example rules:<br><br><pre>/admin/** → ADMIN only<br>/user/** → USER allowed</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message4">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.03.2026 23:40:37 UTC+05:30">
+23:40
+       </div>
+
+       <div class="text">
+# 15. Complete Security Architecture<br><br>The final system works like this:<br><br><pre>User<br> ↓<br>Login (username/password)<br> ↓<br>bcrypt verifies password<br> ↓<br>JWT token generated<br> ↓<br>Client stores token<br> ↓<br>Client sends token in requests<br> ↓<br>Spring Security validates token<br> ↓<br>Authorization check<br> ↓<br>Controller executes request<br> ↓<br>Database accessed</pre><br><br>All communication occurs over HTTPS.<br><br>---<br><br># Final Mental Model<br><br>Modern application security is layered.<br><br><pre>HTTPS → encrypts network communication<br>bcrypt → protects stored passwords<br>JWT → represents authenticated user<br>Signature → prevents token modification<br>Expiration → limits token misuse<br>OAuth2 → enables third-party login<br>Spring Security → enforces authentication and authorization</pre><br><br>Together these mechanisms ensure:<br><br><pre>Only the right user<br>can access the right resource<br>for the right amount of time</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+16 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message5">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.03.2026 00:03:01 UTC+05:30">
+00:03
+       </div>
+
+       <div class="from_name">
+SPRING 4 : SECURITY 
+       </div>
+
+       <div class="text">
+Secure Application Flow (JWT + Spring Security) :<br><br><pre>                    INTERNET<br>                       │<br>                       │<br>                (HTTPS / TLS)<br>          All data encrypted in transit<br>                       │<br>                       ▼<br>                ┌──────────────┐<br>                │   CLIENT     │<br>                │ Browser/App  │<br>                └──────┬───────┘<br>                       │<br>                       │ 1️⃣ LOGIN REQUEST<br>                       │<br>                       │  POST /login<br>                       │  username + password<br>                       ▼<br>                ┌──────────────┐<br>                │  APPLICATION │<br>                │    SERVER    │<br>                └──────┬───────┘<br>                       │<br>                       │ 2️⃣ VERIFY CREDENTIALS<br>                       ▼<br>                ┌──────────────┐<br>                │   DATABASE   │<br>                │ user table   │<br>                └──────┬───────┘<br>                       │<br>                       │ valid user<br>                       ▼<br>                ┌──────────────┐<br>                │ CREATE JWT   │<br>                │ payload:     │<br>                │ userId       │<br>                │ role         │<br>                │ expiration   │<br>                └──────┬───────┘<br>                       │<br>                       │ sign(payload + secretKey)<br>                       ▼<br>                 JWT TOKEN CREATED<br><br>           HEADER.PAYLOAD.SIGNATURE<br>                       │<br>                       │<br>                       ▼<br>                ┌──────────────┐<br>                │   CLIENT     │<br>                │ stores token │<br>                └──────┬───────┘<br>                       │<br>                       │ 3️⃣ API REQUEST<br>                       │<br>                       │ GET /orders<br>                       │ Authorization: Bearer JWT<br>                       ▼<br>                ┌──────────────┐<br>                │ SPRING       │<br>                │ SECURITY     │<br>                │ FILTER       │<br>                └──────┬───────┘<br>                       │<br>                       │ 4️⃣ TOKEN VALIDATION<br>                       │<br>                       │ decode token<br>                       │ verify signature<br>                       │ check expiration<br>                       ▼<br>                ┌──────────────┐<br>                │ AUTHORIZED ? │<br>                └──────┬───────┘<br>                       │<br>          ┌────────────┴─────────────┐<br>          │                          │<br>          ▼                          ▼<br>   INVALID TOKEN                VALID TOKEN<br>   request rejected              continue<br>                                      │<br>                                      │ 5️⃣ AUTHORIZATION<br>                                      │<br>                                      │ role check<br>                                      ▼<br>                               ┌──────────────┐<br>                               │ APPLICATION  │<br>                               │ CONTROLLER   │<br>                               └──────┬───────┘<br>                                      │<br>                                      │<br>                                      ▼<br>                               ┌──────────────┐<br>                               │  DATABASE    │<br>                               │ data access  │<br>                               └──────────────┘</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message6">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.03.2026 00:16:24 UTC+05:30">
+00:16
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/SPRING 4 - SECURITY/photos/photo_1@16-03-2026_00-16-24.jpg">
+
+         <img class="photo" src="../../notes/SPRING 4 - SECURITY/photos/photo_1@16-03-2026_00-16-24_thumb.jpg" style="width: 209px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-3">
+
+      <div class="body details">
+17 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message7">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:42:24 UTC+05:30">
+01:42
+       </div>
+
+       <div class="from_name">
+SPRING 4 : SECURITY 
+       </div>
+
+       <div class="text">
+<strong>COMPLETE CODE SKELETONG FOR SPRING SECURITY WITH JWT : </strong><br><br>---<br><br># 1️⃣ Starter Security Dependency (Default Login + CSRF + Authenticated Requests)<br><br>### Maven Dependency<br><br><pre>&lt;dependency&gt;<br>    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;<br>&lt;/dependency&gt;</pre><br><br>Just adding this dependency automatically enables:<br><br>* default login page<br>* CSRF protection<br>* authentication for all endpoints<br><br>---<br><br>### Default Behaviour<br><br>All endpoints require authentication.<br><br>Example controller:<br><br><pre>@RestController<br>public class TestController {<br><br>    @GetMapping(&quot;/hello&quot;)<br>    public String hello() {<br>        return &quot;Hello secured world&quot;;<br>    }<br>}</pre><br><br>Accessing <code>/hello</code> will redirect to <strong>default login page</strong>.<br><br>Default credentials printed in console:<br><br><pre>Using generated security password: 8a2e8e2c-bc54</pre><br><br>---<br><br># 2️⃣ Customizing SecurityFilterChain<br><br>Disable default login form and configure endpoints.<br><br><pre>@Configuration<br>@EnableWebSecurity<br>public class SecurityConfig {<br><br>    @Bean<br>    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {<br><br>        http<br>            .csrf(csrf -&gt; csrf.disable())<br>            .authorizeHttpRequests(auth -&gt; auth<br>                    .requestMatchers(&quot;/auth/**&quot;).permitAll()<br>                    .anyRequest().authenticated()<br>            )<br>            .sessionManagement(session -&gt;<br>                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)<br>            );<br><br>        return http.build();<br>    }<br>}</pre><br><br>---<br><br># 3️⃣ Custom UserDetailsService (Load User From DB)<br><br><pre>@Service<br>public class CustomUserDetailsService implements UserDetailsService {<br><br>    @Autowired<br>    private UserRepository userRepository;<br><br>    @Override<br>    public UserDetails loadUserByUsername(String username)<br>            throws UsernameNotFoundException {<br><br>        User user = userRepository.findByUsername(username)<br>                .orElseThrow(() -&gt;<br>                        new UsernameNotFoundException(&quot;User not found&quot;));<br><br>        return new org.springframework.security.core.userdetails.User(<br>                user.getUsername(),<br>                user.getPassword(),<br>                List.of(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;))<br>        );<br>    }<br>}</pre><br><br>---<br><br># 4️⃣ AuthenticationProvider<br><br>Custom provider using <code>UserDetailsService</code>.<br><br><pre>@Configuration<br>public class AuthProviderConfig {<br><br>    @Bean<br>    public AuthenticationProvider authenticationProvider(<br>            CustomUserDetailsService userDetailsService,<br>            PasswordEncoder passwordEncoder) {<br><br>        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();<br><br>        provider.setUserDetailsService(userDetailsService);<br>        provider.setPasswordEncoder(passwordEncoder);<br><br>        return provider;<br>    }<br>}</pre><br><br>---<br><br># 5️⃣ AuthenticationManager<br><br>Expose AuthenticationManager bean.<br><br><pre>@Configuration<br>public class AuthManagerConfig {<br><br>    @Bean<br>    public AuthenticationManager authenticationManager(<br>            AuthenticationConfiguration config) throws Exception {<br><br>        return config.getAuthenticationManager();<br>    }<br>}</pre><br><br>---<br><br># 6️⃣ Password Encryption Using BCrypt<br><br>Encoder Bean:<br><br><pre>@Bean<br>public PasswordEncoder passwordEncoder() {<br>    return new BCryptPasswordEncoder();<br>}</pre><br><br>---<br><br>### Register User (Signup)<br><br><pre>@Service<br>public class AuthService {<br><br>    @Autowired<br>    private UserRepository userRepository;<br><br>    @Autowired<br>    private PasswordEncoder passwordEncoder;<br><br>    public User register(RegisterRequest request) {<br><br>        User user = new User();<br><br>        user.setUsername(request.getUsername());<br>        user.setPassword(<br>                passwordEncoder.encode(request.getPassword())<br>        );<br><br>        return userRepository.save(user);<br>    }<br>}</pre><br><br>---<br><br># 7️⃣ Login + JWT Token Creation<br><br>JWT Utility Class.<br><br>Using library:<br><br><pre>&lt;dependency&gt;<br>&lt;groupId&gt;io.jsonwebtoken&lt;/groupId&gt;<br>&lt;artifactId&gt;jjwt-api&lt;/artifactId&gt;<br>&lt;version&gt;0.11.5&lt;/version&gt;<br>&lt;/dependency&gt;</pre><br><br>---<br><br>### JWT Utility
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message8">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:42:24 UTC+05:30">
+01:42
+       </div>
+
+       <div class="text">
+<pre>@Component<br>public class JwtService {<br><br>    private final String SECRET_KEY = &quot;mysecretkeymysecretkeymysecretkey&quot;;<br><br>    public String generateToken(String username) {<br><br>        return Jwts.builder()<br>                .setSubject(username)<br>                .setIssuedAt(new Date())<br>                .setExpiration(<br>                        new Date(System.currentTimeMillis() + 1000*60*60)<br>                )<br>                .signWith(getSigningKey(), SignatureAlgorithm.HS256)<br>                .compact();<br>    }<br><br>    private Key getSigningKey() {<br><br>        byte[] keyBytes = SECRET_KEY.getBytes();<br><br>        return Keys.hmacShaKeyFor(keyBytes);<br>    }<br>}</pre><br><br>---<br><br>### Login API<br><br><pre>@RestController<br>@RequestMapping(&quot;/auth&quot;)<br>public class AuthController {<br><br>    @Autowired<br>    private AuthenticationManager authenticationManager;<br><br>    @Autowired<br>    private JwtService jwtService;<br><br>    @PostMapping(&quot;/login&quot;)<br>    public String login(@RequestBody LoginRequest request) {<br><br>        Authentication authentication =<br>                authenticationManager.authenticate(<br>                        new UsernamePasswordAuthenticationToken(<br>                                request.getUsername(),<br>                                request.getPassword()<br>                        )<br>                );<br><br>        return jwtService.generateToken(request.getUsername());<br>    }<br>}</pre><br><br>---<br><br># 8️⃣ JWT Filter (Parsing Token For Every Request)<br><br>Custom filter extending <code>OncePerRequestFilter</code>.<br><br><pre>@Component<br>public class JwtAuthFilter extends OncePerRequestFilter {<br><br>    @Autowired<br>    private JwtService jwtService;<br><br>    @Autowired<br>    private CustomUserDetailsService userDetailsService;<br><br>    @Override<br>    protected void doFilterInternal(<br>            HttpServletRequest request,<br>            HttpServletResponse response,<br>            FilterChain filterChain)<br>            throws ServletException, IOException {<br><br>        String authHeader = request.getHeader(&quot;Authorization&quot;);<br><br>        if (authHeader == null || !authHeader.startsWith(&quot;Bearer &quot;)) {<br>            filterChain.doFilter(request, response);<br>            return;<br>        }<br><br>        String token = authHeader.substring(7);<br><br>        String username = jwtService.extractUsername(token);<br><br>        if (username != null &amp;&amp;<br>            SecurityContextHolder.getContext().getAuthentication() == null) {<br><br>            UserDetails userDetails =<br>                    userDetailsService.loadUserByUsername(username);<br><br>            UsernamePasswordAuthenticationToken authToken =<br>                    new UsernamePasswordAuthenticationToken(<br>                            userDetails,<br>                            null,<br>                            userDetails.getAuthorities()<br>                    );<br><br>            SecurityContextHolder.getContext()<br>                    .setAuthentication(authToken);<br>        }<br><br>        filterChain.doFilter(request, response);<br>    }<br>}</pre><br><br>---<br><br># 9️⃣ Register JWT Filter in SecurityFilterChain<br><br><pre>@Bean<br>public SecurityFilterChain filterChain(<br>        HttpSecurity http,<br>        JwtAuthFilter jwtAuthFilter) throws Exception {<br><br>    http<br>        .csrf(csrf -&gt; csrf.disable())<br>        .authorizeHttpRequests(auth -&gt; auth<br>                .requestMatchers(&quot;/auth/**&quot;).permitAll()<br>                .anyRequest().authenticated()<br>        )<br>        .sessionManagement(session -&gt;<br>                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)<br>        )<br>        .addFilterBefore(<br>                jwtAuthFilter,<br>                UsernamePasswordAuthenticationFilter.class<br>        );<br><br>    return http.build();<br>}</pre><br><br>---<br><br># 🔟 Example Request With JWT<br><br>Request:<br><br><pre>GET /users<br>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</pre><br><br>JWT filter:<br><br><pre>extract token<br>↓<br>parse username<br>↓<br>load user from DB<br>↓<br>set Authentication in SecurityContext<br>↓<br>request allowed</pre><br><br>---<br><br># Minimal Project Structure<br><br><pre>config<br> ├── SecurityConfig<br> ├── AuthManagerConfig<br> ├── AuthProviderConfig<br><br>security<br> ├── JwtAuthFilter<br> ├── JwtService<br><br>service<br> ├── CustomUserDetailsService<br> ├── AuthService<br><br>controller<br> ├── AuthController<br><br>repository<br> ├── UserRepository<br><br>entity<br> ├── User</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message9">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:42:24 UTC+05:30">
+01:42
+       </div>
+
+       <div class="text">
+✅ This is the <strong>complete code skeleton for Spring Security + JWT authentication flow</strong>.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message10">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:49:32 UTC+05:30">
+01:49
+       </div>
+
+       <div class="text">
+In <strong>Spring Security</strong>, <code>SecurityContextHolder</code> is the <strong>central place where the currently authenticated user&apos;s security information is stored and accessed during a request</strong>.<br><br>Below is the <strong>brief but clear understanding</strong>.<br><br>---<br><br># 1️⃣ What is SecurityContextHolder?<br><br><code>SecurityContextHolder</code> is a <strong>static utility class</strong> that holds a <code>SecurityContext</code>.<br><br><pre>SecurityContextHolder<br>        ↓<br>   SecurityContext<br>        ↓<br>   Authentication<br>        ↓<br>   UserDetails (principal)</pre><br><br>Example access:<br><br><pre>Authentication authentication =<br>        SecurityContextHolder.getContext().getAuthentication();<br><br>String username = authentication.getName();</pre><br><br>---<br><br># 2️⃣ What Does It Store?<br><br>It stores an <code>Authentication</code> object.<br><br>Example:<br><br><pre>UsernamePasswordAuthenticationToken</pre><br><br>Inside it:<br><br><pre>Authentication<br> ├── principal → UserDetails<br> ├── credentials → password<br> ├── authorities → roles<br> └── authenticated → true/false</pre><br><br>Example structure:<br><br><pre>Authentication<br>   principal : User(username=john)<br>   authorities : ROLE_USER<br>   authenticated : true</pre><br><br>---<br><br># 3️⃣ Why Do We Store Authentication Here?<br><br>Because <strong>any part of the application may need to know who the current user is</strong>.<br><br>Example places:<br><br>* Controllers<br>* Services<br>* Method security (<code>@PreAuthorize</code>)<br>* Auditing<br>* Logging<br><br>Example:<br><br><pre>String username =<br>SecurityContextHolder<br>    .getContext()<br>    .getAuthentication()<br>    .getName();</pre><br><br>This works <strong>anywhere in the request flow</strong>.<br><br>---<br><br># 4️⃣ Who Sets It?<br><br>During authentication.<br><br>Example inside a JWT filter:<br><br><pre>UsernamePasswordAuthenticationToken authToken =<br>        new UsernamePasswordAuthenticationToken(<br>                userDetails,<br>                null,<br>                userDetails.getAuthorities()<br>        );<br><br>SecurityContextHolder<br>        .getContext()<br>        .setAuthentication(authToken);</pre><br><br>Once set, Spring considers the <strong>user authenticated for the rest of the request</strong>.<br><br>---<br><br># 5️⃣ Is It Per Request?<br><br>Yes.<br><br>By default Spring Security uses:<br><br><pre>ThreadLocal</pre><br><br>Internally:<br><br><pre>SecurityContextHolderStrategy<br>        ↓<br>ThreadLocal&lt;SecurityContext&gt;</pre><br><br>Since each HTTP request is handled by <strong>a separate thread</strong>, the authentication becomes <strong>request-scoped automatically</strong>.<br><br>Example:<br><br><pre>Request 1 → Thread 21 → SecurityContext A<br>Request 2 → Thread 34 → SecurityContext B</pre><br><br>So user data <strong>never mixes between requests</strong>.<br><br>---<br><br># 6️⃣ Lifetime of SecurityContext<br><br>It depends on the <strong>security configuration</strong>.<br><br>### Session Based Authentication<br><br>(Default Spring Security)<br><br><pre>User logs in<br>↓<br>Authentication stored in session<br>↓<br>SecurityContext restored for each request<br>↓<br>Valid until session expires</pre><br><br>---<br><br>### JWT / Stateless Authentication<br><br>When using JWT:<br><br><pre>Request comes with JWT<br>↓<br>JWT filter validates token<br>↓<br>Authentication stored in SecurityContextHolder<br>↓<br>Used during request<br>↓<br>Cleared after request completes</pre><br><br>Lifetime:<br><br><pre>Only during that request</pre><br><br>Next request:<br><br><pre>JWT parsed again</pre><br><br>---<br><br># 7️⃣ How It Gets Cleared<br><br>At the end of each request, Spring Security clears it.<br><br>Handled by filter:<br><br><pre>SecurityContextHolderFilter</pre><br><br>Flow:<br><br><pre>Request start<br>   ↓<br>SecurityContext created<br>   ↓<br>Authentication set<br>   ↓<br>Request processed<br>   ↓<br>SecurityContext cleared</pre><br><br>---<br><br># 8️⃣ Internal Working<br><br>Default strategy:<br><br><pre>MODE_THREADLOCAL</pre><br><br>Other options exist:<br><br>| Mode                        | Description                   |<br>| --------------------------- | ----------------------------- |<br>| MODE_THREADLOCAL            | default                       |<br>| MODE_INHERITABLETHREADLOCAL | child threads inherit context |<br>| MODE_GLOBAL                 | one global context            |<br><br>But almost always <strong>ThreadLocal is used</strong>.<br><br>---<br><br># 9️⃣ Typical Usage in Application<br><br>Example inside service:<br><br><pre>public String getCurrentUser() {<br><br>    Authentication auth =<br>        SecurityContextHolder.getContext().getAuthentication();<br><br>    return auth.getName();<br>}</pre><br><br>Example inside controller:<br><br><pre>@GetMapping(&quot;/profile&quot;)<br>public String profile() {<br><br>    Authentication auth =<br>        SecurityContextHolder.getContext().getAuthentication();<br><br>    return auth.getName();<br>}</pre><br><br>---<br><br># 🔟 Short Interview Answer
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:49:32 UTC+05:30">
+01:49
+       </div>
+
+       <div class="text">
+<code>SecurityContextHolder</code> is a Spring Security utility that stores the current user&apos;s <code>Authentication</code> object inside a <code>SecurityContext</code>. It uses <code>ThreadLocal</code> so each request thread maintains its own authenticated user details. During authentication, Spring sets the Authentication in the SecurityContextHolder, and it remains available throughout the request lifecycle and is cleared after the request completes.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message12">
+
+      <div class="body details">
+Channel title changed to &laquo;SPRING 4 : SECURITY&raquo;
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

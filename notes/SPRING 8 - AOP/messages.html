@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+SPRING 8 : AOP 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+8 October 2023
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;Spring AOP&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.10.2023 20:21:11 UTC+05:30">
+20:21
+       </div>
+
+       <div class="from_name">
+SPRING 8 : AOP 
+       </div>
+
+       <div class="text">
+<strong>How to configure AOP in spring project :<br>=========================<br><br>1. Add dependencies(jar) :<br>======================<br></strong>1. spring aop<br>2. aspectjrt<br>3. aspectjweaver<br><br><br><strong>2. Add xml namespaces in beans tag.<br>======================<br></strong>1. xmlns:aop=&quot;<a href="http://www.springframework.org/schema/aop">http://www.springframework.org/schema/aop</a>&quot;<br>2. xsi:schemaLocation=&quot;<a href="http://www.springframework.org/schema/aop">http://www.springframework.org/schema/aop</a>   <br>    <a href="http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">http://www.springframework.org/schema/aop/spring-aop-3.0.xsd</a> &quot;<br><br><br><strong>3. Add tag for autoproxy :<br>=====================<br></strong>&lt;aop:aspectj-autoproxy /&gt;  <br><br><br><strong>4. Create bean tag for Aspect class<br>=============================<br></strong>Example : &lt;bean id=&quot;aspect&quot; class=&quot;com.jawa.LoggingAspect&quot;&gt;&lt;/bean&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message3">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.10.2023 21:29:18 UTC+05:30">
+21:29
+       </div>
+
+       <div class="from_name">
+SPRING 8 : AOP 
+       </div>
+
+       <div class="text">
+<strong>Annotations for AOP :<br>==================<br><br>1. </strong><a href="https://t.me/Aspect">@Aspect</a><strong><br></strong>=========<br>This will be applied at class Level. Aspect is the class which contains lot of methods called advice.<br><br><br><strong>2. </strong><a href="https://t.me/Before">@Before</a><strong><br></strong>=========<br>If you want a particular method(advice) to be called before specific method called, then you use <a href="https://t.me/Before">@Before</a> annotation<br><br><strong>Syntax : <br></strong>=======<br><a href="https://t.me/Before">@Before</a><em>(&quot;pointcut expression&quot;)<br><br></em>Example : <br>========<br><pre>@Before(&quot;execution(public void run())&quot;)<br>public void beforeRunMethod() {<br><br>}<br><br><br></pre><strong>3. </strong><a href="https://t.me/After">@After</a><strong><br></strong>========<br>If you want a particular method(advice) to be called after specific method called, then you use <a href="https://t.me/After">@After</a> annotation<br><br><strong>Syntax : <br></strong>=======<br><a href="https://t.me/After">@After</a><em>(&quot;pointcut expression&quot;)<br><br></em>Example : <br>========<br><pre>@After(&quot;execution(public void run())&quot;)<br>public void afterRunMethod() {<br><br>}<br><br><br></pre><strong>4. </strong><a href="https://t.me/AfterReturning">@AfterReturning</a><strong><br>================<br></strong>Sometimes, inside the method, there may be exception rised. Because of that, the program doesn&apos;t reach the return statement. This annotation says &quot;The specific advice method to be executed only after the return statement executed for method specified in pointcut expression&quot;. This has the flexibility to get the return value of the method.<br><br><strong>Syntax : <br>======<br></strong><a href="https://t.me/AfterReturning">@AfterReturning</a><em>(&quot;pointcutexpression&quot;)<br> or <br></em><a href="https://t.me/AfterReturning">@AfterReturning</a><em>(pointcut = &quot;pointcutexpression&quot;, returning = &quot;returnValueHolder&quot;)<br><br></em>Example : <br>========<br><pre>@AfterReturning(&quot;execution(public void run())&quot;)<br>public void afterRunMethod() {<br><br>}<br><br></pre>(or)<br><br><pre>@AfterReturning(pointcut = &quot;execution(public void run())&quot;, returning = &quot;returnValue&quot;)<br>public void afterRunMethod(Object returnValue) {<br><br>}<br><br><br></pre><strong>5. </strong><a href="https://t.me/AfterThrowing">@AfterThrowing</a><strong><br>================<br></strong>This is exactly similar to <a href="https://t.me/AfterReturning">@AfterReturning</a>. But, the only differentce is the advice method will be executed only if the specified method throws exception. This annotation says &quot;The specific advice method to be executed only if the method specified in pointcut expression throw exception&quot;. This has the flexibility to get the exception reference thrown by the method.<br><br><strong>Syntax : <br>======<br></strong><a href="https://t.me/AfterThrowing">@AfterThrowing</a><em>(&quot;pointcutexpression&quot;)<br> or <br></em><a href="https://t.me/AfterReturning">@AfterReturning</a><em>(pointcut = &quot;pointcutexpression&quot;, throwing = &quot;returnValueHolder&quot;)<br><br></em>Example : <br>========<br><pre>@AfterThrowing(&quot;execution(public void run())&quot;)<br>public void afterRunMethod() {<br><br>}<br><br></pre>(or)<br><br><pre>@AfterThrowing(pointcut = &quot;execution(public void run())&quot;, returning = &quot;returnValue&quot;)<br>public void afterRunMethod(Exception returnValue) {<br><br>}<br><br><br></pre><strong>6. </strong><a href="https://t.me/Around">@Around</a><strong><br>==========<br></strong>This annotation will be executed &quot;before and after&quot; the execution of the method.<br>What are you saying? How is it possible?<br>Yes, This annotation has complete control over the execution of the method. you can stop the execution of the method inside this method.<br>Before, disucuss about that let&apos;s see syntax.<br><br><strong>Syntax : <br>=======<br></strong><a href="https://t.me/Around">@Around</a><em>(&quot;poincut-expression&quot;)<br><br></em><strong>Example : <br>========<br></strong><pre>@Around(&quot;execution(public void run())&quot;)<br>public Object aroundRunMethod(ProceedingJoinPoint pjp) {<br><br>      Code XXX;<br><br>      pjp.proceed();<br>   <br>      Code YYY;<br>}<br><br><br></pre>Explanation : <br>==========<br>#. &quot;Code XXX&quot; will be called before run() called.<br>#. Then we are explicitly calling ProceedingJoinPoint.proceed(). Internally it calls run().<br>#. If we don&apos;t call ProceedingJoinPoint.proceed(), then run() won&apos;t be executed.<br>#. &quot;Code YYY&quot; will be called after run() executed.<br>#. If run method return value,  then corresponding advice method for <a href="https://t.me/Around">@Around</a> should return value. Otherwise, it will throw exception.<br>#. If run method doesn&apos;t return value,  then corresponding advice method for <a href="https://t.me/Around">@Around</a> need not return value.<br><br><br><strong>7. </strong><a href="https://t.me/Pointcut">@Pointcut</a><strong><br>===========<br></strong>If you want to execute multiple advice methods for single pointcut expression, then you don&apos;t need to specify same pointcut expression above all the advice method.<br>Rather you can use this <a href="https://t.me/Pointcut">@Pointcut</a> annotation. For <a href="https://t.me/Pointcut">@Pointcut</a>, we use dummy method.<br><br><strong>Syntax :<br>======<br></strong><a href="https://t.me/Pointcut">@Pointcut</a><em>(&quot;pointcut-expression&quot;)<br><br></em><strong>Example :<br>========<br><br></strong><code>@Before(&quot;runMethod()&quot;)<br>public void beforeRun() {<br><br>}<br><br>@After(&quot;runMethod()&quot;)<br>public void afterRun() {<br><br>}<br><br>@Pointcut(&quot;execution(public void run())&quot;)<br>public void runMethod() {}</code>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message4">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.10.2023 22:34:22 UTC+05:30">
+22:34
+       </div>
+
+       <div class="from_name">
+SPRING 8 : AOP 
+       </div>
+
+       <div class="text">
+<strong>execution(), within() and args() in pointcut expression :<br>===============================</strong><br><br><strong>1.execution :<br>==========</strong><br><br>Syntax :<br>=======<br><a href="https://t.me/Annotation">@Annotation</a><em>(&quot;execution(&lt;method-signature&gt;)&quot;)</em><br><br>As the syntax shows, if you provide method signature as pointcut, then use <strong>&quot;execution&quot;</strong>.<br><br>Example :<br>========<br><code>@After(&quot;execution(public void run())&quot;)</code><br>or<br><code>@Before(&quot;execution(* run(..))&quot;)</code><br><br><br><strong>2. within :<br>========</strong><br><br>This is used when you register the advice for <strong>all methods in a class.</strong> Here, class is the value and not method.<br><br><strong>Syntax :<br>======</strong><br><a href="https://t.me/Annotation">@Annotation</a>(&quot;within(&lt;fully-qualified-name-of-class)&quot;)<br><br><strong>Example :<br>========</strong><br><code>@Before(&quot;within(com.jawa.Spring.Demo)&quot;)</code><br><br><br><strong>3. args :<br>======</strong><br><br>When you want to register advice method with respect to arguments of function.<br><br>Syntax :<br>=======<br><a href="https://t.me/Annotation">@Annotation</a>(&quot;args(arg-name, arg-name)&quot;)<br><br>Example :<br>========<br><code>@Before(&quot;args(length,breadth)&quot;)<br>public void beforeArea(int length, int breadth) {<br><br>}</code><br><br>Note : if we use args, we can get arguments with same name in advice method. If argument name differ in advice method, then exception will thrown.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+16 August 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message6">
+
+      <div class="body details">
+Channel title changed to &laquo;SPRING 8 : AOP&raquo;
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

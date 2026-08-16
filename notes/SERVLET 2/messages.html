@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+Servlet 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+20 September 2023
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;Servlet&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 21:46:57 UTC+05:30">
+21:46
+       </div>
+
+       <div class="from_name">
+Servlet 
+       </div>
+
+       <div class="text">
+javax.servlet :-<br>============<br><br>1. Servlet(I)<br>2. ServletRequest(I)<br>3. ServletResponse(I)<br>4. ServletContext(I)<br>5. ServletConfig(I)<br>6. RequestDispatcher(I)<br><br>7. GenericServlet(C)<br>8. ServletInoutStream(C)<br>9. ServletOutputStream(C)<br>10. ServletException(C)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 21:50:31 UTC+05:30">
+21:50
+       </div>
+
+       <div class="text">
+javax.servlet.http :-<br>================<br>1. HttpServletRequest(I)<br>2. HttpServletResponse(I)<br>3. HttpSession(I)<br>4. HttpServlet(C)<br>5. Cookie(C)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message4">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 21:55:42 UTC+05:30">
+21:55
+       </div>
+
+       <div class="text">
+.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message5">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 21:55:46 UTC+05:30">
+21:55
+       </div>
+
+       <div class="text">
+.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message6">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 22:05:20 UTC+05:30">
+22:05
+       </div>
+
+       <div class="text">
+<strong>Servlet methods</strong> :-<br>===============<br><br>1. init()<br>2. service()<br>3. destroy()<br>4. getServletConfig()<br>5. getServletInfo()<br><br>Note : First 3 methods, init(), service() and destroy() are lifecycle methods are callback methods.<br><br><strong>Life cycle of servlet</strong> :-<br>=================<br><br>1. For the first request,<br>    *. Web container will load the servlet class.<br>    *. Web container create instance of servlet using newInstance() method.<br>    *. Web container will call i<strong>nit() </strong>method of Servlet class.<br>2. For further requests,<br>    *. Web container will call servlet&apos;s <strong>service()</strong> method.<br>3. At the time of undeployment or server shutdown, <br>    *. Web container will call <strong>destroy()</strong> method.<br><br><strong>Life cycle of Filter</strong> :-<br>================<br><br>1. init()<br>2. doFilter()<br>3. destroy()
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message7">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 22:10:14 UTC+05:30">
+22:10
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/SERVLET 1/photos/photo_1@11-03-2026_01-27-57.jpg">
+
+         <img class="photo" src="../../notes/SERVLET 1/photos/photo_1@11-03-2026_01-27-57_thumb (1).jpg" style="width: 190px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message8">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 22:23:03 UTC+05:30">
+22:23
+       </div>
+
+       <div class="text">
+📌 NOTE : The most important point is flow of calling service method<br><br>1. Web container always calls<strong> service(SReq, SRes)</strong>.<br> * If our servlet class doesn&apos;t contain this method, then this servlet will call parent class Servlet Method.<br><br>2. Then <strong>service(SReq, SRes)</strong> calls <strong>service(HttpSReq, HttpSRes)</strong>.<br><br>3. Then inside <strong>service(HttpSReq, HttpsSRes)</strong> method, based on the <strong>method</strong> of request, that method call doXXX(HSR, HSR) method.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message9">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 22:26:45 UTC+05:30">
+22:26
+       </div>
+
+       <div class="text">
+.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message10">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 22:26:47 UTC+05:30">
+22:26
+       </div>
+
+       <div class="text">
+.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="20.09.2023 22:37:25 UTC+05:30">
+22:37
+       </div>
+
+       <div class="text">
+<strong>Request and Response formats</strong> :-<br><br><strong># Request Format :<br></strong>================<br><strong>1. status line<br></strong><pre>&lt;status_code&gt; &lt;resource&gt; &lt;http_version&gt;<br><br></pre>Example :<br>   ========<br><pre>GET DiaryApp/index HTTP 1.1<br><br></pre><strong>2. Request Header<br></strong>key : value<br>key : value<br><br>Example :<br>========<br>content-type: text/html<br>cookie : session_id<br><br><strong>3. Request Body<br></strong>Query String<br><br>———————————————<br><br><strong># Response Format :<br></strong>=================<br><strong>1. status line<br></strong><pre>&lt;http_version&gt; &lt;response_number&gt; &lt;response_code&gt;<br><br></pre>Example :<br>========<br><pre>HTTP1.1 200 OK<br><br></pre><strong>2. Response Header<br></strong>key : value<br>key : value<br><br>Example :<br>========<br>content-type: text/html<br>set-cookie : session_id<br><br><strong>3. Response Body<br></strong>html file<br><br>Example :<br>========<br>&lt;html&gt;<br>....<br>....<br>&lt;/html&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+21 September 2023
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 20:55:25 UTC+05:30">
+20:55
+       </div>
+
+       <div class="from_name">
+Servlet 
+       </div>
+
+       <div class="text">
+<strong>web.xml file tags :-<br>===============<br></strong>1. &lt;display-name&gt;<br>2. &lt;description&gt;<br><br>3. &lt;welcome-file-list&gt;<br>   3.1 &lt;welcome-file&gt;<br><br>4. &lt;servlet&gt;<br>   4.1 &lt;servlet-name&gt;<br>   4.2 &lt;servlet-class&gt;<br>   4.3 &lt;jsp-file&gt;<br>   4.4 &lt;load-on-startup&gt;<br>   4.5 &lt;init-param&gt;<br>      4.5.1 &lt;param-name&gt;<br>      4.5.2 &lt;param-value&gt;<br><br>5. &lt;servlet-mapping&gt;<br>   5.1 &lt;servlet-name&gt;<br>   5.2 &lt;url-pattern&gt;<br><br>6.  &lt;context-param&gt;<br>   6.1 &lt;param-name&gt;<br>   6.2 &lt;param-value&gt;<br><br>7. &lt;filter&gt;<br>   7.1 &lt;filter-name&gt;<br>   7.2 &lt;filter-class&gt;<br><br>8. &lt;filter-mapping&gt;<br>   8.1 &lt;filter-name&gt;<br>   8.2 &lt;url-pattern&gt;<br>   8.3 &lt;servlet-name&gt;<br>   8.4 &lt;dispatcher&gt;<br><br>9. &lt;error-page&gt;<br>   9.1 &lt;exception-type&gt;<br>   9.2 &lt;error-code&gt;<br>   9.3 &lt;location&gt;<br><br>10. &lt;session-timeout&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message13">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 21:07:25 UTC+05:30">
+21:07
+       </div>
+
+       <div class="text">
+<strong>web.xml file tags definition :<br></strong>=======================<br><pre>1. &lt;display-name&gt; :<br></pre>The optional display-name element specifies the Web application display name, a short name that can be displayed by GUI tools. Currently, this element is not used by WebLogic Server.<br><br><pre>2. &lt;description&gt;<br></pre>Description about the Application or Servlet.<br><br><pre>3. &lt;welcome-file-list&gt;<br></pre>It contains set of &lt;welcome-file&gt; tags. In any web application index.html acts as default welcome file.If index.html is not available then index.jsp acts as default welcome file.<br><br><pre>4. &lt;servlet&gt;<br></pre>Servlet tag contains the information about servlet such as, <br><br><code>4.1 &lt;servlet-name&gt;</code> (Logical name used for Servlet mapping)<br><code>4.2 &lt;servlet-class&gt;</code> (Fully qualified class name of Servlet)<br><code>4.3 &lt;jsp-file&gt;</code> (<br><code>4.4 &lt;load-on-starup&gt;</code> (At the time of first request servlet class will be loaded and servlet object will be created followed by init() method execution.Finally service() method will be called. But for second request onwards only service() method will be called. <br>Because of this the processing time of first request is more when compared with other requests.<br>To overcome this problem we should go for &lt;load-on-startup&gt;. If we configured &lt;load-on-startup&gt; then servlet class loading,servlet instantiation and execution of init() method will be performed at the time of server start up or at the time of application deployment. For the first request also only service() method will be called. The values must be positive integer. Based on values, each servlet will be loaded.)<br><code>4.5 &lt;init-param&gt; </code>(Servlet configuration information. This information specific for enclosing servlet.)<br><br><pre>5. &lt;servlet-mapping&gt;<br></pre>This tag is used to <strong>map servlet class with url-pattern.<br></strong><code>5.1 &lt;servlet-name&gt; </code>(Logical name of servlet)<br><code>5.2 &lt;url-pattern&gt;</code> (url-pattern of the servlet or jsp file)<br><br><pre>6. &lt;context-param&gt;<br></pre>This holds the application level information.<br><br><pre>7. &lt;filter&gt;<br></pre>This tag is quite similar to the servlet tag. The only difference is &quot;<strong>the name servlet is replaced by filter</strong> in tag names&quot;.<br>Under this tag, all tags such as &lt;filter-name&gt;, &lt;filter-class&gt;, &lt;filter-mapping&gt;, &lt;url-pattern&gt; have same meaning.<br><br><pre>8.3 &lt;servlet-name&gt;<br></pre>Adding filter for servlet name rather attach it for specific url pattern.<br><code>8.4 &lt;dispatcher&gt;</code> <br>A servlet can get the request in one of the following 4 ways.<br>1. A Request Directly from Browser(REQUEST) <br>2. By RequestDispatcher&apos;s forward() call(FORWARD) <br>3. By RequestDispatcher&apos;s include() call(INCLUDE) <br>4. By Error Page Call(ERROR)<br>By default Filter concept is applicable only for direct end user REQUEST and not applicable for RD&apos;s forward,include calls and error page calls.<br>If we want to extend for remaining cases also then we should go for &lt;dispatcher&gt; tag.<br><br><pre>9. &lt;error-page&gt; <br></pre>Configuring error page for particular servlet or jsp file.<br><code>9.1 &lt;exception-type&gt;</code> (If Particular exception arise, then this error-page will be shown)<br><code>9.2 &lt;error-code&gt;</code> (If particular error-code arise, then this error-page will be shown)<br><code>9.3 &lt;location&gt;</code> (Location of error-page.)<br><br><pre>10. &lt;session-timeout&gt;<br></pre>Sets the number of minutes, session will active. (-ve values indicates the session never expires).
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message14">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 22:08:30 UTC+05:30">
+22:08
+       </div>
+
+       <div class="from_name">
+Servlet 
+       </div>
+
+       <div class="text">
+<strong>Available url patterns for &lt;url-pattern&gt; tag :<br></strong>=====================================<br>1. Exact match url-pattern <strong>eg: </strong><a href="" onclick="return ShowBotCommand(&quot;test&quot;)">/test</a><strong><br></strong>2. Longest Path Prefix url-pattern or directory match url-pattern <strong>eg: /test/test/*<br></strong>3. url-pattern by extension <strong>eg: *.do<br></strong>4. Default url-pattern <strong>eg: /<br><br></strong>Let&apos;s see which tags need &quot;/&quot; in the web.xml :-<br>======================================<br><br><strong>&quot;/&quot; mandatory in :<br></strong>————————-<br>1. &lt;url-pattern&gt;<br>2. &lt;jsp-file&gt;<br>3. &lt;location&gt;<br>4. requestDispatcher.forward() method<br><br><strong>&quot;/&quot; not required in :<br></strong>—————————<br>1. &lt;welcome-file&gt;<br>2. response.sendRedirect() method
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message15">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 22:23:38 UTC+05:30">
+22:23
+       </div>
+
+       <div class="from_name">
+Servlet 
+       </div>
+
+       <div class="text">
+<strong>Parameters and Attributes :-<br></strong>========================<br>Parameters are available in html/jsp forms and &lt;init-param&gt; and &lt;context-param&gt; tags.<br>So, ServletRequest, ServletContext, ServletConfig contains parameters.<br><br>The methods are, <br><pre>1. request.getParameter()<br>2. servletContext.getInitParameter()<br>3. servletConfig.getInitParameter()<br><br></pre>Parameters are unchangeable values. So to have changeable values and to share data across the servlets or pages, we need an alternative. Yes, Attributes are the alternatives.<br><br>Attributes can managed in 3 scopes in servlet and 4 scopes in jsp.<br>They are,<br>1. request scope<br>2. session scope<br>3. Application scope (Context)<br><br>Methods are,<br><pre>1. request.setAttribute(), request.getAttribute()<br>2. session.setAttribute(), session.getAttribute()<br>3. context.setAttribute(), context.getAttribute()<br><br></pre><strong>Difference between parameters and attributes :<br></strong>========================================<br>i) Attributes are changeable. Whereas, Parameters are unchangeable.<br>ii) Return type of Paramteres are string. Return type of Attributes are Object.<br>iii) We can only store String type in Parameter. We can store object type in Attributes.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message16">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 22:28:20 UTC+05:30">
+22:28
+       </div>
+
+       <div class="text">
+<strong>Moving from one page/Servlet to an other :-<br></strong>=====================================<br><pre>1. request.getRequestDispatcher().forward(&quot;url-pattern&quot;);<br>2. context.getRequestDispatcher().forward(&quot;url-pattern&quot;);<br>3. response.sendRedirect(&quot;location&quot;);<br><br></pre>Difference Between RequestDispatcher of Request and Context :<br>======================================================<br>1. By using request&apos;s RequestDispatcher we can only forward to servlet belongs to same application.<br>2. But by using context&apos;s RequestDispatcher we can forward to servlet belongs to outside of the application, but inside the same server.<br>3. We can use sendRedirect() method to move to <strong>another servlet/page on another server</strong>.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message17">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 23:01:18 UTC+05:30">
+23:01
+       </div>
+
+       <div class="from_name">
+Servlet 
+       </div>
+
+       <div class="text">
+Filter Interface :-<br>=============<br>Contains 3 methods :-<br><pre>1. init(servletconfig)<br>2. doFilter(HSReq, HSRes, FilterChain)<br>3. destroy()<br><br></pre>NOTE : doFilter() contains extra arguement, which is FilterChain.<br><br>After doFilter() method, the request don&apos;t move to Servlet/Jsp automatically. We have to call filterChain.doFilter(req, res).<br><br>Once the JVM executes the filterChain.doFilter() method, then it looks for any other Filter classes configured for particular url pattern or request servlet. If so, then request forwarded to next filter class. Otherwise, request goes to Servlet object.<br><br>Similar to Servlet, All the 3 methods called by the web container. doFilter() method is called when request made to configured servlet or url pattern.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message18">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 23:09:16 UTC+05:30">
+23:09
+       </div>
+
+       <div class="text">
+Session and Cookies :-<br>===================<br><br>Session :<br>========<br>*. Whenever browser sends a request to server,If server wants to remember client information for the future purpose,then Server will create Session object and store required information in the form of attributes.Server sends the corresponding sessionid as the part of response.For this server will use setCookie response header.<br><br>*. Browser will retrieve that session id and will send with every consecutive request to the server.For this browser will use cookie request header.<br><br>*. Hence session id exchanging b/w client and server with setCookie response header and cookie request header.<br><br>HttpSession s = req.getSession();<br><br><strong>1. public boolean isNew() <br></strong>To check whether the session object is newly created or not<br><strong>2. public void invalidate()<br></strong>to expire a session forcefully<br><strong>3. public void setMaxInactiveInterval(int seconds)<br></strong>To set session timeout for a particular session object<br><strong>4. public int getMaxInactiveInterval()<br></strong>Returns the session timeout value in seconds<br><strong>5. public String getId()<br></strong>Returns session id<br><br>Cookie :<br>=======<br>Browser stores that cookie in the local file system and sends to the server with every consecutive request.By accessing that cookie server can able to remember client information.<br><br>Cookie c = new Cookie(&quot;key&quot;, &quot;value&quot;)<br>resp.addCookie(c);<br><br><strong>1. public String getName()<br></strong>returns the name of the Cookie<br><strong>2. public String getValue()<br></strong>returns the value of the Cookie<br><strong>3. public int getMaxAge()<br></strong>Returns the max age of the Cookie in seconds.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message19">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.09.2023 23:16:36 UTC+05:30">
+23:16
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/SERVLET 1/photos/photo_2@11-03-2026_01-28-26.jpg">
+
+         <img class="photo" src="../../notes/SERVLET 1/photos/photo_2@11-03-2026_01-28-26_thumb (1).jpg" style="width: 260px; height: 248px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+Listeners :-<br>==========<br>Listeners are used to notify the changes occured in Servlet attributes and parameters and events when objects created and destroyed and so on.
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

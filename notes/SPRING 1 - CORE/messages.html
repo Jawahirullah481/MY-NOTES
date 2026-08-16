@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+SPRING 1 : CORE 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+17 March 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;SPRING 1 : CORE&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic7" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 00:39:10 UTC+05:30">
+00:39
+       </div>
+
+       <div class="from_name">
+SPRING 1 : CORE 
+       </div>
+
+       <div class="text">
+# The Story of How Spring Framework Core Works<br><br>## 1️⃣ The Problem with Traditional Java Applications<br><br>In traditional Java applications:<br><br><pre>class OrderService {<br>    PaymentService paymentService = new PaymentService();<br>}</pre><br><br>Problems:<br><br>* Classes <strong>create their own dependencies</strong><br>* Code becomes <strong>tightly coupled</strong><br>* Hard to <strong>test</strong><br>* Hard to <strong>maintain</strong><br><br>If <code>PaymentService</code> changes, <code>OrderService</code> must also change.<br><br>Developers needed a solution.<br><br>---<br><br># 2️⃣ Spring&apos;s Solution — Inversion of Control (IoC)<br><br>Spring introduced the concept of <strong>Inversion of Control</strong>.<br><br>Idea:<br><br>&gt; Instead of objects creating their dependencies, <strong>Spring creates and manages them</strong>.<br><br>Example:<br><br><pre>class OrderService {<br>    PaymentService paymentService;<br>}</pre><br><br>Spring will <strong>provide the dependency</strong>.<br><br>This principle is called:<br><br><strong>Dependency Injection (DI)</strong>.<br><br>---<br><br># 3️⃣ Spring Container – The Heart of Spring<br><br>The <strong>Spring Container</strong> manages the lifecycle of objects.<br><br>Main container implementation:<br><br>* Spring ApplicationContext<br><br>Responsibilities:<br><br>* Create objects<br>* Inject dependencies<br>* Manage lifecycle<br>* Manage configuration<br><br>Flow:<br><br><pre>Application starts<br>        ↓<br>Spring Container starts<br>        ↓<br>Beans are created<br>        ↓<br>Dependencies are injected<br>        ↓<br>Application runs</pre><br><br>---<br><br># 4️⃣ What is a Spring Bean?<br><br>A <strong>Spring Bean</strong> is simply:<br><br>&gt; An object created and managed by the Spring Container.<br><br>Example:<br><br><pre>@Service<br>class PaymentService {}</pre><br><br>Here <code>PaymentService</code> becomes a <strong>Spring Bean</strong>.<br><br>Spring stores it inside the container.<br><br>---<br><br># 5️⃣ How Beans Are Created<br><br>Spring must know <strong>which classes to create as beans</strong>.<br><br>We mark them using annotations:<br><br>| Annotation    | Purpose        |<br>| ------------- | -------------- |<br>| <code>@Component</code>  | Generic bean   |<br>| <code>@Service</code>    | Business logic |<br>| <code>@Repository</code> | Database layer |<br>| <code>@Controller</code> | Web layer      |<br><br>All of them are <strong>specializations of `</strong><a href="https://t.me/Component">@Component</a><strong>`</strong>.<br><br>Example:<br><br><pre>@Service<br>class PaymentService {}</pre><br><br>Spring scans the class and registers it as a bean.<br><br>---<br><br># 6️⃣ Component Scanning<br><br>Spring automatically scans packages for beans.<br><br>Enabled using:<br><br><pre>@ComponentScan</pre><br><br>Spring looks for:<br><br><pre>@Component<br>@Service<br>@Repository<br>@Controller</pre><br><br>and registers them as beans.<br><br>---<br><br># 7️⃣ Dependency Injection<br><br>Now Spring injects dependencies between beans.<br><br>Example:<br><br><pre>@Service<br>class OrderService {<br><br>    @Autowired<br>    PaymentService paymentService;<br><br>}</pre><br><br>Here Spring injects the <code>PaymentService</code> bean into <code>OrderService</code>.<br><br>This is called <strong>Dependency Injection</strong>.<br><br>---<br><br># 8️⃣ Types of Dependency Injection<br><br>There are <strong>three types</strong>.<br><br>### 1️⃣ Field Injection<br><br><pre>@Autowired<br>PaymentService paymentService;</pre><br><br>Simple but <strong>not recommended</strong>.<br><br>---<br><br>### 2️⃣ Setter Injection<br><br><pre>@Autowired<br>public void setPaymentService(PaymentService paymentService){<br>    this.paymentService = paymentService;<br>}</pre><br><br>---<br><br>### 3️⃣ Constructor Injection (Best)<br><br><pre>private final PaymentService paymentService;<br><br>public OrderService(PaymentService paymentService){<br>    this.paymentService = paymentService;<br>}</pre><br><br>Advantages:<br><br>* Dependency is <strong>mandatory</strong><br>* Easier <strong>unit testing</strong><br>* Supports <strong>immutability</strong><br><br>---<br><br># 9️⃣ When <code>@Bean</code> Is Needed<br><br>Sometimes we need to create beans for <strong>third-party classes</strong>.<br><br>Example:<br><br><pre>@Configuration<br>class AppConfig {<br><br>    @Bean<br>    public ObjectMapper objectMapper(){<br>        return new ObjectMapper();<br>    }<br><br>}</pre><br><br>Now Spring manages this object as a bean.<br><br>---<br><br># 🔟 Spring Bean Lifecycle<br><br>Bean lifecycle inside Spring:<br><br><pre>Bean Instantiation<br>        ↓<br>Dependency Injection<br>        ↓<br>Initialization<br>        ↓<br>Bean Ready to Use<br>        ↓<br>Application Shutdown<br>        ↓<br>Bean Destruction</pre><br><br>---<br><br># 1️⃣1️⃣ Configuration Class<br><br>Spring configuration is written using:<br><br><pre>@Configuration</pre><br><br>Example:<br><br><pre>@Configuration<br>class AppConfig {<br><br>    @Bean<br>    public PaymentService paymentService(){<br>        return new PaymentService();<br>    }<br><br>}</pre><br><br>---<br><br># 1️⃣2️⃣ Putting Everything Together<br><br>Final flow of a Spring application:
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 00:39:10 UTC+05:30">
+00:39
+       </div>
+
+       <div class="text">
+<pre>Application starts<br>        ↓<br>Spring Container starts<br>        ↓<br>Component Scan runs<br>        ↓<br>Beans are created<br>        ↓<br>Dependencies injected<br>        ↓<br>Application becomes ready</pre><br><br>---<br><br># Final 5-Line Summary (Best for Interviews)<br><br>&gt; Spring Core provides the IoC container that manages application objects called beans. These beans are created, configured, and wired together by the Spring container using dependency injection. Beans can be defined using annotations like <code>@Component</code>, <code>@Service</code>, or through <code>@Bean</code> methods inside configuration classes. The container handles the lifecycle of these beans from creation to destruction.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

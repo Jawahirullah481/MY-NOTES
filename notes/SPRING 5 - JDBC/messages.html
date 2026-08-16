@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+SPRING 5 : JDBC 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+17 March 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;SPRING 5 : JDBC&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:56:15 UTC+05:30">
+01:56
+       </div>
+
+       <div class="from_name">
+SPRING 5 : JDBC 
+       </div>
+
+       <div class="text">
+# 1️⃣ Why Spring JDBC Exists<br><br>Before Spring JDBC, we used <strong>plain JDBC</strong>.<br><br>Example (traditional JDBC):<br><br><pre>Connection con = DriverManager.getConnection(url, user, pass);<br><br>PreparedStatement ps =<br>        con.prepareStatement(&quot;select * from users where id=?&quot;);<br><br>ps.setInt(1, 1);<br><br>ResultSet rs = ps.executeQuery();<br><br>while(rs.next()){<br>    System.out.println(rs.getString(&quot;name&quot;));<br>}<br><br>rs.close();<br>ps.close();<br>con.close();</pre><br><br>Problems:<br><br>* too much boilerplate<br>* resource closing<br>* exception handling<br>* repetitive code<br><br>Spring introduced <strong>JdbcTemplate</strong> to solve this.<br><br>---<br><br># 2️⃣ Core Components of Spring JDBC<br><br>Main classes:<br><br>| Component                    | Purpose                     |<br>| ---------------------------- | --------------------------- |<br>| <code>DataSource</code>                 | Database connection pool    |<br>| <code>JdbcTemplate</code>               | Executes SQL                |<br>| <code>RowMapper</code>                  | Converts ResultSet → Object |<br>| <code>NamedParameterJdbcTemplate</code> | SQL with named parameters   |<br>| <code>SimpleJdbcInsert</code>           | Insert helper               |<br><br>---<br><br># 3️⃣ DataSource Configuration<br><br>Spring Boot auto-configures <code>DataSource</code>.<br><br>Example <code>application.properties</code>:<br><br><pre>spring.datasource.url=jdbc:postgresql://localhost:5432/testdb<br>spring.datasource.username=postgres<br>spring.datasource.password=root<br>spring.datasource.driver-class-name=org.postgresql.Driver</pre><br><br>Driver used:<br><br>* PostgreSQL JDBC Driver<br><br>Spring Boot automatically creates:<br><br><pre>DataSource<br>JdbcTemplate</pre><br><br>---<br><br># 4️⃣ JdbcTemplate Usage<br><br>Inject it:<br><br><pre>@Repository<br>public class UserRepository {<br><br>    @Autowired<br>    private JdbcTemplate jdbcTemplate;<br><br>}</pre><br><br>---<br><br># 5️⃣ Insert Query<br><br><pre>public int saveUser(User user) {<br><br>    String sql = &quot;insert into users(name,email) values (?,?)&quot;;<br><br>    return jdbcTemplate.update(<br>            sql,<br>            user.getName(),<br>            user.getEmail()<br>    );<br>}</pre><br><br><code>update()</code> is used for:<br><br><pre>INSERT<br>UPDATE<br>DELETE</pre><br><br>---<br><br># 6️⃣ Query Returning Single Object<br><br><pre>public User findById(int id) {<br><br>    String sql = &quot;select * from users where id=?&quot;;<br><br>    return jdbcTemplate.queryForObject(<br>            sql,<br>            new UserRowMapper(),<br>            id<br>    );<br>}</pre><br><br>---<br><br># 7️⃣ RowMapper (ResultSet → Object)<br><br><pre>public class UserRowMapper implements RowMapper&lt;User&gt; {<br><br>    @Override<br>    public User mapRow(ResultSet rs, int rowNum)<br>            throws SQLException {<br><br>        User user = new User();<br><br>        user.setId(rs.getInt(&quot;id&quot;));<br>        user.setName(rs.getString(&quot;name&quot;));<br>        user.setEmail(rs.getString(&quot;email&quot;));<br><br>        return user;<br>    }<br>}</pre><br><br>---<br><br># 8️⃣ Query Returning List<br><br><pre>public List&lt;User&gt; findAll() {<br><br>    String sql = &quot;select * from users&quot;;<br><br>    return jdbcTemplate.query(<br>            sql,<br>            new UserRowMapper()<br>    );<br>}</pre><br><br>---<br><br># 9️⃣ Query Returning Simple Value<br><br>Example:<br><br><pre>public int countUsers(){<br><br>    String sql = &quot;select count(*) from users&quot;;<br><br>    return jdbcTemplate.queryForObject(<br>            sql,<br>            Integer.class<br>    );<br>}</pre><br><br>---<br><br># 🔟 NamedParameterJdbcTemplate<br><br>Instead of <code>?</code>, we use named parameters.<br><br><pre>@Autowired<br>private NamedParameterJdbcTemplate namedJdbcTemplate;</pre><br><br>Example:<br><br><pre>public User findByEmail(String email){<br><br>    String sql =<br>    &quot;select * from users where email=:email&quot;;<br><br>    MapSqlParameterSource params =<br>            new MapSqlParameterSource();<br><br>    params.addValue(&quot;email&quot;, email);<br><br>    return namedJdbcTemplate.queryForObject(<br>            sql,<br>            params,<br>            new UserRowMapper()<br>    );<br>}</pre><br><br>Advantages:<br><br>* readable queries<br>* avoids parameter order mistakes<br><br>---<br><br># 1️⃣1️⃣ Batch Insert<br><br><pre>public void saveUsers(List&lt;User&gt; users){<br><br>    String sql =<br>    &quot;insert into users(name,email) values (?,?)&quot;;<br><br>    jdbcTemplate.batchUpdate(<br>        sql,<br>        users,<br>        users.size(),<br>        (ps,user)-&gt;{<br>            ps.setString(1,user.getName());<br>            ps.setString(2,user.getEmail());<br>        }<br>    );<br>}</pre><br><br>---<br><br># 1️⃣2️⃣ Calling Stored Procedure<br><br>Example (since you work with DB functions):<br><br><pre>SimpleJdbcCall jdbcCall =<br>        new SimpleJdbcCall(jdbcTemplate)<br>                .withFunctionName(&quot;get_user_count&quot;);<br><br>Integer result =<br>        jdbcCall.executeFunction(Integer.class);</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="17.03.2026 01:56:15 UTC+05:30">
+01:56
+       </div>
+
+       <div class="text">
+---<br><br># 1️⃣3️⃣ JdbcTemplate Internally Handles<br><br>Spring automatically manages:<br><br><pre>Connection opening<br>Statement creation<br>Parameter binding<br>ResultSet handling<br>Exception translation<br>Connection closing</pre><br><br>So developers write only:<br><br><pre>SQL + Mapping</pre><br><br>---<br><br># 1️⃣4️⃣ Exception Translation<br><br>Spring converts SQL exceptions into <strong>DataAccessException</strong> hierarchy.<br><br>Example:<br><br><pre>SQLException<br>   ↓<br>DataAccessException<br>   ↓<br>DuplicateKeyException<br>DataIntegrityViolationException</pre><br><br>This makes database exceptions <strong>database-independent</strong>.<br><br>---<br><br># 1️⃣5️⃣ Typical Repository Structure<br><br>Example:<br><br><pre>controller<br>   ↓<br>service<br>   ↓<br>repository<br>   ↓<br>JdbcTemplate<br>   ↓<br>Database</pre><br><br>Repository example:<br><br><pre>@Repository<br>public class UserRepository {<br><br>    @Autowired<br>    private JdbcTemplate jdbcTemplate;<br><br>}</pre><br><br>---<br><br># Short Interview Definition<br><br>&gt; Spring JDBC simplifies database access by providing JdbcTemplate, which removes boilerplate JDBC code and handles connection management, exception translation, and resource cleanup while allowing developers to focus only on SQL and result mapping.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+19 March 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message4">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.03.2026 00:16:26 UTC+05:30">
+00:16
+       </div>
+
+       <div class="from_name">
+SPRING 5 : JDBC 
+       </div>
+
+       <div class="text">
+# The Story of How <code>@Transactional</code> Works in Spring<br><br>## 1️⃣ The Problem Without Transactions<br><br>Imagine a banking system.<br><br>A user transfers money.<br><br>Process:<br><br><pre>Transfer ₹1000<br>     ↓<br>Debit Account A<br>     ↓<br>Credit Account B</pre><br><br>If something fails after debiting:<br><br><pre>Account A → debited ❌<br>Account B → not credited ❌</pre><br><br>Now the database becomes <strong>inconsistent</strong>.<br><br>To solve this, databases support <strong>transactions</strong>.<br><br>A transaction ensures:<br><br><pre>All operations succeed<br>OR<br>All operations rollback</pre><br><br>---<br><br># 2️⃣ Enter <code>@Transactional</code><br><br>Spring provides the annotation:<br><br><pre>@Transactional</pre><br><br>This tells Spring:<br><br><pre>Start a transaction<br>Execute all operations<br>Commit if successful<br>Rollback if failure</pre><br><br>Example:<br><br><pre>@Service<br>public class BankService {<br><br>    @Transactional<br>    public void transfer(Long fromId, Long toId, double amount){<br><br>        accountRepository.debit(fromId, amount);<br><br>        accountRepository.credit(toId, amount);<br><br>    }<br>}</pre><br><br>Execution flow:<br><br><pre>Transaction starts<br>      ↓<br>debit()<br>      ↓<br>credit()<br>      ↓<br>commit</pre><br><br>If an exception occurs:<br><br><pre>Transaction starts<br>      ↓<br>debit()<br>      ↓<br>credit() fails<br>      ↓<br>rollback</pre><br><br>---<br><br># 3️⃣ Where <code>@Transactional</code> Is Usually Placed<br><br>Best practice:<br><br><pre>Controller<br>    ↓<br>Service  (@Transactional here)<br>    ↓<br>Repository<br>    ↓<br>Database</pre><br><br>Example:<br><br><pre>@Service<br>@Transactional<br>public class OrderService {<br><br>    public void placeOrder(){<br>        saveOrder();<br>        updateInventory();<br>    }<br><br>}</pre><br><br>All methods inside run in the <strong>same transaction</strong>.<br><br>---<br><br># 4️⃣ What Happens When Service Calls Repository<br><br>Example:<br><br><pre>@Transactional<br>public void placeOrder(){<br><br>    orderRepository.saveOrder();<br><br>    orderRepository.updateInventory();<br>}</pre><br><br>Execution flow:<br><br><pre>Transaction begins<br>      ↓<br>saveOrder()<br>      ↓<br>updateInventory()<br>      ↓<br>commit</pre><br><br>Both SQL operations use <strong>one database connection</strong>.<br><br>If second query fails:<br><br><pre>rollback entire transaction</pre><br><br>So:<br><br><pre>saveOrder() is also rolled back</pre><br><br>---<br><br># 5️⃣ Service Calling Another Service<br><br>Example:<br><br><pre>@Service<br>public class PaymentService {<br><br>    @Autowired<br>    private AccountService accountService;<br><br>    @Transactional<br>    public void processPayment(){<br><br>        accountService.debit();<br><br>        accountService.credit();<br>    }<br>}</pre><br><br>Second service:<br><br><pre>@Service<br>public class AccountService {<br><br>    public void debit(){}<br><br>    public void credit(){}<br><br>}</pre><br><br>Execution flow:<br><br><pre>processPayment()<br>     ↓<br>Transaction starts<br>     ↓<br>debit()<br>     ↓<br>credit()<br>     ↓<br>commit</pre><br><br>Both run in the <strong>same transaction</strong>.<br><br>Reason:<br><br><pre>Default propagation = REQUIRED</pre><br><br>Meaning:<br><br><pre>Join existing transaction</pre><br><br>---<br><br># 6️⃣ When Called Service Also Has <code>@Transactional</code><br><br>Example:<br><br><pre>@Service<br>public class AccountService {<br><br>    @Transactional<br>    public void debit(){}<br><br>    @Transactional<br>    public void credit(){}<br><br>}</pre><br><br>Execution still remains:<br><br><pre>processPayment()<br>     ↓<br>Transaction starts<br>     ↓<br>debit() joins same transaction<br>     ↓<br>credit() joins same transaction<br>     ↓<br>commit</pre><br><br>Because propagation:<br><br><pre>REQUIRED</pre><br><br>---<br><br># 7️⃣ Creating a New Transaction<br><br>Sometimes we want a <strong>separate transaction</strong>.<br><br>Example:<br><br><pre>@Transactional(propagation = Propagation.REQUIRES_NEW)<br>public void debit(){}</pre><br><br>Now flow becomes:<br><br><pre>processPayment() → Transaction T1<br>        ↓<br>debit() → Transaction T2<br>        ↓<br>T2 commits<br>        ↓<br>processPayment continues</pre><br><br>Two transactions exist:<br><br><pre>T1 and T2</pre><br><br>---<br><br># 8️⃣ Important Rule – Spring Bean Only<br><br>Transactions work only when Spring manages the object.<br><br>✔️ Works:<br><br><pre>@Autowired<br>AccountService accountService;</pre><br><br>❌ Doesn&apos;t work:<br><br><pre>AccountService service = new AccountService();</pre><br><br>Reason:<br><br><pre>Spring cannot apply transaction proxy</pre><br><br>---<br><br># 9️⃣ Self Invocation Problem<br><br>Example:<br><br><pre>@Service<br>public class PaymentService {<br><br>    public void processPayment(){<br><br>        validate();<br><br>        performPayment();<br>    }<br><br>    @Transactional<br>    public void performPayment(){}<br>}</pre><br><br>Execution:<br><br><pre>processPayment()<br>      ↓<br>performPayment()</pre><br><br>But transaction <strong>does NOT start</strong>.<br><br>Reason:<br><br><pre>Internal method call bypasses Spring proxy</pre><br><br>---<br><br># 🔟 How <code>@Transactional</code> Actually Works<br><br>Spring uses <strong>AOP (Aspect Oriented Programming)</strong>.<br><br>Spring creates a <strong>proxy object</strong>.<br><br>Execution flow:
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message5">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.03.2026 00:16:26 UTC+05:30">
+00:16
+       </div>
+
+       <div class="text">
+<pre>Controller<br>     ↓<br>Spring Proxy<br>     ↓<br>Transaction Interceptor<br>     ↓<br>Begin Transaction<br>     ↓<br>Actual Service Method<br>     ↓<br>Commit / Rollback</pre><br><br>The component responsible is:<br><br><pre>PlatformTransactionManager</pre><br><br>For JDBC applications:<br><br><pre>DataSourceTransactionManager</pre><br><br>---<br><br># 1️⃣1️⃣ What Happens Internally with JDBC<br><br>When transaction starts:<br><br><pre>Connection created<br>     ↓<br>Bound to current thread</pre><br><br>Spring stores connection in <strong>ThreadLocal</strong>.<br><br>Now every repository call uses:<br><br><pre>Same connection</pre><br><br>Flow:<br><br><pre>Transaction begins<br>      ↓<br>Connection assigned to thread<br>      ↓<br>Repository query<br>      ↓<br>Repository query<br>      ↓<br>Commit / Rollback</pre><br><br>---<br><br># 1️⃣2️⃣ Rollback Rules<br><br>Default rollback occurs for:<br><br><pre>RuntimeException<br>Error</pre><br><br>Example:<br><br><pre>@Transactional<br>public void transfer(){<br><br>    debit();<br><br>    throw new RuntimeException();<br>}</pre><br><br>Result:<br><br><pre>rollback</pre><br><br>---<br><br>Checked exceptions do not rollback.<br><br>Example:<br><br><pre>throw new Exception();</pre><br><br>Solution:<br><br><pre>@Transactional(rollbackFor = Exception.class)</pre><br><br>---<br><br># 1️⃣3️⃣ Transaction Propagation<br><br>Propagation defines <strong>how transactions interact</strong>.<br><br>Common ones:<br><br>| Propagation   | Behavior                    |<br>| ------------- | --------------------------- |<br>| REQUIRED      | Join existing or create new |<br>| REQUIRES_NEW  | Always create new           |<br>| SUPPORTS      | Use if exists               |<br>| NOT_SUPPORTED | Run without transaction     |<br><br>Default:<br><br><pre>REQUIRED</pre><br><br>---<br><br># 1️⃣4️⃣ Isolation Levels<br><br>Isolation defines <strong>visibility of uncommitted data</strong>.<br><br>Example:<br><br><pre>@Transactional(isolation = Isolation.READ_COMMITTED)</pre><br><br>Common levels:<br><br><pre>READ_UNCOMMITTED<br>READ_COMMITTED<br>REPEATABLE_READ<br>SERIALIZABLE</pre><br><br>---<br><br># 1️⃣5️⃣ Complete Flow of Transactional Request<br><br><pre>Client Request<br>      ↓<br>Controller<br>      ↓<br>Service (@Transactional)<br>      ↓<br>Spring Proxy<br>      ↓<br>Transaction Manager<br>      ↓<br>Begin Transaction<br>      ↓<br>Repository (JdbcTemplate)<br>      ↓<br>Database Queries<br>      ↓<br>Commit / Rollback<br>      ↓<br>Response returned</pre><br><br>---<br><br># Final Understanding<br><br><code>@Transactional</code> ensures:<br><br><pre>Multiple database operations behave as one unit of work.</pre><br><br>Spring achieves this by:<br><br><pre>AOP Proxy<br>Transaction Manager<br>Thread-bound JDBC connection</pre><br><br>---<br><br># Short Interview Answer<br><br><code>@Transactional</code> is a Spring annotation used for declarative transaction management. It works through Spring AOP proxies that intercept method calls, start a database transaction before method execution, and commit or roll back the transaction depending on the outcome of the method execution.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message6">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.03.2026 00:33:09 UTC+05:30">
+00:33
+       </div>
+
+       <div class="from_name">
+SPRING 5 : JDBC 
+       </div>
+
+       <div class="text">
+<pre>1. <br><br>@Service<br>public class TestService {<br>  <br>  @Transactional<br>  public void test1() {<br>    test2();<br>  }<br>  <br>  private void test2() {<br>    ...<br>  }<br>}<br><br><br>2. <br><br>@Service<br>public class TestService {<br>  <br>  private void test1() {<br>    test2();<br>  }<br>  <br>  @Transactional<br>  public void test2() {<br>    ...<br>  }<br>}</pre><br><br>out of the 2 above, which one supports transaction.<br><br><strong>Short answer:</strong><br><br>👉 <strong>Only Case 1 works with transaction</strong><br>👉 <strong>Case 2 does NOT start a transaction</strong><br><br>Now let’s break both clearly.<br><br>---<br><br># ✅ Case 1 — Transaction Works<br><br><pre>@Service<br>public class TestService {<br>  <br>  @Transactional<br>  public void test1() {<br>    test2();<br>  }<br>  <br>  private void test2() {<br>    // DB operations<br>  }<br>}</pre><br><br>### What happens<br><br><pre>External call → test1()<br>      ↓<br>Spring Proxy intercepts<br>      ↓<br>Transaction STARTS<br>      ↓<br>test2() is called internally<br>      ↓<br>Runs inside SAME transaction<br>      ↓<br>Commit / Rollback</pre><br><br>✔️ Transaction is active<br>✔️ <code>test2()</code> runs inside transaction<br><br>---<br><br># ❌ Case 2 — Transaction DOES NOT Work<br><br><pre>@Service<br>public class TestService {<br>  <br>  private void test1() {<br>    test2();<br>  }<br>  <br>  @Transactional<br>  public void test2() {<br>    // DB operations<br>  }<br>}</pre><br><br>### What happens<br><br>If <code>test1()</code> is called from outside:<br><br><pre>External call → test1()<br>      ↓<br>NO proxy interception<br>      ↓<br>test2() is called internally<br>      ↓<br>@Transactional is IGNORED ❌</pre><br><br>Even though <code>test2()</code> has <code>@Transactional</code>, it <strong>won’t work</strong>.<br><br>---<br><br># 🚨 Root Cause (Very Important)<br><br>In <strong>Spring Framework</strong>, transactions work using:<br><br><pre>AOP Proxy</pre><br><br>### Rule:<br><br><pre>@Transactional works ONLY when method is called THROUGH Spring proxy</pre><br><br>---<br><br># 🔥 Key Concept (Must Remember)<br><br>| Scenario                                | Transaction? |<br>| --------------------------------------- | ------------ |<br>| External call → <code>@Transactional</code> method | ✅ YES        |<br>| Internal method call (same class)       | ❌ NO         |<br>| Private method with <code>@Transactional</code>    | ❌ NO         |<br><br>---<br><br># ⚠️ Extra Important Point<br><br>Even if you do:<br><br><pre>@Transactional<br>private void test2() {}</pre><br><br>It still won’t work because:<br><br><pre>Private methods cannot be proxied</pre><br><br>---<br><br># ✅ How to Fix Case 2<br><br>Move method to another service.<br><br><pre>@Service<br>public class TestService {<br>  <br>  @Autowired<br>  private AnotherService anotherService;<br><br>  public void test1() {<br>    anotherService.test2();<br>  }<br>}</pre><br><br><pre>@Service<br>public class AnotherService {<br><br>  @Transactional<br>  public void test2() {<br>    // works<br>  }<br>}</pre><br><br>Now:<br><br><pre>External → TestService → AnotherService (via proxy) → Transaction works ✅</pre><br><br>---<br><br># 🧠 Final One-Line Rule<br><br>&gt; <code>@Transactional</code> works only when the method is <strong>public</strong> and called <strong>through a Spring proxy (i.e., from another bean or external call)</strong>.<br>If we call it manually or if it private method, then <a href="https://t.me/Transactional">@Transactional</a> won&apos;t work
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

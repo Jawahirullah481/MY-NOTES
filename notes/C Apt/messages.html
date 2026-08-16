@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+C Apt 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+6 January 2025
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;C Apt&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 22:48:25 UTC+05:30">
+22:48
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+Pre and Post Increment Operators : <br>============================
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 22:48:28 UTC+05:30">
+22:48
+       </div>
+
+       <div class="text">
+<strong>Pre and Post Increment Operators in C and Java :<br>=========================================<br></strong><br>The first point to note is when the variable get updated when used with pre and post increment operators. <br><br>The Answer is : &quot;<em>The variable&apos;s value gets updated immediately once the pre increment and post increment expression get completed. It will not wait for the whole expression to complete to update the variable.</em>&quot;<br><br>Example :<br>========<br>int a = 1;<br>int b = a++ + a;  // a++ ---&gt; 1st sub exp,   a -&gt; 2nd sub exp<br><br>Here, the value of a get incremented <strong>immediately after a++ is completed</strong>. Hence, when it reaches + a(2nd sub exp), the value of a gets incremented to 2. Hence the output of the above example is &quot;<strong>1 + 2 = 3</strong>&quot;.<br><br><br><br><strong>Diff Between Pre and Post Increment Operations in C and Java :<br>===================================================</strong><br><br>1. Post increment Operator works similarly in java and c. There is no difference. Whenever we are using it, it first assign the value it holds to the expression and then gets updated.<br><br>2. But, the Pre increment operators works differently in both languages.<br><br>Java : <br>=====<br>The variable gets incremented first and give the updated value to the expression.<br><br>C : <br>==<br><em>The variable gets incremented first and doesn&apos;t give updated value to the expression. It waits for all the pre and post expressions happening in the expression. And gives the last(latest) updated value of that variable to the expression.</em><br><br><br>Example : <br>=========<br>Java :<br>---------<br>int a = 1;<br>int b = ++a + a++;<br>sout(b); // output : 2 + 2 = 4<br><br>int a = 1;<br>int b = ++a + a++;<br>printf(&quot;%d&quot;, b); // output : 3 + 2 = 5<br><br><br>What&apos;s happening and how the value are calculated ?<br>===========================================<br><br>Java : <br>1. ++a -&gt; increment itself first and assign the incremented value to the expression. so, after this sub exp, &apos;a value is 2&apos; and value assigned to exp is &apos;2&apos;.<br><br>2. a++ -&gt; Assign the value to the expression and then increment itself. so, first assign &apos;2&apos; to expression and then update itself and a value becomes 3.<br><br>So, expression will be evaluated based on its assignments.<br>Hence, 2 + 2 = 4.<br><br>C : <br>1. ++a -&gt; increment itself first and doesn&apos;t assign the incremented value immediately.<strong> it waits for whole sub exp to be evaluated to put the latest &apos;a&apos; value. So, &apos;a&apos; is updated to 2. But nothing assigned to expression.</strong><br><br>2. a++ -&gt; Similar to java, it assign value to expression, it currently have 2. so 2 will be assigned to expression and a is getting updated to 3.<br><br>3. Here is the important point : only 2nd sub exp assign the value to expression. not 1st sub exp. now all the sub expressions got completed. now 1st exp assign latest updated value to the expression(Which is value 3).<br><br>4. Now expression will evaluate. 3 + 2 = 5.<br><br><br><br>NOTE : <br>=======<br><br>When more than 2 subexpressions are there, first 2 sub exp gets evaluated and then result will be evaluated to 3rd sub expression and so on.<br><br>Example :<br>========<br>int a = 1;<br>int b = ++a + a++ + ++a; // (++a + a++) + ++a<br><br><br>Reference Video : <br>==============<br><a href="https://youtu.be/XKPPLdKZIYs?si=rePRiwu8FHxeHJ_F">https://youtu.be/XKPPLdKZIYs?si=rePRiwu8FHxeHJ_F</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message4">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 22:48:44 UTC+05:30">
+22:48
+       </div>
+
+       <div class="text">
+<strong>Pointers :</strong>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message5">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 22:49:15 UTC+05:30">
+22:49
+       </div>
+
+       <div class="text">
+<strong>1. Basics of Pointers in C :<br>------------------------------------<br><br></strong>In C, a pointer is a variable that stores the memory address of another variable. Understanding the basic concepts of pointers is fundamental to working with them. Here&apos;s an explanation of the key components<strong><br></strong><br><strong><br>1.1 Definition and Declaration of a Pointer :<br><br>Declaration of a Pointer<br><br>Syntax:<br></strong>data_type *pointer_name;<strong><br><br>Example:<br></strong>int *ptr;  // ptr is a pointer to an integer<strong><br><br></strong>Here, ptr is a pointer to an integer, which means it can hold the address of an integer variable.<br><strong><br><br>1.2. Initializing a Pointer<br><br></strong>To initialize a pointer, you assign it the address of a variable using the address-of operator &amp;.<code><br></code><strong><br>Syntax : <br><br></strong>pointer_name = &amp;variable_name;<strong><br><br>Example :<br><br>int var = 10;   // </strong>A regular integer variable<strong><br>int *ptr;       // </strong>Pointer to integer<strong><br></strong>ptr = &amp;var;     // Pointer ptr now holds the address of var<strong><br><br><br>1.3. Dereferencing a Pointer :<br><br></strong>Dereferencing a pointer means accessing the value stored at the memory address the pointer is pointing to. You use the <strong>*</strong> operator to dereference a pointer.<strong><br><br>Syntax:<br><br></strong>*pointer_name<strong><br><br>Example:<br><br></strong>int var = 10;<strong><br></strong>int *ptr = &amp;var;  // Pointer points to var<strong><br></strong>printf(&quot;%d&quot;, *ptr);  // Dereferencing ptr gives the value of var, which is 10<strong><br><br><br>1.4. Example: Basic Pointer Operation<br><br></strong><a href="" onclick="return ShowHashtag(&quot;include&quot;)">#include</a> &lt;stdio.h&gt;<strong><br><br></strong>int main() {<strong><br>    </strong>int var = 10;  // A regular integer variable<strong><br></strong>    int *ptr = &amp;var;  // Pointer points to the address of var<strong><br><br>    </strong>printf(&quot;Address of var: %p\n&quot;, (void*)&amp;var);  // Printing the address of var<strong><br>    </strong>printf(&quot;Value of ptr: %p\n&quot;, (void*)ptr);    // Printing the value of pointer ptr (address of var)<strong><br>    </strong>printf(&quot;Value pointed by ptr: %d\n&quot;, *ptr);  // Dereferencing ptr to get the value at that address (value of var)<strong><br><br>    </strong>return 0;<strong><br></strong>}<strong><br><br>Output:<br><br></strong>Address of var: 0x7ffcaadf5b9c  // Example address, will vary<strong><br></strong>Value of ptr: 0x7ffcaadf5b9c     // Same as the address of var<strong><br></strong>Value pointed by ptr: 10          // Dereferencing ptr gives 10 (value of var)<br><strong><br>------------- XXX ----------</strong>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message6">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 22:56:35 UTC+05:30">
+22:56
+       </div>
+
+       <div class="text">
+<strong>2. Pointer Arithmetic in C :<br>-----------------------------------</strong><br><br>Pointer arithmetic allows you to perform operations on pointers, which helps in navigating through memory and manipulating data in arrays and structures. It’s a powerful feature of C programming, enabling more flexible handling of memory locations.<br><br><br><strong>2.1. Increment and Decrement Operators (ptr++, ptr--) : <br></strong><br><strong>Increment (ptr++):</strong> This operation moves the pointer to the next memory location, based on the data type the pointer is pointing to.<br><strong>Decrement (ptr--):</strong> This operation moves the pointer to the previous memory location.<br><br>The pointer arithmetic takes into account the size of the data type being pointed to. For example, if a pointer is pointing to an <code>int</code> (which typically occupies 4 bytes), incrementing the pointer (<code>ptr++</code>) will move it by 4 bytes.<br><br>Example : <br>+++++++<br>int arr[] = {10, 20, 30, 40};<br>    int *ptr = arr;<br><br>    printf(&quot;Initial value: %d\n&quot;, *ptr);  // Outputs 10<br>    ptr++;  // Increment pointer<br>    printf(&quot;After ptr++: %d\n&quot;, *ptr);  // Outputs 20 (pointer moves to the next element)<br>    ptr--;  // Decrement pointer<br>    printf(&quot;After ptr--: %d\n&quot;, *ptr);  // Outputs 10 (pointer moves back to the first element)<br><br><br><strong>Note:</strong> When you increment or decrement a pointer, it doesn&apos;t just move 1 byte, it moves the size of the type it is pointing to. For example, for an <code>int*</code> pointer, it moves by <code>sizeof(int)</code> bytes, which is usually 4 bytes.<br><br><br><strong>2.2. Pointer Arithmetic with Integer Addition/Subtraction (</strong><code>ptr + n</code><strong>, </strong><code>ptr - n</code><strong>)<br></strong>------------------------------------------------------------------------------------------------------<br><br>You can also add or subtract an integer value to/from a pointer. The result of the operation is a new pointer that points to the new memory location, moving by n elements of the type the pointer is pointing to.<br><br><strong>Addition (ptr + n): </strong>Moves the pointer n positions forward in memory (each position being the size of the type the pointer is pointing to).<br><strong>Subtraction (ptr - n):</strong> Moves the pointer n positions backward.<br><br>Example :<br>++++++++<br><br>    int arr[] = {10, 20, 30, 40};<br>    int *ptr = arr;<br><br>    printf(&quot;Initial value: %d\n&quot;, *ptr);  // Outputs 10<br>    ptr = ptr + 2;  // Move pointer 2 positions forward<br>    printf(&quot;After ptr + 2: %d\n&quot;, *ptr);  // Outputs 30 (third element)<br><br>    ptr = ptr - 1;  // Move pointer 1 position backward<br>    printf(&quot;After ptr - 1: %d\n&quot;, *ptr);  // Outputs 20 (second element)<br><br>    return 0;<br><br><br><strong>Note:</strong> When adding an integer to a pointer, the pointer will move <code>n</code> elements, not bytes. So, adding 1 to an <code>int*</code> will move it by <code>sizeof(int)</code> bytes, which is usually 4 bytes.<br><br><br><strong>2.3. Pointer Difference (</strong><code>ptr1 - ptr2</code><strong>) :<br></strong><br>If you have two pointers pointing to elements of the same array, subtracting one pointer from the other will give you the <strong>number of elements</strong> between them. The result is an integer that represents how many elements are between the two memory addresses.<br><br>Example :<br>++++++++<br><br>int arr[] = {10, 20, 30, 40};<br>    int *ptr1 = &amp;arr[1];  // Points to second element (20)<br>    int *ptr2 = &amp;arr[3];  // Points to fourth element (40)<br><br>    int diff = ptr2 - ptr1;  // Difference in elements<br>    printf(&quot;Difference between ptr2 and ptr1: %d\n&quot;, diff);  // Outputs 2 (two elements between 20 and 40)<br><br><strong>Note:</strong> The difference is based on the number of elements, not bytes. So <code>ptr2 - ptr1</code> gives the number of elements between the two pointers.<br><br><br><strong>2.4. Using Pointer Arithmetic with Arrays : </strong><br><br>Pointer arithmetic is often used when dealing with arrays, as array names are pointers to the first element of the array.<br><br>For example, the following are equivalent:<br><br>arr[2] == *(arr + 2)  // Accessing the 3rd element of an array<br><br><br><strong>2.5. Caution with Pointer Arithmetic :</strong><br><br><strong>Out-of-Bounds Access</strong>: You should always be careful when performing pointer arithmetic, as going out of bounds can lead to undefined behavior, such as accessing memory that doesn&apos;t belong to the array.<br><br>Example:<br>++++++++<br><br>int arr[] = {10, 20, 30};<br>int *ptr = arr;<br>ptr = ptr + 4;  // Pointer now points beyond the array bounds, undefined behavior
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message7">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 23:03:29 UTC+05:30">
+23:03
+       </div>
+
+       <div class="text">
+<strong>3. Pointers and Arrays in C : <br>======================</strong><br><br>Arrays and pointers are closely related in C, and understanding how they work together is crucial for efficient memory management and manipulation.<br><br><strong>3.1. Array Name as a Pointer : <br><br></strong>In C, the name of an array is essentially a constant pointer to the first element of the array. For example, if you have:<br><strong><br><br>Example : <br>++++++++<br></strong>int arr[5] = {10, 20, 30, 40, 50};<strong><br><br></strong>The expression arr is a pointer to the first element arr[0]. However, this is not a modifiable pointer, meaning you cannot change the address of arr itself, but you can modify the elements it points to.<br><strong><br><br>Example : <br></strong>++++++++<br><br>int arr[3] = {10, 20, 30};<br>    printf(&quot;arr = %p\n&quot;, arr);        // Prints the address of the first element<br>    printf(&quot;&amp;arr[0] = %p\n&quot;, &amp;arr[0]); // Prints the address of the first element<br>    printf(&quot;*(arr) = %d\n&quot;, *arr);    // Prints the value of the first element (10)<br><strong><br>Output : <br></strong>arr = 0x7ffee4a9d2c0<strong><br></strong>&amp;arr[0] = 0x7ffee4a9d2c0<strong><br></strong>*(arr) = 10<br><br><br><strong>3.2. Accessing Array Elements with Pointers :<br></strong><br>Since arrays are pointers, you can access array elements using pointer arithmetic. For instance, <code>arr[2]</code> is equivalent to <code>*(arr + 2)</code>.<br><br>Example :<br>+++++++<br><br>int arr[3] = {10, 20, 30};<br>    int *ptr = arr;<br><br>    printf(&quot;arr[2] = %d\n&quot;, arr[2]);       // Access using array indexing<br>    printf(&quot;*(ptr + 2) = %d\n&quot;, *(ptr + 2)); // Access using pointer arithmetic<br><br><br><strong>3.3. Modifying Array Elements Using Pointers<br></strong><br>You can modify array elements through pointers as well. Since <code>arr</code> is a pointer to the first element, you can use pointer arithmetic to change the value of any element.<br><br>Example : <br>++++++++<br><br>int arr[3] = {10, 20, 30};<br>    int *ptr = arr;<br><br>    *(ptr + 1) = 25;  // Modify the second element using pointer<br>    printf(&quot;arr[1] = %d\n&quot;, arr[1]);  // Prints the modified value<br><br>Output :<br>+++++++<br>arr[1] = 25<br><br><br><strong>3.4. Passing Arrays to Functions Using Pointers<br></strong><br>When you pass an array to a function, you&apos;re essentially passing a pointer to the first element. Modifying array elements inside the function will affect the original array.<br><br>Example : <br>++++++++<br><br><a href="" onclick="return ShowHashtag(&quot;include&quot;)">#include</a> &lt;stdio.h&gt;<br><br>void modifyArray(int *arr) {<br>    arr[1] = 100;  // Modify the second element<br>}<br><br>int main() {<br>    int arr[3] = {10, 20, 30};<br>    modifyArray(arr);<br>    printf(&quot;arr[1] = %d\n&quot;, arr[1]);  // Prints the modified value<br><br>    return 0;<br>}<br><br><br><strong>Output : <br>++++++<br></strong>arr[1] = 100<strong><br><br><br>3.5. Array of Pointers : <br><br></strong>You can also have an array of pointers, where each element of the array is a pointer to a variable or an array.<br><strong><br>Example : <br></strong>++++++++<strong><br><br></strong>int x = 10, y = 20, z = 30;<strong><br>  </strong>  int *arr[3] = {&amp;x, &amp;y, &amp;z};  // Array of pointers<strong><br><br>    </strong>for (int i = 0; i &lt; 3; i++) {<strong><br>        </strong>printf(&quot;*arr[%d] = %d\n&quot;, i, *arr[i]); // Dereferencing each pointer<strong><br></strong>   <strong> }<br><br><br>Output :<br>+++++++<br></strong>*arr[0] = 10<strong><br></strong>*arr[1] = 20<strong><br></strong>*arr[2] = 30
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message10">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 23:21:07 UTC+05:30">
+23:21
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+4. Pointer to Pointer in C : <br>======================<br><br>A <strong>pointer to pointer</strong> is a pointer that stores the address of another pointer. In other words, it points to the memory location of another pointer, which in turn points to a variable.<br><br><strong>4.1. Syntax of Pointer to Pointer<br></strong>----------------------------------------------------<br><br><pre>type **pointer_name;<br></pre><br><br>Example : <br>+++++++|<br><pre>int x = 10;<br>int *ptr = &amp;x;       // Pointer to an integer<br>int **ptr2 = &amp;ptr;   // Pointer to pointer (pointer to ptr)<br></pre><br><br><strong>4.2. Dereferencing Pointer to Pointer<br></strong>----------------------------------------------------------<br><br>To access the value of the variable x using a pointer to pointer, you need to dereference twice.<br><br>First dereference (*ptr2) will give you the address stored in ptr (which points to x).<br><br>Second dereference (**ptr2) will give you the value stored at the address ptr points to, which is x.<br><br>Example : <br>+++++++<br><pre>int x = 10;<br>    int *ptr = &amp;x;<br>    int **ptr2 = &amp;ptr;<br><br>    printf(&quot;Value of x = %d\n&quot;, **ptr2);  // Dereferencing twice to access x<br><br>Output : <br>++++++<br>Value of x = 10<br></pre><br><br>4.3. Modifying Value Using Pointer to Pointer<br>-----------------------------------------------------------------------<br><br>Since a pointer to pointer ultimately points to the address of a variable, you can modify the value of the variable using pointer to pointer.<br><br>Example : <br>+++++++++<br><pre>#include &lt;stdio.h&gt;<br><br>int main() {<br>    int x = 10;<br>    int *ptr = &amp;x;<br>    int **ptr2 = &amp;ptr;<br><br>    **ptr2 = 20;  // Modifying the value of x through pointer to pointer<br>    printf(&quot;Value of x = %d\n&quot;, x);<br><br>    return 0;<br>}<br><br>Output : <br>Value of x = 20<br><br></pre><br><br>4.4. <strong>Array of Pointers to Pointers : <br></strong>++++++++++++++++++++++++++++<br><br>Just like arrays of pointers, you can have an <strong>array of pointers to pointers</strong>. This allows you to create more complex data structures like a 2D array using pointers.<br><br>Example : <br>++++++++<br><br><pre>#include &lt;stdio.h&gt;<br><br>int main() {<br>    int x = 10, y = 20, z = 30;<br>    int *arr[3];  // Array of pointers<br>    int **ptr2 = arr;  // Pointer to pointer<br><br>    arr[0] = &amp;x;<br>    arr[1] = &amp;y;<br>    arr[2] = &amp;z;<br><br>    for (int i = 0; i &lt; 3; i++) {<br>        printf(&quot;Value = %d\n&quot;, **(ptr2 + i));  // Dereferencing pointer to pointer<br>    }<br><br>    return 0;<br>}<br><br>Output : <br>------------<br>Value = 10<br>Value = 20<br>Value = 30<br></pre><br><br><strong>Explanation</strong>: <code>ptr2</code> is a pointer to pointer, and <code>arr</code> is an array of pointers. You can access the values of <code>x</code>, <code>y</code>, and <code>z</code> through the array of pointers to pointers.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 23:38:12 UTC+05:30">
+23:38
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+<strong>5. Function Pointers in C : <br>======================</strong><br><br><strong>A function pointer</strong> is a pointer that points to a function instead of a variable. It allows you to call a function indirectly and is useful for situations where you need to pass a function as an argument to another function, or when you need to decide which function to call at runtime.<br><br><strong>5.1. Syntax of Function Pointers :</strong><br>-----------------------------------------------------<br><br><pre>Syntax : <br>------------<br>return_type (*pointer_name)(parameter_types);<br></pre><br><br>Example : <br>---------------<br><pre>int add(int a, int b) {<br>    return a + b;<br>}<br><br>int (*func_ptr)(int, int) = add;  // Declare function pointer and assign it to &apos;add&apos;<br></pre><br><br><strong>5.2. Calling a Function Using a Function Pointer :<br></strong><br>Once a function pointer is assigned to a function, you can call the function using the pointer. You can call the function through the pointer using either:<br><br>Using dereferencing: (*func_ptr)(a, b);<br>Directly using the pointer: func_ptr(a, b);<br><br><strong>Example : <br><br></strong><pre>#include &lt;stdio.h&gt;<br><br>int add(int a, int b) {<br>    return a + b;<br>}<br><br>int main() {<br>    int (*func_ptr)(int, int) = add;  // Pointer to add function<br><br>    printf(&quot;Sum = %d\n&quot;, func_ptr(10, 20));  // Calling function through function pointer<br><br>}<br><br>Output : <br>-----------<br>Sum = 30</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 23:42:44 UTC+05:30">
+23:42
+       </div>
+
+       <div class="text">
+<strong>6. Pointers to Structures : <br>=====================<br><br></strong>A pointer to a structure is a pointer that points to a structure variable. It allows you to manipulate the contents of the structure indirectly using the pointer.<strong><br><br>6.1. Declaring Pointers to Structure<br>-------------------------------------------------<br><br></strong>To declare a pointer to a structure, you need to use the struct keyword followed by the structure type and then the pointer variable.<br><br><pre>Syntax : <br>----------<br>struct struct_name *pointer_name;<br><br>Example : <br>---------------<br>struct Person {<br>    char name[50];<br>    int age;<br>};<br><br>struct Person *personPtr;<br></pre><br><br>6.2. Accessing Structure Members Using Pointer :<br>-------------------------------------------------------------------------------<br><br>To access the members of a structure through a pointer, you need to use the -&gt; operator. This is called the arrow operator.<br><br><br><pre>-------------<br>pointer_name -&gt; member_name<br><br>Example : <br>-------------<br>#include &lt;stdio.h&gt;<br><br>struct Person {<br>    char name[50];<br>    int age;<br>};<br><br>int main() {<br>    struct Person person1 = {&quot;Alice&quot;, 25};<br>    struct Person *personPtr = &amp;person1;  // Pointer to structure<br><br>    // Accessing structure members using pointer<br>    printf(&quot;Name: %s\n&quot;, personPtr-&gt;name);<br>    printf(&quot;Age: %d\n&quot;, personPtr-&gt;age);<br>    printf(&quot;Name : %s\n&quot;, person1.name);<br>    printf(&quot;AGe : %s\n&quot;, person1.age);<br><br>    return 0;<br>}<br></pre><br><br>6.3. Passing Structures to Functions Using Pointers<br>-----------------------------------------------------------------------------------<br><br>When you pass a structure to a function, it is passed by value by default, meaning a copy of the structure is passed. However, if you pass a pointer to a structure, the function can modify the original structure.<br><br><br>Example : <br>----------------<br><a href="" onclick="return ShowHashtag(&quot;include&quot;)">#include</a> &lt;stdio.h&gt;<br><br>struct Person {<br>    char name[50];<br>    int age;<br>};<br><br>void updateAge(struct Person *personPtr) {<br>    personPtr-&gt;age = 35;  // Modify original structure<br>}<br><br>int main() {<br>    struct Person person1 = {&quot;Alice&quot;, 25};<br>    struct Person *personPtr = &amp;person1;<br><br>    printf(&quot;Before: %s, Age: %d\n&quot;, personPtr-&gt;name, personPtr-&gt;age);<br><br>    updateAge(personPtr);  // Passing pointer to structure<br><br>    printf(&quot;After: %s, Age: %d\n&quot;, personPtr-&gt;name, personPtr-&gt;age);<br><br>    return 0;<br>}<br><br>Output:<br>-----------<br>Before: Alice, Age: 25<br>After: Alice, Age: 35<code>`</code>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message13">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 23:50:44 UTC+05:30">
+23:50
+       </div>
+
+       <div class="text">
+Arrays
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message14">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.01.2025 23:52:56 UTC+05:30">
+23:52
+       </div>
+
+       <div class="text">
+<strong>Arrays in C : <br>=========<br><br>1. Declaring Arrays : <br>------------------------------<br></strong><br><pre>Example : <br>int arr[5]; // Declares an array of 5 integers<br></pre><br><br>2. Initializing Arrays : <br>----------------------------<br><br><pre>int arr[5] = {1, 2, 3, 4, 5}; // Initialize an array with values<br><br>c<br>int arr[5] = {1, 2}; // First two elements are initialized, rest are 0<br><br>c<br>int arr[] = {1, 2, 3, 4, 5}; // Array size is 5<br></pre><br><br>3. Accessing Array Elements<br>----------------------------------------<br><br><pre>int arr[5] = {1, 2, 3, 4, 5};<br><br>printf(&quot;%d\n&quot;, arr[0]); // Outputs 1<br>printf(&quot;%d\n&quot;, arr[2]); // Outputs 3<br></pre><br><br>4. Memory Representation of Arrays<br>---------------------------------------------------------<br><br><pre>int arr[5] = {1, 2, 3, 4, 5};<br>int *ptr = arr; // Pointer to the first element of the array<br>printf(&quot;%d\n&quot;, *ptr); // Outputs 1 (first element of arr)<br></pre><br><br>5. String Representation as Arrays<br>--------------------------------------------------------<br><br><pre>char str[6] = &quot;Hello&quot;;  // The array includes the null terminator<br>printf(&quot;%s\n&quot;, str);  // Outputs: Hello<br></pre><br><br>6. Array of Pointers<br>-------------------------------<br><br><pre>char *arr[3] = {&quot;Hello&quot;, &quot;World&quot;, &quot;C Programming&quot;};<br>printf(&quot;%s\n&quot;, arr[0]);  // Outputs &quot;Hello&quot;</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+7 January 2025
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message15">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 00:05:57 UTC+05:30">
+00:05
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+Strings in C
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message16">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 00:06:46 UTC+05:30">
+00:06
+       </div>
+
+       <div class="text">
+<strong>Strings in C : <br></strong>==========<br><br>In C, <strong>strings</strong> are treated as arrays of characters. A string in C is a sequence of characters terminated by a <strong>null character</strong> (<code>&apos;\0&apos;</code>). C does not have a built-in string type like some other languages, but it provides functions in the standard library to manipulate arrays of characters.<br><br>1. Declaring Strings :<br>--------------------------------<br>A string in C is declared as a <strong>character array</strong>. The string is terminated with the null character <code>&apos;\0&apos;</code> automatically when you initialize the array with a string literal.<br><br><pre>char str[size];<br></pre><br><br>Or, you can declare and initialize a string directly:<br><br><pre>char str[] = &quot;Hello&quot;;<br>char str[6] = &quot;Hello&quot;;  // 5 characters + null terminator<br></pre><br><br>In this example, <code>str</code> is an array of characters that can hold 6 characters: the 5 characters in <code>&quot;Hello&quot;</code> and the null terminator <code>&apos;\0&apos;</code>.<br><br><br><strong>2. Initializing Strings : <br>-----------------------------------<br><br></strong><pre>c<br>char str[] = &quot;Hello&quot;;<br>char str[6] = {&apos;H&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;, &apos;\0&apos;};<br>char str[10] = &quot;Hello&quot;; // Declare a string with more space than needed<br>char *str = &quot;Hello&quot;;</pre><br><br>3. String Representation in Memory : <br>---------------------------------------------------<br><br>A string in C is an array of characters, and each character in the string occupies one byte. The last character of a string is always the null terminator (&apos;\0&apos;), which indicates the end of the string.<br><br><pre>Example:<br><br>char str[] = &quot;Hello&quot;;<br><br>In memory, the string is stored as:<br><br>&apos;H&apos; &apos;e&apos; &apos;l&apos; &apos;l&apos; &apos;o&apos; &apos;\0&apos;</pre><br><br>4. Accessing String Elements : <br>-------------------------------------------<br><br><pre>#include &lt;stdio.h&gt;<br><br>int main() {<br>    char arr[] = &quot;Hello1&quot;;<br>    printf(&quot;%s\n&quot;, arr);<br>    printf(&quot;%s\n&quot;, arr + 1);<br>    printf(&quot;%c\n&quot;, *(arr));<br>    printf(&quot;%c\n&quot;, *(arr + 1));<br><br>    return 0;<br>}</pre><br><br>NOTE : <br>When you print the char[] array of char *p using variable reference, as the variable is pointing the first element of the array, it characters from that 1st memory location till it sees the terminal character &apos;\0&apos;.<br><br>Suppose if it doesn&apos;t see any of the &apos;\0&apos; character, it keep on printing.<br><br>That&apos;s why &apos;\0&apos; is important in c at the end of char[] arr.<br><br>And another thing is if you want to store the string &quot;Hello&quot; in a char[] array. Use below 1st option. Don&apos;t use 2nd option.<br><br><pre>1st Option : <br>-------------------<br>char str[6] = &quot;Hello&quot;; // automatically includes &apos;\0&apos; at the end.<br>char str[] = &quot;Hello&quot;; // automatically includes &apos;\0&apos; at the end.<br><br>2nd Option :<br>--------------------<br>char str[5] = &quot;Hello&quot;; // doesn&apos;t have space to include &apos;\0&apos;. Hence it is unterminated string. it may cause unexpected behaviour.<br></pre><br><br>NOTE : <br>If you use something like char str[5] = &quot;Hello&quot;, as there is no space to include &apos;\0&apos;, the string will not be terminated. Hence when you try to print &quot;str&quot;, it may prints str followed by some other values stored in next memory location.<br> <br>5. String Functions in C : <br>----------------------------------<br><br><pre>strlen(): Returns the length of the string (excluding the null terminator).<br>strcpy(): Copies a string to another string.<br>strcat(): Concatenates two strings.<br>strcmp(): Compares two strings.<br>strchr(): Finds the first occurrence of a character in a string.<br>strstr(): Finds the first occurrence of a substring in a string.<br></pre><br><br>6. String Input and Output : <br>------------------------------------------<br><br>Warning: scanf() stops reading at the first whitespace, so it&apos;s better to use fgets() for reading full lines with spaces.<br><br><pre>#include &lt;stdio.h&gt;<br><br>int main() {<br>    char str[100];<br><br>    printf(&quot;Enter a string: &quot;);<br>    fgets(str, sizeof(str), stdin);  // Read a line of input<br>    printf(&quot;You entered: %s&quot;, str);<br><br>    return 0;<br>}</pre>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message17">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 00:34:42 UTC+05:30">
+00:34
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+Printf and Scanf :
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message18">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 00:44:41 UTC+05:30">
+00:44
+       </div>
+
+       <div class="text">
+<strong>Printf and Scanf : <br>==============<br><br>1. </strong><code>printf()</code><strong> - Printing Output<br><br></strong><pre>Syntax :<br>-----------<br>int printf(const char *format, ...);<br>int scanf(const char *format, ...);</pre><br><br>Format Specifiers : <br>===============<br><br><pre>%d or %i: Prints an integer (signed decimal).<br>%u: Prints an unsigned integer.<br>%f: Prints a floating-point number.<br>%c: Prints a single character.<br>%s: Prints a string (array of characters).<br>%p: Prints a pointer (address in memory).<br>%x or %X: Prints a hexadecimal number.</pre><br><br>Return Values : <br>---------------------<br><br>The printf() function returns the number of characters successfully written to the output stream, not including the null terminator \0.<br><br>The scanf() function returns the number of successfully matched and assigned input items. This indicates how many inputs were successfully read and assigned to the provided variables.<br><br><br>Example : <br>-------------<br><pre>int num = 10;<br>int result = printf(&quot;The value of num is: %d\n&quot;, num);<br>printf(&quot;Number of characters printed: %d\n&quot;, result);</pre><br><br>Output :<br>----------<br>The value of num is: 10<br>Number of characters printed: 24<br><br><pre>    int num1, num2;<br>    int result = scanf(&quot;%d %d&quot;, &amp;num1, &amp;num2);<br><br>    if (result == 2) {<br>        printf(&quot;You entered: %d and %d\n&quot;, num1, num2);<br>    } else {<br>        printf(&quot;Input error or not enough values.\n&quot;);<br>    }<br></pre><br><strong><br>Output : <br>----------<br></strong><br>Enter two integers: 5 10<br>You entered: 5 and 10
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message19">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 23:35:36 UTC+05:30">
+23:35
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+Data Types in C :<br>=============
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message20">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 23:36:27 UTC+05:30">
+23:36
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/C Apt/photos/photo_1@07-01-2025_23-36-27.jpg">
+
+         <img class="photo" src="../../notes/C Apt/photos/photo_1@07-01-2025_23-36-27_thumb.jpg" style="width: 260px; height: 177px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+Data Types in C :<br>===============<br><br>Values will wrap around when the range exceeds
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message21">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 23:38:47 UTC+05:30">
+23:38
+       </div>
+
+       <div class="text">
+Example : <br>========<br><br><pre>#include &lt;stdio.h&gt;<br>#include &lt;limits.h&gt;<br>#include &lt;float.h&gt;<br><br>int main() {<br>    // char data type<br>    char signedChar = &apos;A&apos;;              // Stores a character<br>    unsigned char unsignedChar = 255;  // Max value for unsigned char<br><br>    // int data type<br>    int signedInt = -12345;            // Signed integer<br>    unsigned int unsignedInt = 12345; // Unsigned integer<br><br>    // short data type<br>    short signedShort = -30000;          // Signed short<br>    unsigned short unsignedShort = 60000; // Unsigned short<br><br>    // long data type<br>    long signedLong = -2147483647;        // Signed long<br>    unsigned long unsignedLong = 4294967295; // Unsigned long<br><br>    // long long data type<br>    long long signedLongLong = -9223372036854775807; // Signed long long<br>    unsigned long long unsignedLongLong = 18446744073709551615ULL; // Unsigned long long<br><br>    // float data type<br>    float floatVar = 3.14159f;  // Floating-point number<br><br>    // double data type<br>    double doubleVar = 2.718281828459; // Double-precision floating-point<br><br>    // void data type (used with pointers, here just an example)<br>    void *voidPointer = &amp;signedInt;<br><br>    // Printing all data types<br>    printf(&quot;Data Types in C:\n&quot;);<br><br>    // char<br>    printf(&quot;Signed char: %c (ASCII value: %d)\n&quot;, signedChar, signedChar);<br>    printf(&quot;Unsigned char: %u\n&quot;, unsignedChar);<br><br>    // int<br>    printf(&quot;Signed int: %d\n&quot;, signedInt);<br>    printf(&quot;Unsigned int: %u\n&quot;, unsignedInt);<br><br>    // short<br>    printf(&quot;Signed short: %d\n&quot;, signedShort);<br>    printf(&quot;Unsigned short: %u\n&quot;, unsignedShort);<br><br>    // long<br>    printf(&quot;Signed long: %ld\n&quot;, signedLong);<br>    printf(&quot;Unsigned long: %lu\n&quot;, unsignedLong);<br><br>    // long long<br>    printf(&quot;Signed long long: %lld\n&quot;, signedLongLong);<br>    printf(&quot;Unsigned long long: %llu\n&quot;, unsignedLongLong);<br><br>    // float<br>    printf(&quot;Float: %.5f\n&quot;, floatVar);<br><br>    // double<br>    printf(&quot;Double: %.12f\n&quot;, doubleVar);<br><br>    // void pointer<br>    printf(&quot;Void pointer points to signed int: %d\n&quot;, *(int *)voidPointer);<br><br>    return 0;<br>}<br></pre><br><br>Output : <br>=======<br><br><pre>Data Types in C:<br>Signed char: A (ASCII value: 65)<br>Unsigned char: 255<br>Signed int: -12345<br>Unsigned int: 12345<br>Signed short: -30000<br>Unsigned short: 60000<br>Signed long: -2147483647<br>Unsigned long: 4294967295<br>Signed long long: -9223372036854775807<br>Unsigned long long: 18446744073709551615<br>Float: 3.14159<br>Double: 2.718281828459<br>Void pointer points to signed int: -12345<br></pre><br><br><strong>Note :</strong> In the last output, we use (int *) to case void pointer to int pointer
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message22">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 23:47:09 UTC+05:30">
+23:47
+       </div>
+
+       <div class="text">
+Structures and Unions :<br>====================
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message23">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 23:47:26 UTC+05:30">
+23:47
+       </div>
+
+       <div class="text">
+Structures and Unions : <br>==================<br><br>1. Structures in C :<br>-----------------------------<br><br>A <strong>structure</strong> is a collection of variables (of different data types) grouped together under a single name. Structures are used to represent a record.<br><br>Example : <br>---------------<br><br><pre>#include &lt;stdio.h&gt;<br><br>// Defining a structure<br>struct Employee {<br>    int id;<br>    char name[50];<br>    float salary;<br>};<br><br>int main() {<br>    // Declaring and initializing a structure variable<br>    struct Employee emp1 = {101, &quot;Alice&quot;, 75000.50};<br><br>    // Accessing structure members<br>    printf(&quot;Employee ID: %d\n&quot;, emp1.id);<br>    printf(&quot;Employee Name: %s\n&quot;, emp1.name);<br>    printf(&quot;Employee Salary: %.2f\n&quot;, emp1.salary);<br><br>    return 0;<br>}<br></pre><br><br>Example 2 : <br>==========<br><pre>#include &lt;stdio.h&gt;<br><br>// Defining a structure<br>struct Employee {<br>    int id;<br>    char name[50];<br>    float salary;<br>};<br><br>int main() {<br>    // Declaring a structure variable<br>    struct Employee emp1;<br><br>    // Assigning values to the structure members<br>    emp1.id = 101;<br>    // Use `strcpy` to assign a string to the `name` member<br>    strcpy(emp1.name, &quot;Alice&quot;);<br>    emp1.salary = 75000.50;<br><br>    // Accessing structure members<br>    printf(&quot;Employee ID: %d\n&quot;, emp1.id);<br>    printf(&quot;Employee Name: %s\n&quot;, emp1.name);<br>    printf(&quot;Employee Salary: %.2f\n&quot;, emp1.salary);<br><br>    return 0;<br>}<br></pre><br><br><strong>NOTE : </strong>Members of a structure are stored in contiguous memory locations.<br><br><strong>NOTE :</strong> You don&apos;t want to use new keyword to create object for struct as in java. just declare and assign value when you want.<br><br>2. Unions in C <br>----------------------<br><br>A union is similar to a structure, but with a key difference: all members share the same memory location. This means only one member can store a value at any given time.<br><br>Example : <br><br><pre>#include &lt;stdio.h&gt;<br><br>// Defining a union<br>union Data {<br>    int i;<br>    float f;<br>    char str[20];<br>};<br><br>int main() {<br>    // Declaring a union variable<br>    union Data data;<br><br>    // Assigning and accessing values<br>    data.i = 10;<br>    printf(&quot;Integer: %d\n&quot;, data.i);<br><br>    data.f = 3.14;<br>    printf(&quot;Float: %.2f\n&quot;, data.f);<br><br>    // Assigning and accessing string<br>    snprintf(data.str, sizeof(data.str), &quot;Hello&quot;);<br>    printf(&quot;String: %s\n&quot;, data.str);<br><br>    return 0;<br>}<br></pre><br><br><strong>NOTE : <br>======</strong><br>1. Use <strong>structures</strong> when you need to store and access multiple members simultaneously.<br>2. Use <strong>unions</strong> when you want to save memory and only one member is used at a time.<br><br><br><strong>NOTE 2 : <br>======<br></strong>In java, classes, Enums are user defined data types. Similarly in C, struct and union are user defined data types.<br><br>But In java, we use keywords &apos;class&apos; and &apos;enum&apos; only to define the data type. But in c, we use keywords &apos;struct&apos; and &apos;union&apos; for both definition and initialization(declaration).<br><br>This is the most confusing part. So be careful.<br><br><br><strong>NOTE 3 :<br>=======</strong><br>The size of a struct is combination of all the member variables of a struct.<br>But the size of union is the size of largest data type available in the union. All the variable of union use shared memory location.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message24">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.01.2025 23:57:14 UTC+05:30">
+23:57
+       </div>
+
+       <div class="text">
+Dynamic Memory Allocation : <br>======================
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-3">
+
+      <div class="body details">
+8 January 2025
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message25">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.01.2025 00:02:54 UTC+05:30">
+00:02
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+<strong>Dynamic Memory Allocation in C : <br>============================</strong><br><br><strong>malloc()</strong>  -&gt; Allocates a block of memory but doesn’t initialize it.<br><strong>calloc() </strong>  -&gt; Allocates and initalizes memory with 0.<br><strong>realloc()</strong>  -&gt; Resizes a previously allocated memory block.<br>free()       -&gt; Frees the allocated memory and returns it to system.<br><br>NOTE : <br>-----------<br><code>malloc()</code> and <code>calloc()</code> return a <code>void *</code> pointer, which needs to be cast to the appropriate type.<br><br>Example : <br>=========<br><br><pre>int *arr = (int *)malloc(5 * sizeof(int));  // Allocate memory for 5 integers<br><br>int *arr1 = (int *)calloc(5, sizeof(int));  // Allocates and initializes to zero<br><br>arr = (int *)realloc(arr, 10 * sizeof(int)); // Resize the array to hold 5 integers<br><br>free(arr);  // Free the allocated memory<br></pre><br><br>NOTES : <br>======<br>* Static Arrays are defined at compile time. They are stored in Stack.<br>* Dynamics arrays are created using malloc() and calloc(). They are stored in heap.<br><br><br><strong>Array Memory allocation in C and Java : <br>================================</strong><br># In java, memory for array is allocated in the <strong>heap</strong>.<br># In C, memory for array is allocated in <strong>stack</strong>. But if you want to dynamically allocate in <strong>heap</strong>, then only you can use malloc(), calloc(),..
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message26">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.01.2025 00:08:00 UTC+05:30">
+00:08
+       </div>
+
+       <div class="text">
+Macros in C : <br>==========
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message27">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.01.2025 00:09:36 UTC+05:30">
+00:09
+       </div>
+
+       <div class="text">
+<strong>Macros in C : <br>===========</strong><br>Used to define constants or macros (code snippets).<br><br>Syntax : <br>-------------<br><br><pre>#define MACRO_NAME replacement_text<br></pre><br><br>Example : <br>----------------<br><br><pre>#include &lt;stdio.h&gt;<br>#define PI 3.14<br>#define SQUARE(x) ((x) * (x)) // Macro with arguments<br><br>int main() {<br>    printf(&quot;Value of PI: %f\n&quot;, PI);<br>    printf(&quot;Square of 5: %d\n&quot;, SQUARE(5));<br>    return 0;<br>}<br></pre><br><br>NOTE : MACROS are not evaluated. They just define things. They are evaluated once they got replaced in the program.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message28">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.01.2025 00:11:36 UTC+05:30">
+00:11
+       </div>
+
+       <div class="text">
+<strong>Reference : <br>=========</strong><br>Chatgpt : <a href="https://chatgpt.com/share/677c12a7-6c54-8005-9b29-b217da44cfba">https://chatgpt.com/share/677c12a7-6c54-8005-9b29-b217da44cfba</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-4">
+
+      <div class="body details">
+9 January 2025
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message29">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="09.01.2025 08:17:07 UTC+05:30">
+08:17
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message18" onclick="return GoToMessage(18)">this message</a>
+       </div>
+
+       <div class="text">
+<strong>Printf and Scanf Extension : <br>=======================<br><br></strong><pre>char arr[6]; <br>scanf(&quot;%s&quot;, arr); // input : &apos;jawahirullah&apos;<br>printf(&quot;%s&quot;, arr); // output : &apos;jawahirullah&apos;<br></pre><strong><br><br></strong>The reason why eventhough the input string exceeds the arr size and it prints correctly is the value &apos;jawahi&apos; is only stored in arr.<strong> <br></strong>But what scanf does is, it reads and writes to consecutive next location after arr without including &apos;\0&apos; inbetween. <strong><br></strong>Hence, it results as &apos;jawahirullah&apos; instead of &apos;jawah&apos;. <strong><br><br></strong>The terminator (&apos;\0&apos;) is stored at the end of &apos;jawahirullah&apos;<strong><br><br></strong>But always declare enough more size for char[]. it results in unexpected behaviour.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message30">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="09.01.2025 23:44:10 UTC+05:30">
+23:44
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="text">
+<strong>Difference Between Arrays and Pointers : <br>=================================</strong>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message31">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="09.01.2025 23:48:13 UTC+05:30">
+23:48
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/C Apt/photos/photo_2@09-01-2025_23-48-13.jpg">
+
+         <img class="photo" src="../../notes/C Apt/photos/photo_2@09-01-2025_23-48-13_thumb.jpg" style="width: 260px; height: 84px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+<strong>Difference Between Arrays and Pointers : <br>================================<br><br>1. Array :<br><br># </strong>An array is a collection of elements stored in contiguous memory locations.<br><strong><br># </strong>The name of the array (arr) represents the address of the first element in most contexts, but it is not a pointer. It is a label for a block of memory.<br><strong><br>#</strong> Its size is fixed and determined at compile-time (e.g., char arr[5] allocates 5 bytes for the array).<br><strong><br><br>2. Pointer : <br><br># </strong>A pointer is a variable that stores the address of another variable or memory location.<br><strong><br># </strong>The pointer itself has its own memory location and size (e.g., 4 bytes on 32-bit systems, 8 bytes on 64-bit systems).<br><strong><br># </strong>A pointer can point to different memory locations during runtime, but an array&apos;s base address is constant.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-5">
+
+      <div class="body details">
+10 January 2025
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message32">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+C
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="10.01.2025 07:54:41 UTC+05:30">
+07:54
+       </div>
+
+       <div class="from_name">
+C Apt 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/C Apt/photos/photo_3@10-01-2025_07-54-41.jpg">
+
+         <img class="photo" src="../../notes/C Apt/photos/photo_3@10-01-2025_07-54-41_thumb.jpg" style="width: 260px; height: 250px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+<strong>Operator Precedence : <br>==================</strong><br><strong>NOTE : </strong>In C, == has higher precedence than =.<br><br>Unary operators have higher precedence. That&apos;s why they are executing before everything.
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

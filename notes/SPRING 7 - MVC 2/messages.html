@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+SPRING 7 : MVC 2 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+24 October 2023
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;Spring MVC&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:47:56 UTC+05:30">
+17:47
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>Spring MVC Tutorial : <br>==============<br><br>Steps to configure Spring MVC : <br>=====================<br><br></strong>1. Create maven project and add spring context, spring MVC dependencies.<br>2. Create &lt;servlet&gt; tag for Dispatcher servlet.<br>3. So, we have to create separate spring configuration file with name of &quot;dispatcher-servlet.xml&quot;.<br>4. In that configuration file, we have to define controllers or we have use <strong>&lt;context:component-scan&gt;</strong> to create bean.<br>5. Create <a href="https://t.me/Controller">@Controller</a> and <a href="https://t.me/RequestMapping">@RequestMapping</a>.<br>6. Create bean for &quot;<strong>InternalResourceViewResolver</strong>&quot; with &quot;prefix&quot; and &quot;suffix&quot; properties.<br>7. Create view pages under &quot;WEB-INF&quot; folder.<br><br>NOTE : <br>i) An important point is we have to create<strong> src/main/java</strong> folder in spring mvc application. <strong>maven doesn&apos;t create us</strong> that folder. Don&apos;t forget to do this.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:48:36 UTC+05:30">
+17:48
+       </div>
+
+       <div class="text">
+<strong>How Dispatcher Servlet Works : <br>=====================<br></strong>1. Dispatcher servlet is also called frontcontroller.<br>2. When request comes to web server, as it is dynamic request, it sends to web container.<br>3. Web container looks web.xml file and forward the request to DispatcherServlet.<br>4. DispatcherServlet forward to handler.<br>5. Handler looks Bean objects in spring container.<br>6. As we use &lt;context:component-scan&gt; and all <a href="https://t.me/Controller">@Controller</a> will be created as bean.<br>7. Then url-patterns are matched using <a href="https://t.me/RequestMapping">@RequestMapping</a> annotation. Then that particular request handler method in executed and it returns the &quot;View page file name&quot; or &quot;ModelAndView&quot; Object to DispatcherServlet.<br>8. DispatcherServlet seeks help of ViewResolver to find the correct physical location of the view file.<br>9. Then it returns the view file with providing the model information.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message4">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:49:21 UTC+05:30">
+17:49
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/SPRING 7 - MVC 2/photos/photo_1@24-10-2023_17-49-21.jpg">
+
+         <img class="photo" src="../../notes/SPRING 7 - MVC 2/photos/photo_1@24-10-2023_17-49-21_thumb.jpg" style="width: 260px; height: 173px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+Spring MVC Architecture
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message5">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:50:42 UTC+05:30">
+17:50
+       </div>
+
+       <div class="text">
+<strong>How to configure more than 1 xml bean files:<br>==============================<br></strong>There may be situation you want to separate beans configuration of spring mvc from business logic beans configuration. In that situation, you have to mention the names of all the configuration files in dispatcher servlet&apos;s config param.<br><br><strong>Example : <br>======<br></strong>&lt;servlet&gt;<br>  &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;<br>     &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;<br>  &lt;init-param&gt;<br>      &lt;param-name&gt;<strong>contextConfigLocation</strong>&lt;/param-name&gt;<br>      &lt;param-value&gt;<strong>/WEB-INF/beans.xml, </strong><a href="" onclick="return ShowBotCommand(&quot;WEB&quot;)">/WEB</a><strong>-INF/dispatcher-servlet.xml</strong>&lt;/param-value&gt;<br>  &lt;/init-param&gt;<br>&lt;/servlet&gt;<br><br><strong>📌Note : </strong>If you specify configuration files through<strong> &lt;inti-param&gt;</strong>, you have to mention the default configuration file also.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message6">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:52:07 UTC+05:30">
+17:52
+       </div>
+
+       <div class="text">
+<strong>Other ways to create controller :<br>======================<br></strong>You can create controller using <a href="https://t.me/Controller">@Controller</a> annotation. Or you also create controller by<strong> implementing Controller interface and creating bean</strong> for that. If you create bean by extending Controller interface, you have to provide the<strong> url as the name of the bean</strong>.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message7">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:53:57 UTC+05:30">
+17:53
+       </div>
+
+       <div class="text">
+<a href="https://t.me/PathVariable">@PathVariable</a><strong> :<br>===========<br></strong># In the Normal web applications, parameters are passed in query string. Example : <strong>&quot;</strong><a href="typerace.com/rank=2&amp;points=4">typerace.com/rank=2&amp;points=4</a>&quot;.<br>In this scenaria, to get parameters we use <a href="https://t.me/RequestParam">@RequestParam</a> annotations.<br><br># In the Restful web applications, parameters are passed in following pattern. Example : &quot;<a href="typeracer.com/2/4">typeracer.com/2/4</a>&quot;. There is no query string. In this scenario we use &quot;<a href="https://t.me/PathVariable">@PathVariable</a>&quot;.<br>To use this annotation, we have to mention the param names in <a href="https://t.me/RequestMapping">@RequestMapping</a> url pattern.<br><br>Example : <br><a href="https://t.me/RequestMapping">@RequestMapping</a>(&quot;<a href="typerace.com/{rank}/{points}">typerace.com/{rank}/{points}</a>&quot;)<br>public String method(<a href="https://t.me/PathVariable">@PathVariable</a>(&quot;rank&quot;) int rank, <a href="https://t.me/PathVariable">@PathVariable</a>(&quot;points&quot;) int points) {}
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message8">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:55:04 UTC+05:30">
+17:55
+       </div>
+
+       <div class="text">
+<strong>Using Map to catch </strong><a href="https://t.me/RequestParams">@RequestParams</a><strong> and </strong><a href="https://t.me/PathVariables">@PathVariables</a><strong> :<br>=======================================<br></strong>Suppose if you have more number of request parameters, you can put them in a single map, instead of use separate <a href="https://t.me/RequestParam">@RequestParam</a> or <a href="https://t.me/PathVariable">@PathVariable</a> for each paramter.<br><br>Example : <br>=======<br><a href="https://t.me/RequestMapping">@RequestMapping</a>(&quot;<a href="" onclick="return ShowBotCommand(&quot;add&quot;)">/add</a>&quot;)<br>public String add(<a href="https://t.me/RequestParam">@RequestParam</a><strong> Map&lt;String, String&gt; map</strong>)<br>{<br>    int num1 = map.get(&quot;num1&quot;);<br>    int num2 = map.get(&quot;num2&quot;);<br>}<br><br>📌<strong>NOTE :</strong> Here the parameter names and their values are stored in form of map.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message9">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 17:57:07 UTC+05:30">
+17:57
+       </div>
+
+       <div class="text">
+<strong>Mapping more than 1 url patterns for single handler method : <br>===================<br>Example : <br>======<br></strong><a href="https://t.me/RequestMapping">@RequestMapping</a>(<strong>path = {&quot;</strong><a href="" onclick="return ShowBotCommand(&quot;hi&quot;)">/hi</a><strong>&quot;, &quot;</strong><a href="" onclick="return ShowBotCommand(&quot;hello&quot;)">/hello</a><strong>&quot;}</strong>)<br>public String abc() {}<br>To achieve this, use<em> array of url</em> patterns.<br>In this example, function abc() will be called for both &quot;<a href="" onclick="return ShowBotCommand(&quot;hi&quot;)">/hi</a>&quot; and &quot;<a href="" onclick="return ShowBotCommand(&quot;hello&quot;)">/hello</a>&quot; url patterns.<br><br><strong>📌Note</strong> : Use <strong>defaultvalue</strong> attribute for <a href="https://t.me/RequestParam">@RequestParam</a> annotation to use default value for parameter. It will work if the user not give any value to that input field.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message10">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 18:00:45 UTC+05:30">
+18:00
+       </div>
+
+       <div class="text">
+<strong>ModelAndView :<br>=============<br></strong># In spring mvc application, controller will give raw data(Model) and view name separately to the front controller. To Bundle these two things, we have ModelAndView Object.<br># Inside ModelAndView Object, we set view name.<br># And also we add Model(datas) using addObject() method in form of key-value pair. Then we return this object.<br># Then view will use that keys to access that datas.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 18:38:32 UTC+05:30">
+18:38
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>Request Handler Method argument formats : <br>==========================<br></strong>1. With <a href="https://t.me/RequestParam">@RequestParam</a> arguments<br>2. With <a href="https://t.me/PathVariable">@PathVariable</a> arguments<br>3. With HttpServletRequest and HttpServletResponse arguments(By these you can access these 2 objects).<br>4. With Model Class argument.<br>5. With Map&lt;String, Object&gt; argument.<br><br>Note : <br>=====<br># Request Handler method can take Only Model Object as an argument. We can use this Model Object to add Data. You don&apos;t need to return ModelAndView. You only return name of the view in the form of String.<br># Similarly, Request Handler method can take only Map&lt;String, Object&gt; argument. If you put data into map, then automatically that datas are available in the view pages. You don&apos;t need to return map. YOu only return name of the view in the form of String.<br><br>For More info : <a href="https://youtu.be/6K1eRKyDrxo?si=aEYuqwDluB_Ph8Kd">https://youtu.be/6K1eRKyDrxo?si=aEYuqwDluB_Ph8Kd</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message12">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="24.10.2023 19:27:07 UTC+05:30">
+19:27
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>RequestDispatcher.forward() and Response.sendRedirect() : <br>==================================================<br></strong># If you want to forward the request to another url or page, make the request handler method return the following string.<br>return <strong>&quot;forward:/&lt;url-pattern&gt;&quot;<br></strong># If you want to redirect the request to another url or page, make the request handler method return the following string.<br>return <strong>&quot;redirect:/&lt;url-pattern&gt;&quot;</strong>.<br><br>Example : <br>========<br><a href="https://t.me/RequestMapping">@RequestMapping</a>(&quot;<a href="" onclick="return ShowBotCommand(&quot;x&quot;)">/x</a>&quot;)<br>public String abc() {<br>   return &quot;<strong>redirect:</strong><a href="" onclick="return ShowBotCommand(&quot;y&quot;)">/y</a>&quot;;<br>}<br><br><a href="https://t.me/RequestMapping">@RequestMapping</a>(&quot;<a href="" onclick="return ShowBotCommand(&quot;y&quot;)">/y</a>&quot;)<br>public String def() {<br>   return &quot;<strong>forward:</strong><a href="" onclick="return ShowBotCommand(&quot;view&quot;)">/view</a>&quot;;<br>}
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+27 October 2023
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message13">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.10.2023 15:29:16 UTC+05:30">
+15:29
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message12" onclick="return GoToMessage(12)">this message</a>
+       </div>
+
+       <div class="text">
+<a href="https://t.me/ModelAttribute">@ModelAttribute</a><strong> :<br>===============<br></strong>Normally, when the user fill the form, all the datas are taken separately either through HttpServletRequest or <a href="https://t.me/RequestParam">@RequestParam</a>. And then we create the object explicitly by those datas.<br>What if I tell you, &quot;You don&apos;t need to do all these nonsense stuff ? Spring does this for you.<br><br><strong>Ok! How to do this ?<br><br>Step 1:</strong> Add taglib directive for spring form in jsp file.<br><strong>Step 2:</strong> Use spring form tag and spring input tags, instead of using normal html tags.<br><strong>Step 3:</strong> Add &quot;modelAttribute&quot; attribute in spring form tag.<br><strong>Step 4:</strong> Add Model argument and add POJO empty object in calling method.<br><strong>Step 5: </strong>Add <a href="https://t.me/ModelAttribute">@ModelAttribute</a> annotation and POJO object argument in submitted method.<br><strong>Step 6:</strong> To resolve errors, add BindingResult argument.<br><strong>Step 7:</strong> Add &lt;mvc:annotation-driver/&gt; tag in dispatcher-servlet.xml.<br><strong>Step 8:</strong> Automatically, the POJO is merged.<br><br><strong>REFER :</strong> <a href="https://www.baeldung.com/spring-mvc-and-the-modelattribute-annotation">https://www.baeldung.com/spring-mvc-and-the-modelattribute-annotation</a>.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message14">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.10.2023 17:54:19 UTC+05:30">
+17:54
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>Bean Validation in spring : <br>======================<br><br></strong>During, automatic binding of the Bean object, we have to use validation. For that we have hibernate validator.<br><br><strong>Step 1 : </strong>We have to add hibernate validator dependency.<br><strong>Step 2 : </strong>We have set of annotations for bean validations. So, we have to add that annotations for POJO&apos;s properties.<br>Example : <a href="https://t.me/NotEmpty">@NotEmpty</a>, <a href="https://t.me/NotNull">@NotNull</a>, <a href="https://t.me/Email">@Email</a>, @Min and so on.<br><strong>Step 3 :</strong> And inside those annotations, we have one attribute called &quot;message&quot;. Here we can specify the error message.<br><strong>Step 4 :</strong> At Last add &lt;form:error&gt; tag after every &lt;form:input&gt; tag in jsp file inside spring form.<br><strong>Step 5 : </strong>Now automatically the error messages will print on our web page.<br><br>By this hibernate validator and annotations, we can do spring bean validation.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message15">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.10.2023 17:58:24 UTC+05:30">
+17:58
+       </div>
+
+       <div class="text">
+<strong>message . properties file : <br>=====================<br></strong>In the above tutorial, we mention error messages for each bean property in message attribute.<br>But, There is the most recommended way is &quot;mention all the error messages for bean validation inside separate properties file&quot;.<br><br># Create <a href="message.properties">message.properties</a> file under <a href="" onclick="return ShowBotCommand(&quot;WEB&quot;)">/WEB</a>-INF folder.<br># Add every error message in the following format.<br>&lt;Annotation-name&gt;.&lt;modal-attribute-name&gt;.&lt;bean&apos;s property name&gt;=&lt;message you want to print&gt;<br># Create bean for &quot;ReloadableResourceBundleMessageSource&quot; class using xml configuration with id = &quot;messageSource&quot;.<br># Add basename = &quot;<a href="" onclick="return ShowBotCommand(&quot;WEB&quot;)">/WEB</a>-INF/&lt;filename&gt;&quot;.<br><br>Example : <br>========<br><a href="message.properties">message.properties</a><br>——————————<br><a href="NotEmpty.user.email">NotEmpty.user.email</a>=Email can&apos;t be empty<br><a href="Email.user.email">Email.user.email</a>=Enter valid email address<br>NotNull.user.age=Age can&apos;t be empty<br><br>dispatcher-servlet.xml<br>——————————-<br>&lt;bean id=&quot;messageSource&quot; class=&quot;org.springframework.context.support.ReloadableResourceBundleMessageSource&quot;&gt;<br>    &lt;property name=&quot;basename&quot; value=&quot;<a href="" onclick="return ShowBotCommand(&quot;WEB&quot;)">/WEB</a>-INF/messages&quot;&gt;&lt;/property&gt;<br>&lt;/bean&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message16">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.10.2023 21:51:29 UTC+05:30">
+21:51
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>Custom Bean Validation :<br>=====================<br>Step 1 :</strong> Create Annotation and add required attributes and also add groups and payload.<br><strong>Step 2 :</strong> Add <a href="https://t.me/Documented">@Documented</a>, <a href="https://t.me/Retention">@Retention</a>, <a href="https://t.me/Target">@Target</a>.<br><strong>Step 3 :</strong> Create class which extends Constraint Validator.<br><strong>Step 4:</strong> Override initialize() to initialize annotation variable. Override isValid() and write validation Logic.<br><strong>Step 5 :</strong> Add Custom Annotation in the Bean Class.<br><br><strong>Example : <br>========<br><br></strong><a href="Voter.java">Voter.java</a><strong><br>—————<br></strong>public class Voter {<br><br><strong>@Age(min = 18, max = 60)<br></strong>private int age;<br><br>//getter and setter<br>}<br><br>=========================<br><br><a href="Age.java">Age.java</a><strong><br>————<br></strong><a href="https://t.me/Documented">@Documented</a><br><a href="https://t.me/Retention">@Retention</a>(RetentionPolicy.RUNTIME)<br><a href="https://t.me/Target">@Target</a>(ElementType.FIELD)<br><a href="https://t.me/Constraint">@Constraint</a>(validatedBy = AgeValidator.class)<br>public <a href="https://t.me/interface">@interface</a> Age{<br><br>int min() default 0;<br>int max() default 0;<br>String message() default &quot;Enter valid age&quot;;<br>Class&lt;?&gt;[] groups() default { };<br>Class&lt;? extends Payload&gt;[] payload() default { };<br><br>}<br><br>===========================<br><br><a href="AgeValidator.java">AgeValidator.java</a><strong><br>————————-<br></strong>public class AgeValidator implements ConstrainValidator&lt;Age, Integer&gt; {<br><br>int  minAge;<br>int maxAge;<br><br><a href="https://t.me/Override">@Override</a><br>public void initialize(Age ageConstraints) {<br>minAge = ageConstraints.min();<br>maxAge = ageConstraints.max();<br>}<br><br><a href="https://t.me/Override">@Override</a><br>public boolean isValid(Integer age, ConstraintValidatorContext context) {<br>if(age &lt; minAge || age &gt; maxAge) {<br>return false;<br>}<br><br>return true;<br>}<br><br>}
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-3">
+
+      <div class="body details">
+28 October 2023
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message17">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.10.2023 15:17:33 UTC+05:30">
+15:17
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/InitBinder">@InitBinder</a><strong> Annotation :<br>=====================<br><br></strong>By using <a href="https://t.me/ModelAttribue">@ModelAttribue</a> and spring form,<br>i) Integer datas are bind with int type<br>ii) Words are bind with String type<br><br>But, how dates are bind with dates? To resolve this problem, we have <a href="https://t.me/InitBinder">@InitBinder</a> method.<br><br><a href="https://t.me/InitBinder">@InitBinder</a> annotation is applicable for method. That method will be called with &quot;WebDataBinder&quot; argument. We have to register the custom editors into that binder for particular class and also for particular property of POJO class.<br><br><strong>Example : <br>========<br></strong><a href="https://t.me/InitBinder">@InitBinder</a><br>protected void initBinder(WebDataBinder binder) {<br>   DateFormat formatter = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);<br>   binder.registerCustomEditor(Date.class, &quot;dob&quot;, new CustomDateEditor(formatter, false));<br>}<br><br>In the above example, this method will executed when you are binding Spring form with POJO object. When the POJO object contains Date type property, then automatically thin <a href="https://t.me/InitBinder">@InitBinder</a> method will be executed. And The user entered format is converted into DateFormat format and parse with &quot;dob&quot; property in POJO class.<br><br>=======================<br><br>You can also create your own Property Editor. Suppose, the user entered a string. And you want to store the data into uppercase into your object. For this you can use this custom editor. To do this, <br><strong>Step 1 :</strong> Create class which extends PropertyEditorSupport<br><strong>Step 2 :</strong> Override setAsText(String value) method.<br><strong>Step 3 :</strong> make changes to the value and call setValue() method.<br><strong>Step 4 :</strong> Register Custom Editor into WebDataBinder in <a href="https://t.me/InitBinder">@InitBinder</a> method.<br><br>Example : <br>========<br><a href="NameEditor.java">NameEditor.java</a><strong><br>————————<br><br></strong>public class NameEditor extends PropertyEditorSupport {<br>   <a href="https://t.me/Override">@Override</a><br>    public void setAsText(String text) throws IllegalArgumentException {<br>        String newName = text.toUpperCase() + &quot; .M&quot;;<br>        super.setValue(newName);<br>}<br>}<br><br><a href="Controller.java">Controller.java</a><br>———————<br><br><a href="https://t.me/InitBinder">@InitBinder</a><br>protected void initBinder(WebDataBinder binder) {<br>   DateFormat formatter = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);<br>   binder.registerCustomEditor(Date.class, &quot;dao&quot;, new CustomDateEditor(formatter, false));<br> <strong>  binder.registerCustomEditor(String.class, &quot;name&quot;, new NameEditor());<br></strong>   System.out.println(&quot;I am here&quot;);<br>}
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message18">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.10.2023 16:24:09 UTC+05:30">
+16:24
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>Interceptors : <br>===========<br></strong>This are something like Spring AOP&apos;s Aspect classes and advice method.  When the particular request is processed by handler method, then this interceptor will execute.<br><br>Suppose, we have a handler method as following.<br><br><a href="https://t.me/RequestMapping">@RequestMapping</a>(&quot;<a href="" onclick="return ShowBotCommand(&quot;add&quot;)">/add</a>&quot;)<br>public ModelAndView add(<a href="https://t.me/RequestParam">@RequestParam</a>(&quot;num1&quot;) int num1, <a href="https://t.me/RequestParam">@RequestParam</a>(&quot;num2&quot;) int num2) {<br><strong>S.O.P(&quot;Handler method starts to execute&quot;);<br></strong>int sum = num1 + num2;<br>ModelAndView mv = new ModelAndView(&quot;sum&quot;);<br>mv.addObject(&quot;sum&quot;, sum);<br><strong>S.O.P(&quot;Handler method ends&quot;);<br></strong>return mv;<br>}<br><br>And we have 1 Interceptor class. <br><strong>NOTE</strong> : If the class want to be the interceptor class, it must implements the &quot;<strong>HandlerInterceptor</strong>&quot; interface.<br><br>And that inteceptor class can override necessary method. For example, we overridden 3 methods. They are,<br>i) preHandle(); -&gt; contains S.O.P(&quot;preHandle&quot;)<br>ii) postHandle(); -&gt; contains S.O&gt;P(&quot;postHandle&quot;)<br>iii) afterCompletion(); -&gt; contains S.O.P(&quot;afterCompletion&quot;)<br><br>After that we have to register it in dispatcher-servlet.xml file as interceptor. and also create bean for it.<br><br><strong>dispatcher-servlet.xml :<br>====================<br></strong>&lt;mvc:interceptors&gt;<br>   <strong>&lt;mvc:interceptor&gt;<br>     &lt;mvc:mapping path=&quot;</strong><a href="" onclick="return ShowBotCommand(&quot;home&quot;)">/home</a><strong>&quot;/&gt;<br>        &lt;bean class=&quot;com.jawa.controller.UserInterceptor&quot;&gt;&lt;/bean&gt;<br>     &lt;/mvc:interceptor&gt;<br></strong>&lt;/mvc:interceptors&gt;<br><br><strong>Then, the output will be :<br></strong>preHandle<br>handler method starts to execute<br>Handler method ends<br>postHandle<br>afterCompletion
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message19">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.10.2023 19:22:49 UTC+05:30">
+19:22
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<strong>Internalization(I18N) and Localization(L10N) :<br>==========================<br></strong>In spring, we have a concept of Localization and Internalization. With this, we can provide user&apos;s native languages in web application.<br><br>To provide this, follow following steps : <br>——————————————————-<br>1. Create jsp page.<br>2. Add spring tags uri.<br>3. Add spring message tag with code attribute.<br>4. Create messages_languagecode.properties file for each language.<br>5. Add messages with key value pair.<br>6. Create interceptor with bean for &quot;LocaleChangeInterceptor&quot; in the dispatcher-servlet.xml with property name &quot;paramName&quot;. Whose value is the parameter key to hold the language code.<br>7. Create bean for CookieLocaleResolver in dispatcher-servlet.xml file and also add required properties.<br><br>REFER : <a href="https://youtu.be/fGXwL3iPoRA?si=xSutibbM08kwX3mD">https://youtu.be/fGXwL3iPoRA?si=xSutibbM08kwX3mD</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message20">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic5" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+S
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.10.2023 19:45:28 UTC+05:30">
+19:45
+       </div>
+
+       <div class="from_name">
+SPRING 7 : MVC 2 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/ErrorHandler">@ErrorHandler</a><strong> :<br>==============<br></strong>This method will be execute when the appropriate exception arise. It can either the controller level or globel level.<br><br><strong>Example: <br>=======<br></strong><a href="https://t.me/Controller">@Controller</a><br>public class ControllerA {<br>   <a href="https://t.me/ExceptionHandler">@ExceptionHandler</a>(value = RuntimeException.class)<br>   public String hi() {<br>      return &quot;runtimeexception&quot;;<br>}<br><br>In the above example, Whenever RuntimeException rised inside the ControllerA, then the method &quot;hi()&quot; will be executed, which returns the view which has userfriendly error message.<br><br>============================<br><br>You can also Specify ExceptionHandler method commonly for all the controllers in the application. To resolve this problem, we have <a href="https://t.me/ControllerAdvice">@ControllerAdvice</a>.<br><br>This <a href="https://t.me/ContollerAdvice">@ContollerAdvice</a> annotation is applicable to class. You can specify lot of<strong> </strong><a href="https://t.me/ExceptionHandler">@ExceptionHandler</a> methods inside this <a href="https://t.me/ControllerAdvice">@ControllerAdvice</a> class whose <a href="https://t.me/ExceptionHandler">@ExceptionHandler</a> methods are suitable for all the <a href="https://t.me/Controller">@Controller</a> classes.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-4">
+
+      <div class="body details">
+16 August 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message21">
+
+      <div class="body details">
+Channel title changed to &laquo;SPRING 7 : MVC 2&raquo;
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

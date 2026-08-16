@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+JDBC 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+8 March 2026
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;JDBC&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:51:09 UTC+05:30">
+12:51
+       </div>
+
+       <div class="from_name">
+JDBC 
+       </div>
+
+       <div class="text">
+<strong># JDBC Quick Revision Notes (Enhanced)</strong><br><br>---<br><br># 1. JDBC Architecture<br><br><strong>JDBC (Java Database Connectivity)</strong> is an API that allows Java applications to communicate with databases.<br><br>### Architecture Flow<br><br><pre>Java Application<br>      ↓<br>JDBC API (java.sql)<br>      ↓<br>DriverManager<br>      ↓<br>JDBC Driver<br>      ↓<br>Database</pre><br><br>### Explanation<br><br>1. <strong>Java Application</strong> → Your program.<br>2. <strong>JDBC API</strong> → Interfaces like <code>Connection</code>, <code>Statement</code>, <code>ResultSet</code>.<br>3. <strong>DriverManager</strong> → Loads and manages database drivers.<br>4. <strong>JDBC Driver</strong> → Converts JDBC calls to DB-specific protocol.<br>5. <strong>Database</strong> → PostgreSQL, MySQL, Oracle, etc.<br><br>### JDBC Steps<br><br>1. Load driver<br>2. Create connection<br>3. Create statement<br>4. Execute query<br>5. Process results<br>6. Close resources<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:54:04 UTC+05:30">
+12:54
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JDBC/photos/photo_1@08-03-2026_12-54-04.jpg">
+
+         <img class="photo" src="../../notes/JDBC/photos/photo_1@08-03-2026_12-54-04_thumb.jpg" style="width: 260px; height: 146px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+<strong># 2. Types of JDBC Drivers</strong><br><br>### Type 1 – JDBC ODBC Bridge<br><br><pre>Java → JDBC → ODBC → Database</pre><br><br>❌ Slow<br>❌ Deprecated<br><br>---<br><br>### Type 2 – Native Driver<br><br><pre>Java → JDBC → Native C/C++ API → Database</pre><br><br>✔️ Faster than Type1<br>❌ Platform dependent<br><br>---<br><br>### Type 3 – Network Driver<br><br><pre>Java → JDBC → Middleware → Database</pre><br><br>✔️ Platform independent<br>❌ Requires middleware server<br><br>---<br><br>### Type 4 – Thin Driver<br><br><pre>Java → JDBC → Database Protocol</pre><br><br>✔️ Fastest<br>✔️ Most used today<br><br>Example drivers:<br><br>* PostgreSQL Driver<br>* MySQL Connector<br>* Oracle Thin Driver<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message4">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:55:48 UTC+05:30">
+12:55
+       </div>
+
+       <div class="text">
+<strong># 3. Simple JDBC Program</strong><br><br><pre>import java.sql.*;<br><br>public class Test {<br><br>  public static void main(String[] args) throws Exception {<br><br>    Class.forName(&quot;org.postgresql.Driver&quot;);<br><br>    Connection con = DriverManager.getConnection(<br>        &quot;jdbc:postgresql://localhost:5432/test&quot;,<br>        &quot;user&quot;,<br>        &quot;password&quot;);<br><br>    Statement st = con.createStatement();<br><br>    ResultSet rs = st.executeQuery(&quot;SELECT * FROM employee&quot;);<br><br>    while(rs.next()) {<br>      System.out.println(<br>        rs.getInt(&quot;id&quot;) + &quot; &quot; +<br>        rs.getString(&quot;name&quot;));<br>    }<br><br>    rs.close();<br>    st.close();<br>    con.close();<br>  }<br>}</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message5">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:56:26 UTC+05:30">
+12:56
+       </div>
+
+       <div class="text">
+<strong># 4. executeQuery(), executeUpdate(), execute()</strong><br><br><pre>| Method          | Used For             | Return    |<br>| --------------- | -------------------- | --------- |<br>| executeQuery()  | SELECT               | ResultSet |<br>| executeUpdate() | INSERT/UPDATE/DELETE | int       |<br>| execute()       | Any SQL              | boolean   |</pre><br><br>### Example<br><br><pre>st.executeQuery(&quot;SELECT * FROM emp&quot;);<br><br>st.executeUpdate(&quot;INSERT INTO emp VALUES(1,&apos;John&apos;)&quot;);<br><br>st.execute(&quot;CREATE TABLE test(id int)&quot;);</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message6">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:56:50 UTC+05:30">
+12:56
+       </div>
+
+       <div class="text">
+<strong># 5. Working with ResultSet</strong><br><br><strong>ResultSet</strong> stores data returned from database.<br><br>Example:<br><br><pre>while(rs.next()) {<br><br>   int id = rs.getInt(&quot;id&quot;);<br>   String name = rs.getString(&quot;name&quot;);<br><br>}</pre><br><br>### Important ResultSet Methods<br><br>| Method        | Purpose              |<br>| ------------- | -------------------- |<br>| next()        | move to next row     |<br>| previous()    | move to previous row |<br>| first()       | first row            |<br>| last()        | last row             |<br>| beforeFirst() | before first row     |<br>| afterLast()   | after last row       |<br>| getInt()      | retrieve int         |<br>| getString()   | retrieve string      |<br>| getDate()     | retrieve date        |<br>| updateRow()   | update current row   |<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message7">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:57:11 UTC+05:30">
+12:57
+       </div>
+
+       <div class="text">
+<strong># 6. PreparedStatement</strong><br><br>PreparedStatement = <strong>precompiled SQL statement</strong>.<br><br>### Advantages<br><br>✔️ Faster execution<br>✔️ Prevents SQL injection<br>✔️ Supports parameters<br><br>Example:<br><br><pre>String sql = &quot;SELECT * FROM emp WHERE id=?&quot;;<br><br>PreparedStatement ps = con.prepareStatement(sql);<br><br>ps.setInt(1,101);<br><br>ResultSet rs = ps.executeQuery();</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message8">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:57:32 UTC+05:30">
+12:57
+       </div>
+
+       <div class="text">
+<strong># 7. CallableStatement</strong><br><br>Used to call <strong>stored procedures</strong>.<br><br>Example:<br><br><pre>CallableStatement cs =<br>con.prepareCall(&quot;{call getEmployee(?)}&quot;);<br><br>cs.setInt(1,101);<br><br>ResultSet rs = cs.executeQuery();</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message9">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:57:51 UTC+05:30">
+12:57
+       </div>
+
+       <div class="text">
+# 8. registerOutParameter()<br><br>Used when stored procedure <strong>returns values</strong>.<br><br>Example:<br><br><pre>CallableStatement cs =<br>con.prepareCall(&quot;{call getSalary(?,?)}&quot;);<br><br>cs.setInt(1,101);<br><br>cs.registerOutParameter(2, Types.INTEGER);<br><br>cs.execute();<br><br>int salary = cs.getInt(2);</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message10">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:58:15 UTC+05:30">
+12:58
+       </div>
+
+       <div class="text">
+<strong># 9. Batch Updates</strong><br><br>Executes <strong>multiple SQL queries together</strong>.<br><br>### Advantage<br><br>✔️ Fewer DB calls<br>✔️ Better performance<br><br>Example:<br><br><pre>Statement st = con.createStatement();<br><br>st.addBatch(&quot;INSERT INTO emp VALUES(1,&apos;A&apos;)&quot;);<br>st.addBatch(&quot;INSERT INTO emp VALUES(2,&apos;B&apos;)&quot;);<br>st.addBatch(&quot;INSERT INTO emp VALUES(3,&apos;C&apos;)&quot;);<br><br>st.executeBatch();</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message11">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:58:41 UTC+05:30">
+12:58
+       </div>
+
+       <div class="text">
+<strong># 10. Working with BLOB and CLOB</strong><br><br><pre>| Type | Used For                    |<br>| ---- | --------------------------- |<br>| BLOB | Binary data (images, video) |<br>| CLOB | Large text                  |</pre><br><br>Example:<br><br><pre>PreparedStatement ps =<br>con.prepareStatement(<br>&quot;INSERT INTO files VALUES(?,?)&quot;);<br><br>FileInputStream fis =<br>new FileInputStream(&quot;image.jpg&quot;);<br><br>ps.setInt(1,1);<br>ps.setBinaryStream(2,fis);<br><br>ps.executeUpdate();</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:59:03 UTC+05:30">
+12:59
+       </div>
+
+       <div class="text">
+<strong># 11. Connection Pooling (Important)</strong><br><br>### Problem Without Pooling<br><br>Every request:<br><br><pre>Create Connection<br>Use Connection<br>Close Connection</pre><br><br>Creating DB connections is <strong>expensive and slow</strong>.<br><br>---<br><br>### Solution → Connection Pool<br><br>Connection Pool = <strong>pre-created connections reused by applications</strong><br><br><pre>Application<br>    ↓<br>Connection Pool<br>   ↓ ↓ ↓<br>Conn1 Conn2 Conn3</pre><br><br>When application needs connection:<br><br>1. Pool gives existing connection<br>2. After use → returned to pool<br><br>---<br><br>### Benefits<br><br>✔️ Faster performance<br>✔️ Less DB overhead<br>✔️ Efficient resource management<br><br>---<br><br>### Example using HikariCP<br><br>Example library:<br><br>HikariCP<br><br><pre>HikariConfig config = new HikariConfig();<br><br>config.setJdbcUrl(&quot;jdbc:postgresql://localhost/test&quot;);<br>config.setUsername(&quot;user&quot;);<br>config.setPassword(&quot;pass&quot;);<br><br>HikariDataSource ds =<br>new HikariDataSource(config);<br><br>Connection con = ds.getConnection();</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message13">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 12:59:29 UTC+05:30">
+12:59
+       </div>
+
+       <div class="text">
+<strong># 12. Transaction Management in JDBC</strong><br><br>### What is a Transaction?<br><br>A <strong>group of SQL operations executed as a single unit</strong>.<br><br>Example:<br><br>Transfer money<br><br>1. debit account<br>2. credit account<br><br>Both must succeed.<br><br>---<br><br>## setAutoCommit(false) (Important)<br><br>By default:<br><br><pre>autoCommit = true</pre><br><br>Each SQL query commits automatically.<br><br>Example:<br><br><pre>UPDATE A → committed<br>UPDATE B → fails</pre><br><br>Result → <strong>inconsistent data</strong><br><br>---<br><br>### Disable Auto Commit<br><br><pre>con.setAutoCommit(false);</pre><br><br>Now we control commit manually.<br><br>---<br><br>### commit()<br><br>Saves all changes permanently.<br><br><pre>con.commit();</pre><br><br>---<br><br>### rollback()<br><br>Undo changes if error occurs.<br><br><pre>con.rollback();</pre><br><br>---<br><br>### Savepoint<br><br>Savepoint allows <strong>partial rollback</strong>.<br><br>Example:<br><br><pre>Step1<br>Step2<br>SAVEPOINT<br>Step3<br>Step4<br>ERROR</pre><br><br>Rollback to savepoint → Step1, Step2 kept.<br><br>---<br><br>### Example using all functions<br><br><pre>Connection con = DriverManager.getConnection(url);<br><br>con.setAutoCommit(false);<br><br>try {<br><br>Statement st = con.createStatement();<br><br>st.executeUpdate(&quot;UPDATE acc SET bal=bal-100 WHERE id=1&quot;);<br><br>Savepoint sp = con.setSavepoint(&quot;sp1&quot;);<br><br>st.executeUpdate(&quot;UPDATE acc SET bal=bal+100 WHERE id=2&quot;);<br><br>con.commit();<br><br>}<br>catch(Exception e){<br><br>con.rollback();<br><br>}</pre><br><br>Rollback to savepoint:<br><br><pre>con.rollback(sp);</pre><br><br>Release savepoint:<br><br><pre>con.releaseSavepoint(sp);</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message14">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:00:10 UTC+05:30">
+13:00
+       </div>
+
+       <div class="text">
+<strong># 13. MetaData</strong><br><br>Metadata = <strong>data about data</strong>.<br><br>Two types:<br><br><pre>| Type              | Description          |<br>| ----------------- | -------------------- |<br>| DatabaseMetaData  | Database information |<br>| ResultSetMetaData | Query result info    |</pre><br><br>---<br><br>## DatabaseMetaData Example<br><br><pre>DatabaseMetaData md = con.getMetaData();<br><br>System.out.println(md.getDatabaseProductName());<br>System.out.println(md.getDriverName());</pre><br><br>---<br><br>## ResultSetMetaData Example<br><br>Used to retrieve <strong>column information dynamically</strong>.<br><br><pre>ResultSet rs = st.executeQuery(&quot;SELECT * FROM emp&quot;);<br><br>ResultSetMetaData md = rs.getMetaData();<br><br>int columns = md.getColumnCount();<br><br>for(int i=1;i&lt;=columns;i++) {<br><br> System.out.println(md.getColumnName(i));<br> System.out.println(md.getColumnTypeName(i));<br><br>}</pre><br><br>Useful for <strong>generic frameworks and ORM tools</strong>.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message15">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:00:58 UTC+05:30">
+13:00
+       </div>
+
+       <div class="text">
+<strong># 14. ResultSet Types</strong><br><br>ResultSet defines <strong>cursor movement capability</strong>.<br><br>---<br><strong><br>## 1. TYPE_FORWARD_ONLY</strong><br><br>Cursor moves <strong>only forward</strong>.<br><br><pre>Row1 → Row2 → Row3</pre><br><br>Example:<br><br><pre>Statement st = con.createStatement(<br>ResultSet.TYPE_FORWARD_ONLY,<br>ResultSet.CONCUR_READ_ONLY);</pre><br><br>Use case:<br><br>✔️ Large data reading<br>✔️ Best performance<br><br>---<br><br><strong>## 2. TYPE_SCROLL_INSENSITIVE</strong><br><br>Cursor can move <strong>forward and backward</strong>.<br><br>Changes in DB <strong>not visible</strong>.<br><br>Example:<br><br><pre>Statement st = con.createStatement(<br>ResultSet.TYPE_SCROLL_INSENSITIVE,<br>ResultSet.CONCUR_READ_ONLY);<br><br>ResultSet rs = st.executeQuery(&quot;SELECT * FROM emp&quot;);<br><br>rs.last();<br>rs.previous();<br>rs.first();</pre><br><br>---<br><br><strong>## 3. TYPE_SCROLL_SENSITIVE</strong><br><br>Cursor moves both directions and <strong>reflects DB changes</strong>.<br><br>Example:<br><br><pre>Statement st = con.createStatement(<br>ResultSet.TYPE_SCROLL_SENSITIVE,<br>ResultSet.CONCUR_READ_ONLY);</pre><br><br>---<br><br># Concurrency Modes<br><br><pre>| Mode             | Description        |<br>| ---------------- | ------------------ |<br>| CONCUR_READ_ONLY | cannot update rows |<br>| CONCUR_UPDATABLE | can update rows    |</pre><br>---<br><br>### Example for CONCUR_UPDATABLE<br><br><pre>Statement st = con.createStatement(<br>ResultSet.TYPE_SCROLL_SENSITIVE,<br>ResultSet.CONCUR_UPDATABLE);<br><br>ResultSet rs = st.executeQuery(&quot;SELECT * FROM emp&quot;);<br><br>rs.next();<br><br>rs.updateString(&quot;name&quot;,&quot;John&quot;);<br><br>rs.updateRow();</pre><br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message16">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:01:28 UTC+05:30">
+13:01
+       </div>
+
+       <div class="text">
+<strong># 15. RowSets</strong><br><br>RowSet = <strong>enhanced ResultSet</strong><br><br>They are part of <code>javax.sql.rowset</code>.<br><br>---<br><br>### Types<br><br><pre>| RowSet         | Description            |<br>| -------------- | ---------------------- |<br>| JdbcRowSet     | connected              |<br>| CachedRowSet   | disconnected           |<br>| WebRowSet      | XML support            |<br>| FilteredRowSet | filtering              |<br>| JoinRowSet     | joins multiple rowsets |</pre><br><br>---<br><br># Advantages of RowSet over ResultSet<br><br><pre>| ResultSet                            | RowSet              |<br>| ------------------------------------ | ------------------- |<br>| Connected                            | Can be disconnected |<br>| Not serializable                     | Serializable        |<br>| No event model                       | Supports events     |<br>| Harder to use in distributed systems | Easy                |</pre><br><br>Example:<br><br><pre>JdbcRowSet rs = new JdbcRowSetImpl();<br><br>rs.setUrl(&quot;jdbc:mysql://localhost/test&quot;);<br>rs.setUsername(&quot;root&quot;);<br>rs.setPassword(&quot;root&quot;);<br><br>rs.setCommand(&quot;SELECT * FROM emp&quot;);<br><br>rs.execute();<br><br>while(rs.next()){<br>System.out.println(rs.getInt(1));<br>}</pre><br><br>---<br><br># Important ResultSet Methods (Interview)<br><br><pre>| Method      | Use                |<br>| ----------- | ------------------ |<br>| next()      | move next          |<br>| previous()  | move previous      |<br>| first()     | first row          |<br>| last()      | last row           |<br>| getRow()    | current row number |<br>| getInt()    | retrieve integer   |<br>| getString() | retrieve string    |<br>| updateRow() | update row         |<br>| deleteRow() | delete row         </pre><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message17">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:15:00 UTC+05:30">
+13:15
+       </div>
+
+       <div class="text">
+Here are <strong>15 tricky JDBC interview questions with short answers</strong>.<br>These are <strong>very common for 1–3 years Java developers</strong>, especially in interviews for <strong>backend / full-stack roles</strong>.<br><br>You can also easily paste these into <strong>Telegram notes</strong>.<br><br>---<br><br># Top 15 Tricky JDBC Interview Questions<br><br>---<br><br># 1️⃣ Why is <code>PreparedStatement</code> faster than <code>Statement</code>?<br><br>Because <strong>PreparedStatement is precompiled</strong> by the database.<br><br>Flow:<br><br><pre>Statement<br>Execute SQL → Parse → Compile → Execute<br>(repeated every time)</pre><br><br><pre>PreparedStatement<br>Parse → Compile → Execute<br>Execute<br>Execute<br>Execute</pre><br><br>✔️ Parsing happens only once<br>✔️ Execution becomes faster<br><br>---<br><br># 2️⃣ How does PreparedStatement prevent SQL Injection?<br><br>Because it <strong>separates SQL logic from user input</strong>.<br><br>Bad example:<br><br><pre>String sql = &quot;SELECT * FROM user WHERE name=&apos;&quot;+name+&quot;&apos;&quot;;</pre><br><br>User input:<br><br><pre>&apos; OR &apos;1&apos;=&apos;1</pre><br><br>Query becomes:<br><br><pre>SELECT * FROM user WHERE name=&apos;&apos; OR &apos;1&apos;=&apos;1&apos;</pre><br><br>Now all rows are returned.<br><br>Safe version:<br><br><pre>PreparedStatement ps =<br>con.prepareStatement(<br>&quot;SELECT * FROM user WHERE name=?&quot;);<br><br>ps.setString(1,name);</pre><br><br>Here input is treated <strong>only as data</strong>, not SQL.<br><br>---<br><br># 3️⃣ Why should we always close JDBC resources?<br><br>Resources:<br><br>* Connection<br>* Statement<br>* ResultSet<br><br>If not closed:<br><br>✔️ Memory leaks<br>✔️ DB connections exhausted<br>✔️ Application crash<br><br>Best practice:<br><br><pre>try-with-resources</pre><br><br>Example:<br><br><pre>try(Connection con = DriverManager.getConnection(url);<br>    Statement st = con.createStatement()) {<br><br>}</pre><br><br>---<br><br># 4️⃣ What happens if <code>setAutoCommit(false)</code> is not used?<br><br>Default mode:<br><br><pre>autoCommit = true</pre><br><br>Every SQL statement is committed automatically.<br><br>Example:<br><br><pre>Update A → committed<br>Update B → fails</pre><br><br>Result:<br><br>❌ <strong>Partial update</strong><br><br>Solution:<br><br><pre>con.setAutoCommit(false);</pre><br><br>Then:<br><br><pre>commit()<br>rollback()</pre><br><br>control the transaction.<br><br>---<br><br># 5️⃣ Difference between <code>execute()</code> and <code>executeQuery()</code>?<br><br><pre>| Method          | Return    | Use                  |<br>| --------------- | --------- | -------------------- |<br>| executeQuery()  | ResultSet | SELECT               |<br>| executeUpdate() | int       | INSERT/UPDATE/DELETE |<br>| execute()       | boolean   | Any SQL              |</pre><br><br>Example:<br><br><pre>boolean result = st.execute(sql);</pre><br><br>If true → ResultSet<br>If false → update count<br><br>---<br><br># 6️⃣ What happens when you close a Connection?<br><br>When connection closes:<br><br><pre>Connection.close()</pre><br><br>All these also close automatically:<br><br>✔️ Statement<br>✔️ PreparedStatement<br>✔️ ResultSet<br><br>Because they depend on the connection.<br><br>---<br><br># 7️⃣ What is the difference between <code>TYPE_SCROLL_INSENSITIVE</code> and <code>TYPE_SCROLL_SENSITIVE</code>?<br><br><pre>| Type               | Behavior               |<br>| ------------------ | ---------------------- |<br>| SCROLL_INSENSITIVE | DB changes not visible |<br>| SCROLL_SENSITIVE   | DB changes visible     |</pre><br><br>Example:<br><br>If another user updates data.<br><br><pre>Insensitive → old value shown<br>Sensitive → new value shown</pre><br><br>---<br><br># 8️⃣ Why is <code>ResultSet</code> index starting from <strong>1</strong> instead of 0?<br><br>Because JDBC follows <strong>SQL standard indexing</strong>.<br><br>Example:<br><br><pre>rs.getInt(1);<br>rs.getString(2);</pre><br><br>Column index starts from <strong>1</strong>.<br><br>---<br><br># 9️⃣ What is Connection Pooling and why is it needed?<br><br>Creating a DB connection is expensive.<br><br>Without pooling:<br><br><pre>Create connection<br>Use connection<br>Destroy connection</pre><br><br>With pooling:<br><br><pre>Pool<br>↓<br>Reuse connection</pre><br><br>Advantages:<br><br>✔️ Faster<br>✔️ Less DB overhead<br>✔️ Better scalability<br><br>Common pools:<br><br>* HikariCP<br>* Apache DBCP<br>* C3P0<br><br>---<br><br># 🔟 What is Batch Processing?<br><br>Batch processing executes <strong>multiple SQL queries together</strong>.<br><br>Example:<br><br><pre>st.addBatch(&quot;INSERT INTO emp VALUES(1,&apos;A&apos;)&quot;);<br>st.addBatch(&quot;INSERT INTO emp VALUES(2,&apos;B&apos;)&quot;);<br><br>st.executeBatch();</pre><br><br>Advantages:<br><br>✔️ fewer database calls<br>✔️ faster execution<br><br>---<br><br># 1️⃣1️⃣ What is the difference between <code>Statement</code> and <code>PreparedStatement</code>?<br><br><pre>| Feature       | Statement       | PreparedStatement |<br>| ------------- | --------------- | ----------------- |<br>| Compilation   | every execution | once              |<br>| SQL Injection | vulnerable      | safe              |<br>| Parameters    | not supported   | supported         |<br>| Performance   | slower          | faster            |</pre><br><br>---<br><br># 1️⃣2️⃣ What happens if ResultSet reaches the last row?<br><br>Example:<br><br><pre>while(rs.next())</pre><br><br>After last row:<br><br><pre>rs.next() → false</pre><br><br>Loop stops.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message18">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:15:01 UTC+05:30">
+13:15
+       </div>
+
+       <div class="text">
+# 1️⃣3️⃣ Difference between <code>executeUpdate()</code> return values?<br><br><code>executeUpdate()</code> returns:<br><br><pre>number of rows affected</pre><br><br>Example:<br><br><pre>int rows =<br>st.executeUpdate(&quot;UPDATE emp SET salary=5000&quot;);</pre><br><br>Possible values:<br><br><pre>0 → no rows updated<br>&gt;0 → rows updated</pre><br><br>---<br><br># 1️⃣4️⃣ What is the difference between ResultSet and RowSet?<br><br><pre>| ResultSet           | RowSet                      |<br>| ------------------- | --------------------------- |<br>| connected           | disconnected possible       |<br>| not serializable    | serializable                |<br>| no event support    | supports events             |<br>| used in simple apps | used in distributed systems |</pre><br><br>---<br><br># 1️⃣5️⃣ Why is Connection Pooling mandatory in production?<br><br>Imagine <strong>1000 users</strong>.<br><br>Without pooling:<br><br><pre>1000 connections created<br>1000 connections destroyed</pre><br><br>Huge overhead.<br><br>With pooling:<br><br><pre>Pool size = 20<br>1000 users reuse those connections</pre><br><br>✔️ high performance<br>✔️ less memory<br>✔️ scalable system<br><br>---<br><br># Bonus Tip (Very Common Interview Question)<br><br><strong>Question</strong><br><br>Why should we prefer <code>PreparedStatement</code> even if query runs only once?<br><br><strong>Answer</strong><br><br>Because:<br><br>✔️ prevents SQL injection<br>✔️ safer coding practice<br>✔️ consistent API usage<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message19">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:19:25 UTC+05:30">
+13:19
+       </div>
+
+       <div class="text">
+<strong>if 1000 users using the application simultaneously, only 20 connections are maintained. only after existing using connections are completed, then only connection is allocated for other users?</strong><br><br>Yes — your understanding is <strong>almost correct</strong>, but there is a <strong>small important detail</strong> about how connection pools behave. Let’s clarify it clearly.<br><br>I’ll use <strong>HikariCP</strong> as the example since it’s the most common pool used in modern Java applications.<br><br>---<br><br># How Connection Pooling Works (Step by Step)<br><br>Suppose your pool configuration is:<br><br><pre>maximumPoolSize = 20</pre><br><br>So the pool maintains <strong>maximum 20 database connections</strong>.<br><br>---<br><br># Scenario: 1000 Users Access Application<br><br>Important point:<br><br><strong>Users ≠ Database Connections</strong><br><br>A user request <strong>only needs a connection for a very short time</strong>.<br><br>Example request flow:<br><br><pre>User request arrives<br>      ↓<br>Get connection from pool<br>      ↓<br>Execute query (few milliseconds)<br>      ↓<br>Return connection to pool</pre><br><br>So connections are <strong>quickly reused</strong>.<br><br>---<br><br># Timeline Example<br><br>Let’s assume <strong>1000 users send requests</strong>.<br><br>But each query takes <strong>20 ms</strong>.<br><br>### First moment<br><br><pre>Pool: 20 connections<br>Users requesting: 1000</pre><br><br>Pool gives connections to <strong>first 20 requests</strong>.<br><br><pre>User1 → Conn1<br>User2 → Conn2<br>...<br>User20 → Conn20</pre><br><br>---<br><br>### After query completes (~20 ms)<br><br>Connections are returned to the pool.<br><br><pre>Conn1 released<br>Conn2 released<br>...<br>Conn20 released</pre><br><br>Now next users get connections.<br><br><pre>User21 → Conn1<br>User22 → Conn2<br>...</pre><br><br>So <strong>connections are reused extremely fast</strong>.<br><br>---<br><br># Important Behavior (Your Question)<br><br>You asked:<br><br>&gt; only after existing using connections are completed, then only connection is allocated for other users?<br><br>✔️ <strong>Yes — but not exactly like a long wait.</strong><br><br>What actually happens:<br><br><pre>If pool is full:<br>    Request waits in queue</pre><br><br>Example:<br><br><pre>Pool size = 20<br>Active connections = 20<br>User21 request arrives</pre><br><br>Then:<br><br><pre>User21 waits until one connection is returned</pre><br><br>But the wait is usually <strong>milliseconds</strong>.<br><br>---<br><br># Visual Flow<br><br><pre>        Application<br>             │<br>             ▼<br>        Connection Pool<br>     ┌───────────────────┐<br>     │ Conn1  Conn2 ...  │<br>     │ Conn20            │<br>     └───────────────────┘<br>             │<br>             ▼<br>          Database</pre><br><br>Requests borrow connections like this:<br><br><pre>Borrow → Use → Return → Borrow → Use → Return</pre><br><br>---<br><br># Important Concept<br><br><strong>Connections are not per user.</strong><br><br>They are <strong>per database operation</strong>.<br><br>Example:<br><br>User opens page:<br><br><pre>HTTP request arrives<br>Service layer runs SQL<br>Connection used for 5–50 ms<br>Connection returned</pre><br><br>So one connection may serve <strong>hundreds of users per second</strong>.<br><br>---<br><br># Why Pool Size is Small (Usually 10–30)<br><br>Database connections are <strong>heavy resources</strong>.<br><br>If 1000 connections open:<br><br><pre>DB memory usage ↑<br>CPU usage ↑<br>Context switching ↑</pre><br><br>Performance becomes worse.<br><br>That’s why:<br><br><pre>Typical pool size = 10–30</pre><br><br>Even for <strong>thousands of users</strong>.<br><br>---<br><br># Real Production Example<br><br>Large systems:<br><br><pre>Users: 10,000+<br>Connection pool: 30</pre><br><br>Still works fine because:<br><br><pre>Connections are reused quickly</pre><br><br>---<br><br># One Important Thing Developers Forget<br><br>Always <strong>close the connection</strong>.<br><br>Example:<br><br><pre>Connection con = dataSource.getConnection();</pre><br><br>You must call:<br><br><pre>con.close();</pre><br><br>But in pooling:<br><br><pre>close() does NOT destroy connection</pre><br><br>Instead:<br><br><pre>connection returned to pool</pre><br><br>---<br><br># Simple Mental Model<br><br>Think of it like <strong>restaurant tables</strong>.<br><br><pre>Restaurant tables = connections<br>Customers = users</pre><br><br>Example:<br><br><pre>Tables = 20<br>Customers = 100</pre><br><br>Customers eat and leave quickly.<br><br>So the same tables serve <strong>many customers</strong>.<br><br>---<br><br># One Interview Question You May Get<br><br><strong>Question</strong><br><br>If we have <strong>1000 users</strong>, why do we not create <strong>1000 connections</strong>?<br><br><strong>Answer</strong><br><br>Because:<br><br>1. DB connections are expensive.<br>2. Queries run very quickly.<br>3. Connections are reused via pooling.<br>4. Too many connections reduce DB performance.<br><br>---
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message20">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:23:52 UTC+05:30">
+13:23
+       </div>
+
+       <div class="text">
+Great — these <strong>3 concepts are actually very important in real-world JDBC connection pools</strong>. I&apos;ll explain them clearly so you can also <strong>write them in Telegram notes or interviews</strong>.<br><br>---<br><br># 1️⃣ Idle Connections<br><br>### What is an Idle Connection?<br><br>An <strong>idle connection</strong> is a connection that:<br><br><pre>is created<br>but currently not being used</pre><br><br>It is <strong>sitting in the pool waiting for a request</strong>.<br><br>---<br><br>### Example<br><br>Connection pool configuration:<br><br><pre>Maximum connections = 20<br>Minimum idle = 5</pre><br><br>When the application starts:<br><br><pre>Pool creates 5 connections</pre><br><br>These 5 connections are <strong>idle connections</strong>.<br><br><pre>Pool<br>------------<br>C1 (idle)<br>C2 (idle)<br>C3 (idle)<br>C4 (idle)<br>C5 (idle)</pre><br><br>---<br><br>### When a user request comes<br><br><pre>User1 → takes C1<br>User2 → takes C2</pre><br><br>Now pool becomes:<br><br><pre>C1 (in use)<br>C2 (in use)<br>C3 (idle)<br>C4 (idle)<br>C5 (idle)</pre><br><br>---<br><br>### Why Idle Connections Are Important<br><br>If no idle connections exist:<br><br><pre>Application must create new DB connection</pre><br><br>That takes time.<br><br>But with idle connections:<br><br><pre>Request → instantly gets connection</pre><br><br>So response becomes <strong>very fast</strong>.<br><br>---<br><br># 2️⃣ Connection Timeout<br><br>### What is Connection Timeout?<br><br>It is the <strong>maximum time a user waits to get a connection from the pool</strong>.<br><br>If no connection becomes available within this time:<br><br><pre>Exception is thrown</pre><br><br>---<br><br>### Example<br><br>Pool configuration:<br><br><pre>Maximum connections = 20<br>Connection timeout = 30 seconds</pre><br><br>Scenario:<br><br><pre>20 users already using connections<br>User21 requests connection</pre><br><br>User21 waits.<br><br>If a connection is freed within:<br><br><pre>30 seconds</pre><br><br>User21 gets it.<br><br>If not:<br><br><pre>SQLTransientConnectionException</pre><br><br>Example error:<br><br><pre>Connection is not available, request timed out after 30000ms</pre><br><br>---<br><br>### Why Timeout Is Important<br><br>Without timeout:<br><br><pre>users could wait forever</pre><br><br>Timeout protects the system.<br><br>---<br><br># 3️⃣ Connection Leak Detection<br><br>### What is a Connection Leak?<br><br>A <strong>connection leak happens when a developer forgets to close a connection</strong>.<br><br>Example mistake:<br><br><pre>Connection con = dataSource.getConnection();<br><br>Statement st = con.createStatement();<br>ResultSet rs = st.executeQuery(&quot;select * from users&quot;);<br><br>// developer forgets con.close()</pre><br><br>Now the connection:<br><br><pre>never returns to the pool</pre><br><br>This slowly <strong>exhausts all connections</strong>.<br><br>---<br><br>### Example Problem<br><br>Pool size:<br><br><pre>20 connections</pre><br><br>If 20 developers forget to close connections:<br><br><pre>All connections stuck<br>New users cannot access database<br>Application crashes</pre><br><br>---<br><br>### Leak Detection Solution<br><br>Modern pools like <strong>HikariCP</strong> detect leaks.<br><br>Example configuration:<br><br><pre>leakDetectionThreshold = 2000ms</pre><br><br>Meaning:<br><br><pre>If a connection is not returned within 2 seconds<br>Pool prints warning</pre><br><br>Example log:<br><br><pre>Connection leak detected!<br>Connection held for 2500ms</pre><br><br>---<br><br># Correct Way to Avoid Leaks<br><br>Use <strong>try-with-resources</strong>.<br><br><pre>try(Connection con = dataSource.getConnection();<br>    PreparedStatement ps = con.prepareStatement(&quot;select * from users&quot;);<br>    ResultSet rs = ps.executeQuery()) {<br><br>    while(rs.next()) {<br>        System.out.println(rs.getString(1));<br>    }<br>}</pre><br><br>Now:<br><br><pre>Connection automatically returned to pool</pre><br><br>---<br><br># Quick Summary (Telegram Friendly)<br><br>### Idle Connections<br><br><pre>Connections available but not used<br>Ready for fast allocation</pre><br><br>---<br><br>### Connection Timeout<br><br><pre>Max waiting time to get connection<br>If exceeded → Exception</pre><br><br>---<br><br>### Connection Leak<br><br><pre>Connection not closed by developer<br>Pool eventually runs out of connections</pre><br><br>---<br><br># Real JDBC Pools Used in Industry<br><br>Most Java apps use:<br><br>* <strong>HikariCP (Fastest)</strong><br>* <strong>Apache DBCP</strong><br>* <strong>C3P0</strong><br><br>In <strong>Spring Boot</strong>, <strong>HikariCP is the default connection pool</strong>.<br><br>---<br><br>✅ If you want, I can also explain <strong>one more important concept</strong> that <strong>many JDBC learners miss</strong>:<br><br><strong>&quot;How `Connection.close()` works in connection pooling (it does NOT actually close the connection)&quot;</strong><br><br>This is <strong>a very common interview question</strong>.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message21">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="08.03.2026 13:31:44 UTC+05:30">
+13:31
+       </div>
+
+       <div class="text">
+<strong>Calling con.close() in connection pooling and manual connection creation : </strong><br><br><strong>Manual Connection (using `DriverManager`)</strong><br><code>con.close()</code> <strong>physically closes the database connection</strong>, and a new connection must be created for the next request.<br><br><strong>Connection Pool (using DataSource in Apache Tomcat)</strong><br><code>con.close()</code> <strong>does not close the actual DB connection</strong>; it <strong>returns the connection to the pool for reuse</strong> by other users.
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>

@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <link href="../../css/style.css" rel="stylesheet"/>
+
+  <script src="../../js/script.js" type="text/javascript">
+
+  </script>
+
+ </head>
+
+ <body onload="CheckLocation();">
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <a class="content block_link" href="../../lists/chats.html" onclick="return GoBack(this)">
+
+     <div class="text bold">
+JSP 
+     </div>
+
+    </a>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+22 September 2023
+      </div>
+
+     </div>
+
+     <div class="message service" id="message1">
+
+      <div class="body details">
+Channel &laquo;JSP&raquo; created
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message2">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.09.2023 09:48:12 UTC+05:30">
+09:48
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+<strong>JSP Page Life Cycle  :-<br>=================<br></strong>1. Translation phase <br>2. JSP Page Compilation <br>3. Load the class <br>4. Create an instance <br>5. Call jspInit() method <br>6. call _jspService() method <br>7. call jspDestroy() method
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message3">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.09.2023 09:50:36 UTC+05:30">
+09:50
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_1@22-09-2023_09-50-36.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_1@22-09-2023_09-50-36_thumb.jpg" style="width: 260px; height: 145px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+The translated Servlet class extends &quot;<strong>HttpJspBase</strong>&quot; class instead of <strong>HttpServlet</strong>.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message4">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.09.2023 10:05:59 UTC+05:30">
+10:05
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+<strong>JspPage</strong> :-<br>========<br>It is an interface. It contains following methods.<br>1. jspInit()<br>2. jspDestroy()<br><br><strong>HttpJspPage </strong>:-<br>============<br>It is an interface. It contains following single method.<br>1. _jspService()<br><br><strong>HttpJspBase</strong> :-<br>============<br>It is an abstract class. It implements above 2 interfaces.<br><br>📌 <strong>NOTE : <br></strong>=========<br>1. Web container always calls <strong>init(ServletConfig)</strong> of HttpJspBase class which internally calls jspInit() method.<br><br><code>public abstract class HttpJspBase .. {<br>public final void init(ServletConfig config)..<br>{<br>. . . . <br>jspInit(); <br>} <br>}<br><br></code>2.  Web container always calls destry() of HttpJspBase class which internally calls jspDestroy() method.<br><br><code>public abstract class HttpJspBase .. {<br>public final void destroy()<br>{<br>. . . . <br>jspDestroy(); <br>} <br>}<br><br><br></code>📌 NOTE : If we want to override, we can override jspInit() and jspDestroy() methods of no argument in our class.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message5">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.09.2023 10:13:13 UTC+05:30">
+10:13
+       </div>
+
+       <div class="text">
+*. At time of first request, JSP is translated, compiled, loaded, instantiated, init() called.<br>*. If all these function happen, then for first request performance is very low.<br>*. To overcome this problem, we have &lt;load-on-startup&gt; tag for servlet.<br>*. For JSP page, we have &quot;Pre_compilation&quot; url.<br><br>Example :<br>========<br>http://localhost:8802/DiaryApp/inbox.jsp?pre_compile=true.<br><br>This url doesn&apos;t do any actions. It simply do above mentioned operations from translation of jsp page to init() method call.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message6">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.09.2023 10:17:42 UTC+05:30">
+10:17
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_2@22-09-2023_10-17-42.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_2@22-09-2023_10-17-42_thumb.jpg" style="width: 260px; height: 139px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+List of JSP Elements
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message7">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.09.2023 10:25:54 UTC+05:30">
+10:25
+       </div>
+
+       <div class="text">
+<strong>Template Text :-<br></strong>=============<br>Template text are <code>html text</code>.<br><br><strong>Expression value :-<br></strong>================<br>Expression values are values returned by expression tag and expression language.<br><br>Template text will become argument to write() method where as expression value will become argument to print() method.<br><br><strong>What is the reason ?<br></strong>write() method can take only character data as argument. print() method can take any type of data as argument.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+23 September 2023
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message8">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 14:49:48 UTC+05:30">
+14:49
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+<strong>Types of tags in JSP :-<br></strong>=================<br><br><strong>1. Scriptlet tag<br></strong>++++++++++++<br>Syntax<br>======<br>&lt;% .. %&gt;<br><br><strong>2. Expression tag<br></strong>++++++++++++++<br>Syntax<br>=====<br>&lt;%= .. %&gt;<br><br><strong>3. Declarative tag<br></strong>+++++++++++++++<br>Syntax<br>======<br>&lt;%! ... %&gt;<br><br><strong>4. Directive tag<br></strong>+++++++++++++<br>Syntax<br>======<br>&lt;%@ ... %&gt;<br><br><strong>5. JSP Comments<br></strong>+++++++++++++++<br>Syntax<br>======<br>&lt;%-- .. --%&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message9">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 15:00:54 UTC+05:30">
+15:00
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_3@23-09-2023_15-00-54.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_3@23-09-2023_15-00-54_thumb.jpg" style="width: 260px; height: 174px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message10">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 15:07:14 UTC+05:30">
+15:07
+       </div>
+
+       <div class="text">
+Directive tags :-<br>=============<br>1. page<br>2 .include<br>3. taglib<br><br><strong>page directive &lt;%@ page%&gt;<br>=======================<br></strong>Page directive contains the information about the page. It has 13 attributes as the information about the page. Most used attributes are,<br><br>1. import<br>2. session<br>3. contentType -&gt; MIME type<br>4. isELIgnored -&gt; boolean<br>5 isThreadSafe -&gt; boolean<br>6. isErrorPage -&gt; boolean<br>7. errorPage<br>8. language<br>9. extends<br><br><strong>include directive &lt;%@ include %&gt;<br>============================<br></strong> Include directive is used to add static content into the jsp page. It&apos;s simply like &lt;iframe&gt; in html. Attribute is,<br>1. file<br><br><strong>taglib directive &lt;%@ taglib %&gt;<br>=========================<br></strong> Taglib directive is used to add tag libraries into the page. Attributes are,<br>1. prefix<br>2. uri<br><br>Let&apos;s see how to create custom tags and how to configure taglib for custom tags in upcoming notes
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message11">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 15:35:15 UTC+05:30">
+15:35
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_4@23-09-2023_15-35-15.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_4@23-09-2023_15-35-15_thumb.jpg" style="width: 260px; height: 203px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+JSP Scriptlet and Expression language implicit tags
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message12">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 15:41:46 UTC+05:30">
+15:41
+       </div>
+
+       <div class="text">
+<strong>PageContext Implicit Object :-<br>========================<br></strong>pageContext object has 3 main purpose.<br><br>#. To get all other implicit objects in Expression language.<br>#. To Perform Request Dispatching activities.<br>#. To perform attribute management in any scope.<br><br><strong>Examples :-<br>=========<br></strong><pre>1. ${pageContext.request.getAttribute()}<br>2. pageContext.forward(request, response)<br>3. pageContext.setAttribute(&quot;name&quot;, &quot;Jawahir&quot;, PageContext.REQUEST_SCOPE);<br>    pageContext.getAttribute(&quot;name&quot;, &quot;Jawahir&quot;, PageContext.REQUEST_SCOPE);<br><br></pre>#. PageContext.PAGE_SCOPE -&gt; 1<br>#. PageContext.REQUEST_SCOPE -&gt; 2<br>#. PageContext.SESSION_SCOPE -&gt; 3<br>#. PageContext.APPLICATION_SCOPE -&gt; 4
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message13">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:02:51 UTC+05:30">
+16:02
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+<strong>JSP Standard Action tags :-<br>======================<br></strong>1. &lt;jsp:useBean&gt;<br>2. &lt;jsp:setProperty&gt;<br>3. &lt;jsp:getProperty&gt;<br><br>4. &lt;jsp:forward&gt;<br>5. &lt;jsp:include&gt;<br>9. &lt;jsp:params&gt;<br>6. &lt;jsp:param&gt; -&gt; request scope<br><br>7. &lt;jsp:plugin&gt;<br>8. &lt;jsp:fallback&gt;<br><br><br>Definitions :<br>==========<br><br># &lt;jsp:useBean&gt;, &lt;jsp:getProperty&gt;, &lt;jsp:setProperty&gt; are used to get and set values of bean class.<br>For simple understanding, Java Bean class is a class, it must have <br><br>1. public no argument constructor, <br>2. getter and setter for every instance variables.<br><br>by using above 3 tags, we can access bean class properties and use them in our jsp page.<br><br><br># &lt;jsp:forward&gt;, &lt;jsp:include&gt;, &lt;jsp:params&gt;, &lt;jsp:param&gt; tags are used to do Requesting dispatching activities.<br>    The values passed in &lt;jsp:param&gt; are stored as request object&apos;s Parameter.<br><br><br><strong>What is the difference between &lt;jsp:include&gt; and include directive (&lt;%@ ... %&gt;) :<br>===================================================================<br></strong>1. &lt;jsp:include&gt; is used for dynamic include<br>2. include directive is used for static include<br><br><br>    Example :-<br>    =========<br>    package com.jawa;<br>    <br>    class ClassName{<br><br>    private String name;<br><br>    public ClassName()<br>    {<br>    ...<br>    }<br><br>    public setName(String name)<br>    {<br>    <a href="this.name">this.name</a> = name;<br>    }<br><br>    public getName()<br>    {<br>    return <a href="this.name">this.name</a>;<br>    }<br><br>    }<br>=========================<br><br>    &lt;jsp:useBean id=&quot;referenceVariableName&quot; class=&quot;com.jawa.ClassName&quot; &gt;<br>         &lt;jsp:setProperty name=&quot;referenceVariableName&quot; property=&quot;name&quot; value=&quot;Jawahir&quot;&gt;<br>         &lt;jsp:getProperty name=&quot;referenceVariableName&quot; property=&quot;name&quot;&gt;<br>    &lt;jsp:useBean&gt;<br><br>========================<br><br>    &lt;jsp:forward page=&quot;name.jsp&quot;&gt;<br>        &lt;jsp:params&gt;<br>            &lt;jsp:param name=&quot;name&quot; value=&quot;Jawhair&quot;&gt;<br>       &lt;jsp:params&gt;<br>    &lt;jsp:forward&gt;<br><br>   &lt;jsp:include page=&quot;name.jsp&quot; flush=&quot;true&quot;&gt;<br>        &lt;jsp:params&gt;<br>            &lt;jsp:param name=&quot;name&quot; value=&quot;Jawhair&quot;&gt;<br>       &lt;jsp:params&gt;<br>    &lt;jsp:include&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message14">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:07:14 UTC+05:30">
+16:07
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_5@23-09-2023_16-07-14.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_5@23-09-2023_16-07-14_thumb.jpg" style="width: 260px; height: 216px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+Summary of JSP standard Actions
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message15">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:23:26 UTC+05:30">
+16:23
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_6@23-09-2023_16-23-26.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_6@23-09-2023_16-23-26_thumb.jpg" style="width: 260px; height: 179px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+Expression language implicit Objects
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message16">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:25:23 UTC+05:30">
+16:25
+       </div>
+
+       <div class="text">
+In expression language implicit objects, we have xxxScope objects to get Attributes. What if we want to get request Object or any other object&apos;s method.<br><br>${pageContext.request.method)<br>${pageContext.session.getInactiveCount())
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message17">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:30:39 UTC+05:30">
+16:30
+       </div>
+
+       <div class="text">
+. Operator and [] operator :-<br>=======================<br><br>For instance variables, use . operator.<br>For map variables or arrays, use [] operator.<br><br>Example :<br>========<br>${<a href="requestScope.name">requestScope.name</a>}<br>${paramValues[&apos;name&apos;]}<br>${<a href="paramValues.name">paramValues.name</a>} -&gt; valid<br>${arr[0]} -&gt; for array<br>${arr[&quot;0]} -&gt; for array also valid
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message18">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:31:59 UTC+05:30">
+16:31
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_7@23-09-2023_16-31-59.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_7@23-09-2023_16-31-59_thumb.jpg" style="width: 223px; height: 193px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message19">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:32:00 UTC+05:30">
+16:32
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_8@23-09-2023_16-32-00.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_8@23-09-2023_16-32-00_thumb.jpg" style="width: 260px; height: 138px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message20">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:33:26 UTC+05:30">
+16:33
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_9@23-09-2023_16-33-26.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_9@23-09-2023_16-33-26_thumb.jpg" style="width: 121px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message21">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:34:38 UTC+05:30">
+16:34
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_10@23-09-2023_16-34-38.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_10@23-09-2023_16-34-38_thumb.jpg" style="width: 231px; height: 104px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message22">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 16:37:51 UTC+05:30">
+16:37
+       </div>
+
+       <div class="text">
+Custom tags and Custom functions
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message23">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 19:40:08 UTC+05:30">
+19:40
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+JSTL :<br>====<br><strong>How to configure JSTL ?<br></strong>#. Downlaod the jstl jar and standard jar.(JSTL jar Defines several API classes defined by SUN and  standard library Contains implementation classes provided by vendor.)<br># place them inside the WEB-INF/lib folder.<br># ADD &quot;&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http: / <a href="" onclick="return ShowBotCommand(&quot;java&quot;)">/java</a>.sun.com/jsp/jstl/core|sql&quot;%&gt;&quot; directive in jsp page.<br># use tag with specified prefix.<br><br>📌 NOTE : The most used core tags are,<br>1. General purpose tags<br>2. Conditional tags<br>3. Iteration tags<br>4. Url Related tags
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message24">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 19:44:00 UTC+05:30">
+19:44
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_11@23-09-2023_19-44-00.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_11@23-09-2023_19-44-00_thumb.jpg" style="width: 260px; height: 134px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+In the above tags, by using &lt;c:set&gt; we can set value to bean class.<br>Example : <br>========<br>&lt;c:set target=&quot;Customer&quot; property=&quot;rate&quot; value=&quot;100rs&quot;&gt;&lt;c:set&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message25">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 19:46:02 UTC+05:30">
+19:46
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_12@23-09-2023_19-46-02.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_12@23-09-2023_19-46-02_thumb.jpg" style="width: 260px; height: 107px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message26">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 19:47:43 UTC+05:30">
+19:47
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_13@23-09-2023_19-47-43.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_13@23-09-2023_19-47-43_thumb.jpg" style="width: 260px; height: 63px"/>
+
+        </a>
+
+       </div>
+
+       <div class="text">
+varStatus attribute methods :<br>=========================<br>1. Object getCurrent() returns the current item<br>2. int getIndex() returns the current index(counter value)<br>3. int getCount() returns the number of iterations that have already performed.<br>4. boolean isFirst() Returns true if the current Iteration is the First iteration<br>5. boolean isLast() Returns true if the current iteration is the last iteration<br>6. Integer getBegin() returns start index<br>7. Integer getEnd() returns end index
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message27">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 19:49:57 UTC+05:30">
+19:49
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_14@23-09-2023_19-49-57.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_14@23-09-2023_19-49-57_thumb.jpg" style="width: 260px; height: 119px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message28">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 19:50:07 UTC+05:30">
+19:50
+       </div>
+
+       <div class="text">
+Examples for all tags :<br>==================<br><br><strong>#. General Purpose tags :<br>=====================<br></strong>1. &lt;c:out<strong> value=&quot;${param.uname}&quot; default=&quot;Guest&quot;</strong> /&gt;<br><br>2. &lt;c:set<strong> var=&quot;x&quot; value=&quot;10&quot; scope=&quot;request</strong>&quot; /&gt;<br><br>3. &lt;c:remove <strong>var=&quot;x&quot; scope=&quot;request</strong>&quot;/&gt;<br><br>4. &lt;c:catch <strong>var=&quot;e&quot;</strong>&gt;<br>    &lt;%<br>         int age = 10/0;<br>    %&gt;<br> &lt;/c:catch&gt;<br><br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br><strong>#. Conditional tags :<br>=================<br></strong>1. &lt;c:if <strong>test=&quot;${x ne &apos;10&apos;}&quot; var=&quot;y&quot; scope=&quot;session&quot;</strong> /&gt;<br><br>2. &lt;c:set<strong> var=&quot;s&quot; value=&quot;${param.combo}</strong>&quot;/&gt;<br>     Today is :       <br>  &lt;c:choose&gt;<br>        &lt;c:when test=&quot;${s == 1}&quot; &gt;Sunday&lt;/c:when&gt;<br>        &lt;c:when test=&quot;${s == 2}&quot; &gt;Monday&lt;/c:when&gt;<br>        &lt;c:when test=&quot;${s == 3}&quot; &gt;Tuesay&lt;/c:when&gt; <br>        &lt;c:when test=&quot;${s == 4}&quot; &gt;Wednesday&lt;/c:when&gt;<br>        &lt;c:when test=&quot;${s == 5}&quot; &gt;Thursday&lt;/c:when&gt;<br>       &lt;c:otherwise&gt;Select between 1 and 5&lt;/c:otherwise&gt;<br>&lt;/c:choose&gt;<br><br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br><strong>#. Iteration tags :-<br>===============<br><br></strong>1. &lt;c:forEach <strong>begin=&quot;1&quot; end=&quot;10&quot; step=&quot;2&quot; var=&quot;count&quot;</strong>&gt;<br>       &lt;h1&gt;Learning JSTL is very easy!!!!---${count}&lt;/h1&gt;<br>   &lt;/c:forEach&gt;<br><br>1.1 &lt;%<br>           String[] s = {&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;};<br>           pageContext.setAttribute(&quot;s&quot;, s);<br>     %&gt;<br>     &lt;c:forEach<strong> items=&quot;${s}&quot; var=&quot;obj&quot;</strong>&gt;<br>           &lt;h1&gt;The current Object is : ${obj} &lt;/h1&gt;<br>     &lt;/c:forEach&gt;<br><br>2. &lt;c:forTokens <strong>items=&quot;one,two,three,four,five,six&quot; delims=&quot;,&quot; var=&quot;x&quot; begin=&quot;2&quot; end=&quot;5&quot; st ep=&quot;1&quot;</strong>&gt;<br>           &lt;h1&gt;Current Token is : ${x}&lt;/h1&gt; 6)<br>     &lt;/c:forTokens&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message29">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 20:04:23 UTC+05:30">
+20:04
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_15@23-09-2023_20-04-23.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_15@23-09-2023_20-04-23_thumb.jpg" style="width: 260px; height: 143px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message30">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 20:38:25 UTC+05:30">
+20:38
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+JSP Custom Tags :-<br>===============<br><br>Components of Custom tags ;<br>——————————————<br>1. Tag Handler Class<br>2. TLD file<br>3. Taglib directive
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message31">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 20:40:08 UTC+05:30">
+20:40
+       </div>
+
+       <div class="text">
+<strong>Tag Handlers :-<br>=============<br></strong>1. Tag(I)<br>2. IterationTag(I)<br>3. BodyTag(I)<br>4. TagSupport(C)<br>5. BodyTagSupport(C)<br>6. BodyContent(C)<br>7. SimpleTag(I)<br>8. SimpleTagSupport(C)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message32">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 20:40:47 UTC+05:30">
+20:40
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_16@23-09-2023_20-40-47.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_16@23-09-2023_20-40-47_thumb.jpg" style="width: 260px; height: 122px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message35">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 20:50:30 UTC+05:30">
+20:50
+       </div>
+
+       <div class="text">
+<strong>How to Map taglib directive with TLD file :-<br>===================================<br></strong>1. Create tld file<br>2. Add &lt;tlib-version&gt;, &lt;jsp-version&gt;<br>3. Add &lt;uri&gt; and Provide any unique name need not to be the location of the file.<br>4. Add following code<br>&lt;tag&gt;<br>     &lt;name&gt;tagName&lt;/name&gt;<br>     &lt;tag-class&gt;com.package.ClassName&lt;/tag-class&gt;<br>     &lt;body-content&gt;typeofbody&lt;/body-content&gt;<br>&lt;/tag&gt;<br>5. Add taglib directive tag and uri attribute to same value of &lt;uri&gt; tag in tld file.<br>6. Use tag with the help of prefix in jsp file.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message36">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:00:34 UTC+05:30">
+22:00
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+Tag interface defines the following 6 methods:<br>1. setPageContext()<br>2. setParent()<br>3. doStartTag()<br>4. doEndTag()<br>5. release()<br>6. getParent()<br><br>Tag interface defines the following 4 constants<br>EVAL_BODY_INCLUDE<br>SKIP_BODY <br>EVAL_PAGE <br>SKIP_PAGE
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message37">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:02:55 UTC+05:30">
+22:02
+       </div>
+
+       <div class="text">
+IterationTag contains 1 method:<br>1. doAfterBody(()<br><br>IterationTag contains 1 constant:<br>EVAL_BODY_AGAIN
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message38">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:04:35 UTC+05:30">
+22:04
+       </div>
+
+       <div class="text">
+If you implement one of above 2 interfaces, you have to define all the methods.<br>So, to avoid this problem, we have &quot;<strong>TagSupport</strong>&quot; class.<br>If we extend this class, we can extend only required methods.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message39">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:10:05 UTC+05:30">
+22:10
+       </div>
+
+       <div class="text">
+Ok. Everything is fine. What if i want to change or make any changes in the body content of the tag. So, to resolve this problem, we have <strong>BodyTag(I)</strong> interface.<br><br>BodyTag contains 2 methods:<br>1. setBodyContent(BodyContent b)<br>2. doInitBody()<br><br>BodyTag  contains 2 constants:<br>1. EVAL_BODY_BUFFERED<br>2. EVAL_BODY_TAG -&gt; Deprecated<br><br>BodyContent is the class, which holds the content of the body of the tag.<br>BodyContent contains 4 methods. They are,<br>1. getString()<br>2. getReader()<br>3. getEnclosingWriter()<br>4. clearBody()
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message40">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:12:44 UTC+05:30">
+22:12
+       </div>
+
+       <div class="text">
+We have implementation class for BodyTag interface. That is BodyTagSupport.<br>If we extend this class, we can override the required methods only.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message41">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:12:48 UTC+05:30">
+22:12
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="../../notes/JSP/photos/photo_17@23-09-2023_22-12-48.jpg">
+
+         <img class="photo" src="../../notes/JSP/photos/photo_17@23-09-2023_22-12-48_thumb.jpg" style="width: 238px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message42">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:16:13 UTC+05:30">
+22:16
+       </div>
+
+       <div class="text">
+SimpleTag is an interface, which is an alternative classic tags.<br>SimpleTag contains 5 methods:<br>1. setJspContext(JspContext t)<br>2. setParent(JspTag t)<br>3. setJspBody(JspFragment f)<br>4. doTag()<br>5. getParent()<br><br>SimpleTagSupport class provides implementation for above interface.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message43">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:19:23 UTC+05:30">
+22:19
+       </div>
+
+       <div class="text">
+1. If custom tag invoked with attributes then jsp engine will <strong>automatically</strong> call corresponding setter methods to set attribute values.<br><br>2. If the tag is invoked with body then setJspBody() method will be <strong>automatically</strong> executed by taking JspFragment object as argument. JspFragment represents tag body in Simple Tag Model. In Simple Tag Model Tag body should not contain any scripting elements.<br><br>3. Finally Jsp engine executes doTag() method which is responsible to provide required functionality. This method is equivalent to doStartTag(),doEndTag() and doAfterBody() methods in classic tag model.<br><br>4. Once doTag() method completes ,the Tag Handler object will be destroyed by web container.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message44">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:25:02 UTC+05:30">
+22:25
+       </div>
+
+       <div class="text">
+Overview of all custom tag Interfaces and classes :<br>==========================================<br>1. Tag(I)<br>contains required methods and constants.<br><br>2. IterationTag(I)<br>define 1 extra method doAfterBody() and 1 extra constant EVAL_BODY_AGAIN for iteration purpose.<br><br>3. TagSupport(C)<br>Provide implementation for above interfaces to help programmer.<br><br>4. BodyTag(I)<br>If the user want to manipulate body content, then he must implements this interface.<br><br>5. BodyContent(C)<br>This class holds info about body content inside tag.<br><br>6. BodyTagSupport(C)<br>This class provides implementation to help programmers.<br><br>7. SimpleTag(I)<br>Automatically to some operations.<br><br>8. SimpleTagSupport(C)<br>This class provides implementation for above interface to help programmers.
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message45">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:34:05 UTC+05:30">
+22:34
+       </div>
+
+       <div class="text">
+<strong>SEE LIFECYCLE OF EACH TAGS IN JSP NOTES</strong>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message46">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 22:36:39 UTC+05:30">
+22:36
+       </div>
+
+       <div class="text">
+<strong>tld file tags :-<br>===========<br></strong>1. taglib<br><br>2. tlib-version<br>3. uri -&gt; any unique name<br><br>4. tag<br>   4.1 name<br>   4.2 tag-class<br>   4.3 body-content<br>   4.4 attribute<br>      4.4.1 name<br>      4.4.2 required<br>      4.4.3 rtexprevalue<br><br>5. function<br>    5.1 name<br>    5.2 function-class<br>    5.3 function-signature<br><br><br><strong>Definition<br>========<br><br></strong>1. taglib<br>This is the parent tag. It is the enclosing tag.<br><br>2. tlib-version<br>This tag tells the version of the tag.<br><br>3. uri<br>NOTE : It is &quot;uri&quot;(uniform resource identifier) not &quot;url&quot;. So you have to give it a unique identifier name.<br><br>4. tag<br>Contains child tags.<br><br>4.1 name<br>Name of the tag<br><br>4.2 tag-class<br>Fully qualified name of the tag handler class for this tag.<br><br>4.3 body-content<br>Values are,<br>#. empty -&gt; contains no body<br>#. tagdependent -&gt; Total tag body is treated as plain text. Scriptlet, expressions are not processed.<br>#. scriptlet -&gt; Tag may contains scriptlet, expressions and are processed.<br>#. jsp -&gt; No restrictions on tag body. whatever allowed in JSP is by default allowed in tag body also.<br><br>4.4 attributes<br>Holds attribute information.<br><br>4.4.1 name<br>Name of the attribute<br><br>4.4.2 required<br>Is attribute mandatory<br><br>4.4.3 rtexprevalue<br>values are true/false. If true, runtime expression are allowed.<br><br>5. function<br>Used for custom function<br><br>5.1 function-name<br>name of the function.<br><br>5.2 class<br>Fully qualified name of the function.<br><br>5.3 function signature<br>&lt;return type&gt; &lt;function  name&gt; (arguement list)
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message47">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic6" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+J
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="23.09.2023 23:04:57 UTC+05:30">
+23:04
+       </div>
+
+       <div class="from_name">
+JSP 
+       </div>
+
+       <div class="text">
+<strong>How to use custom function ?<br></strong>#. If you want to create custom function, create <strong>class with public static method.<br></strong>#. Compulsory, the method should be static.<br>#. configure tld file with above function tags.<br>#. add taglib directive with prefix<br>#. call function with prefix<br><br>Example :<br>========<br><br><a href="Square.java">Square.java</a><strong><br></strong>——————<br>public class Square{<br><br>public static int square(int i)<br>{<br>return i * i;<br>}<br><br>}<br><br><br><strong>Squarefunction.tld<br></strong>—————————<br>&lt;taglib&gt;<br>  &lt;tlib-version&gt;1.0&lt;/tlib-version&gt;<br>  &lt;uri&gt;square&lt;uri&gt;<br>  &lt;function&gt;<br>     &lt;name&gt;square&lt;/name&gt;<br>     &lt;function-class&gt;com.package.Square&lt;function-class&gt;<br>     &lt;function-signature&gt;int square(int i)<br>  &lt;function&gt;<br>&lt;/taglib&gt;<br><br>jspfile.jsp<br>========<br>&lt;%@ taglib prefix=&quot;myfunc&quot; uri=&quot;square&quot; %&gt;<br>&lt;h1&gt;${myfunc:square(5)&lt;/h1&gt;
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </body>
+
+</html>
